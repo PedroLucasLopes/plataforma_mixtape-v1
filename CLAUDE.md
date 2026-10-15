@@ -35,10 +35,10 @@ COMPOSE_PROFILES=cloudflare docker compose up -d  # + o túnel da Cloudflare (pr
   camada nem fica no histórico da imagem.
 - **CI:** `GITHUB_TOKEN` com `packages: read`, depois de dar a este repositório acesso ao pacote
   (*Manage Actions access* na página do pacote). Sem isso, o secret `MIXTAPE_LIB_TOKEN`.
-- **Versão:** `^0.7.1`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
+- **Versão:** `^0.7.2`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
   biblioteca quebra): trocar é `npm install @pedrolucaslopes/mixtape-ui@^0.<n>.0` e conferir o que
   mudou no `CLAUDE.md` dela. A 0.4.0 trocou `listens` por `listeners` no `MxItemCard`; a 0.5.0 trocou o
-  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada.
+  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada; a 0.7.2 trouxe a `MxCoverStack` (pilhas da grade da biblioteca) e o `pickable` da `MxCrate` (o clique na pilha de avaliações recentes do perfil abre a avaliação).
 - **Espaçamento entre letras** vem dos tokens da biblioteca (`--mx-tracking-display`, `-title`,
   `-numeral`); só o logotipo (`AppBrand`) tem o dele.
 - **Testar mudança da biblioteca antes de publicar:** `npm run build` e
@@ -117,9 +117,12 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 
 ## ⭐ Favoritos e página de avaliação
 
-- **Favoritos do perfil** (até `FAVORITES_LIMIT`, álbuns e músicas): vitrine numerada logo abaixo do topo do
-  perfil (`FavoritesShelf`), com "Editar" para o dono (`FavoritesEditorDialog`, carregado só quando abre:
-  subir, descer, tirar, buscar e adicionar, e salvar a lista inteira de uma vez). Nas páginas de álbum e
+- **Favoritos do perfil** (até 5 álbuns e 5 músicas, `FAVORITE_LIMITS`): vitrine logo abaixo do topo do perfil
+  (`FavoritesShelf`), em dois grupos numerados (`FAVORITE_GROUPS`: álbuns, depois músicas), com "Editar" para o dono
+  (`FavoritesEditorDialog`, carregado só quando abre: subir e descer dentro do grupo, tirar, buscar e adicionar, e
+  salvar a lista inteira de uma vez). Quem já tinha mais de 5 de um tipo (o limite era 10 no total) não perde nada: a
+  vitrine mostra os 5 primeiros de cada grupo e o editor avisa e só salva depois de tirar os que passam. A API recusa
+  com `FAVORITES_FULL` e o tipo (`details.kind`), e o texto diz qual grupo encheu. Nas páginas de álbum e
   música, a estrela (`FavoriteButton`) favorita ou tira **na hora**: enquanto a API confirma, vale o estado
   desejado (`wanted` na store) e clique repetido não faz nada; recusado, volta e mostra o erro. `stores/favorites`
   guarda os meus e muda `version` a cada alteração, para a vitrine recarregar. Na API, item que apareceu numa lista
@@ -157,6 +160,9 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 - **Na biblioteca, o painel do disco já vem aberto** (`open` do `MxCrate`, em `ReviewCrate`): mostra o disco da frente
   com nota, "Ver disco" e "Ver avaliação", e troca enquanto se folheia; lá não existe puxar nem devolver. Nas outras
   pilhas, o painel só abre ao puxar.
+- **Avaliações recentes do perfil em pilha** (`?view=crate`): também com o painel aberto, à direita (embaixo, em
+  largura estreita), com a nota e o texto da resenha (`body` do `CratePulledCard`, até 8 linhas), trocando conforme o
+  mouse folheia, sem clicar. Com `pickable`, o clique (ou Enter) no disco da frente abre a avaliação dele.
 - **Descubra fica dentro do meu perfil**, só para o dono (não é página nem aba, e não tem estilo definido):
   `DiscoverCard` mostra `DISCOVER_ALBUMS` (10) álbuns de `GET /me/discover`, sorteados a cada pedido entre os mais
   ouvidos de sempre no ListenBrainz, fora os que eu já avaliei e sem repetir artista. "Sortear outros" pede um
@@ -198,6 +204,14 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
   - Artistas vêm com `cover`, a capa do disco mais ouvido, e o `useCatalogCards` usa essa capa no cartão.
 - **Minha biblioteca:** grade por padrão (`ReviewGrid`: capa, nota, título; o cartão inteiro leva à
   avaliação) ou lista (`?view=list`), as duas paginadas (24 e 20).
+- **Pilhas na grade da biblioteca** (`GET /users/:username/library/stacks`): a música avaliada de um álbum que a
+  pessoa também avaliou vai para debaixo dele (a página conta entradas). A capa vira a `MxCoverStack` da biblioteca
+  (as capas de trás na diagonal e o selo com o número de músicas): é um botão com `aria-expanded`, por cima do link que
+  cobre o cartão, que abre a pilha ali mesmo. As músicas entram na grade logo depois do álbum, uma depois da outra
+  (`LIBRARY_STACK_STAGGER`), com "Do álbum …", e a pilha aberta fica numa faixa da mesma cor; as outras deslizam
+  (`TransitionGroup`). Ao fechar, a música que sai fica fora do fluxo, no lugar dela (`keepInPlace`), enquanto as
+  outras voltam. A ordem do HTML é a da tela (o leitor de tela ouve as músicas logo depois do álbum). Lista e pilha de
+  discos continuam com `GET /users/:username/library` (uma avaliação por item).
 - **Playlist:** a API devolve até 500 itens de uma vez (o reordenar precisa da lista inteira); a página
   desenha 50 por vez (`PLAYLIST_RENDER_STEP`, "Mostrar mais").
 
@@ -312,7 +326,8 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
   testar as duas coisas na mesma rodada). A busca de pessoas e o perfil visto pelo dono e por um visitante
   (`people.spec.ts`) também são conferidos. A pilha de discos é testada com mouse de verdade (subir folheia,
   descer volta, clique puxa), teclado e o botão de puxar; "Ouvir depois" guarda pelo Descubra do perfil e tira pela
-  pilha ao lado. `E2E_BASE_URL`, `E2E_MAILPIT_URL`, `E2E_EMAIL`/`E2E_PASSWORD` (opcionais) vêm do ambiente. A
+  pilha ao lado. Na grade da biblioteca, o álbum e a música dele avaliados viram uma pilha que abre (clique) e fecha
+  (Enter); os favoritos caem cada um no grupo dele (álbuns, músicas). `E2E_BASE_URL`, `E2E_MAILPIT_URL`, `E2E_EMAIL`/`E2E_PASSWORD` (opcionais) vêm do ambiente. A
   redefinição de senha e a exclusão da conta são testadas de verdade pelo Mailpit (pulam sem ele).
 - **A API troca o refresh token a cada uso.** O teste que abre a página consome o token salvo: os testes
   logados usam `signedIn` (`e2e/support/session.ts`), que guarda a sessão como ficou ao terminar, e o

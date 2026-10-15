@@ -666,6 +666,8 @@
       "PLAYLIST_FULL": "La playlist alcanzó el límite de elementos.",
       "PLAYLIST_ITEM_NOT_FOUND": "Elemento no encontrado en la playlist.",
       "FAVORITES_FULL": "Ya tienes {limit} favoritos. Quita uno en tu perfil para agregar otro.",
+      "FAVORITES_FULL_ALBUM": "Ya tienes {limit} álbumes favoritos. Quita uno en tu perfil para agregar otro.",
+      "FAVORITES_FULL_TRACK": "Ya tienes {limit} canciones favoritas. Quita una en tu perfil para agregar otra.",
       "TOO_MANY_REQUESTS": "Demasiados intentos seguidos. Espera un poco e inténtalo de nuevo.",
       "PAYLOAD_TOO_LARGE": "Lo que enviaste es demasiado grande.",
       "FORBIDDEN": "No tienes permiso para hacer eso.",
@@ -1130,6 +1132,10 @@
     "genreLabel": "Filtrar por género",
     "gridLabel": "Discos y canciones calificados",
     "openReview": "Ver la calificación de {title}",
+    "stack": {
+      "fromAlbum": "Del álbum {album}",
+      "toggle": "La canción calificada de {title} | Las {count} canciones calificadas de {title}"
+    },
     "viewLabel": "Vista",
     "views": {
       "crate": "Pila",
@@ -1484,9 +1490,11 @@
   "favorites": {
     "add": "Agregar {title} a favoritos",
     "added": "{title} entró en tus favoritos",
+    "albums": "Álbumes favoritos",
+    "tracks": "Canciones favoritas",
     "choose": "Elegir favoritos",
     "description": "Los álbumes y canciones que {name} más ama",
-    "descriptionMine": "Hasta {limit} álbumes y canciones que te representan, en el orden que quieras",
+    "descriptionMine": "Hasta {albums} álbumes y {tracks} canciones que te representan, cada grupo en el orden que quieras",
     "edit": "Editar",
     "editor": {
       "add": "Agregar",
@@ -1494,13 +1502,14 @@
       "addTitle": "Agregar más",
       "albumPlaceholder": "Nombre del álbum o del artista",
       "count": "{count} de {limit}",
-      "description": "Elige hasta {limit} álbumes y canciones y ordénalos como quieras. Aparecen en tu perfil para todos.",
+      "description": "Elige hasta {albums} álbumes y {tracks} canciones y ordena cada grupo como quieras. Aparecen en tu perfil para todos.",
       "emptyList": "Todavía no hay favoritos: busca abajo y agrega.",
       "kindLabel": "Buscar álbumes o canciones",
-      "listLabel": "Tus favoritos, en orden",
+      "listLabel": "{group}, en orden",
       "moveDown": "Bajar {title}",
       "moveUp": "Subir {title}",
       "noResults": "No encontramos nada. Prueba otro nombre.",
+      "over": "Aquí hay {count} y caben {limit}: quita {extra} para guardar.",
       "remove": "Quitar {title}",
       "resultsLabel": "Resultados de la búsqueda",
       "save": "Guardar favoritos",
@@ -1511,7 +1520,7 @@
     },
     "empty": "{name} todavía no eligió sus favoritos",
     "emptyMine": "Elige tus favoritos",
-    "emptyMineDescription": "Hasta {limit} álbumes y canciones que cuentan quién eres. Quedan aquí, arriba en tu perfil.",
+    "emptyMineDescription": "Hasta {albums} álbumes y {tracks} canciones que cuentan quién eres. Quedan aquí, arriba en tu perfil.",
     "remove": "Quitar {title} de favoritos",
     "removed": "{title} salió de tus favoritos",
     "title": "Favoritos"

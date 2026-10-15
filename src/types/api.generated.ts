@@ -1449,6 +1449,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/users/{username}/library/stacks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Biblioteca em pilhas: o álbum avaliado e as músicas dele que a pessoa também avaliou numa entrada só (a grade do site) */
+        get: operations["ItemReviewsController_libraryStacks_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/users/{username}/library/summary": {
         parameters: {
             query?: never;
@@ -2131,7 +2148,7 @@ export interface components {
             addedAt: string;
             item: components["schemas"]["ItemSummaryResponse"];
             /**
-             * @description 1 é o primeiro da lista
+             * @description A posição dentro do tipo: álbuns de 1 a 5 e músicas de 1 a 5
              * @example 1
              */
             position: number;
@@ -2319,6 +2336,12 @@ export interface components {
             catalogNumber: string | null;
             /** @example Parlophone */
             name: string;
+        };
+        LibraryStackResponse: {
+            /** @description A avaliação: numa pilha, a do álbum */
+            review: components["schemas"]["ReviewResponse"];
+            /** @description As músicas desse álbum que a pessoa também avaliou (vazio: avaliação sozinha) */
+            tracks: components["schemas"]["ReviewResponse"][];
         };
         LibrarySummaryResponse: {
             albumsCount: number;
@@ -2666,7 +2689,7 @@ export interface components {
             username: string;
         };
         ReplaceFavoritesDto: {
-            /** @description A lista inteira, na ordem (o primeiro é o nº 1) */
+            /** @description A lista inteira, na ordem de cada tipo: até 5 álbuns e 5 músicas (FAVORITES_FULL diz qual tipo passou) */
             items: components["schemas"]["FavoriteRefDto"][];
         };
         ReviewGroupLinkResponse: {
@@ -5643,6 +5666,38 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["PageMetaResponse"] & {
                         items: components["schemas"]["ReviewResponse"][];
+                    };
+                };
+            };
+        };
+    };
+    ItemReviewsController_libraryStacks_v1: {
+        parameters: {
+            query?: {
+                /** @description Filtra por estilo musical */
+                genre?: string;
+                limit?: number;
+                maxRating?: number;
+                minRating?: number;
+                page?: number;
+                sort?: "recent" | "popular" | "rating_desc" | "rating_asc";
+                type?: "ALBUM" | "TRACK";
+            };
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageMetaResponse"] & {
+                        items: components["schemas"]["LibraryStackResponse"][];
                     };
                 };
             };

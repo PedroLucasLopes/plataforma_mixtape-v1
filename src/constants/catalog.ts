@@ -46,6 +46,12 @@ export const PODIUM_BURST = { points: 26, size: '132%' } as const
 export const PODIUM_REVEAL_DELAY = [420, 210, 0] as const
 
 /**
+ * Pilha da biblioteca aberta: as músicas entram uma depois da outra (`stepMs` entre elas), até `maxSteps` passos (num
+ * álbum com 20 músicas avaliadas, a última não espera um segundo).
+ */
+export const LIBRARY_STACK_STAGGER = { stepMs: 45, maxSteps: 6 } as const
+
+/**
  * De onde vem todo número de ouvintes da tela. O ListenBrainz conta só a comunidade dele, bem menor que a de um
  * Spotify: número sem a fonte parece audiência do mundo inteiro.
  */

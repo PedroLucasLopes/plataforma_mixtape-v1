@@ -49,8 +49,10 @@ export const CATALOG_RETRY = {
   maxWaitSeconds: 6,
 } as const
 
-/** Favoritos do perfil: espelho do `FAVORITES_LIMIT` da API (álbuns e músicas). */
-export const FAVORITES_LIMIT = 10
+/** Favoritos do perfil: espelho do `FAVORITE_LIMITS` da API (5 álbuns e 5 músicas, cada grupo na sua ordem). */
+export const FAVORITE_LIMITS = { ALBUM: 5, TRACK: 5 } as const
+/** A ordem dos grupos na vitrine e no editor. */
+export const FAVORITE_GROUPS = ['ALBUM', 'TRACK'] as const
 /** Resultados da busca no editor de favoritos. */
 export const FAVORITES_SEARCH_LIMIT = 8
 

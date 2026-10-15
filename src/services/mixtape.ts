@@ -26,6 +26,7 @@ import type {
   InvitePreview,
   ItemStats,
   ItemType,
+  LibraryStack,
   LibrarySummary,
   LikeResult,
   ListenLater,
@@ -242,6 +243,9 @@ export const reviewsApi = {
 export const libraryApi = {
   ofUser: (username: string, filters: LibraryFilters, page: PageQuery) =>
     request<Page<Review>>(`/users/${enc(username)}/library`, { query: { ...filters, ...page } }),
+  /** A grade: o álbum e as músicas dele que a pessoa também avaliou numa pilha só (a página conta entradas). */
+  stacks: (username: string, filters: LibraryFilters, page: PageQuery) =>
+    request<Page<LibraryStack>>(`/users/${enc(username)}/library/stacks`, { query: { ...filters, ...page } }),
   summary: (username: string) => request<LibrarySummary>(`/users/${enc(username)}/library/summary`),
 }
 

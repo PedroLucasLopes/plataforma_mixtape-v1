@@ -190,10 +190,12 @@
 
             <MxCrate
               v-else
-              v-model:pulled="recentPulled"
               data-testid="page-profile-recent-crate"
               :label="t('profile.recentCrate', { name: profile.data.value.fullName })"
+              open
+              pickable
               :records="recentRecords"
+              @pick="openRecentReview"
             >
               <template #pulled="{ record }">
                 <CratePulledCard v-bind="recentPulledCard(record.key, record.title)" />
@@ -358,7 +360,7 @@
     vReveal,
     yearOf,
   } from '@pedrolucaslopes/mixtape-ui'
-  import { computed, ref, watch } from 'vue'
+  import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
   import { useDisplay } from 'vuetify'
@@ -424,8 +426,6 @@
     { value: 'crate', label: t('profile.recentViews.crate'), icon: 'mdi-layers-outline' },
   ])
 
-  const recentPulled = ref<string | null>(null)
-
   const recentRecords = computed<CrateRecord[]>(() => (profile.data.value?.recentAlbumReviews ?? []).map(review => ({
     key: review.id,
     title: review.item.title,
@@ -445,6 +445,7 @@
       meta: relativeTime(review.createdAt, locale.value),
       metaIcon: 'mdi-clock-outline',
       rating: review.rating,
+      body: review.body,
       reviewTo: reviewRoute(review.id),
       cover: review.item.coverUrl ?? null,
       year: yearOf(review.item.releaseDate ?? null),
@@ -452,9 +453,13 @@
     }
   }
 
-  watch(() => props.username, () => {
-    recentPulled.value = null
-  })
+  /**
+   * Pilha das avaliações recentes: o painel ao lado já mostra a nota e a resenha do disco da frente enquanto o mouse
+   * folheia; o clique (ou Enter) no disco abre a página da avaliação.
+   */
+  function openRecentReview (record: CrateRecord): void {
+    void router.push(reviewRoute(record.key))
+  }
 
   function loadGalera (page: number, limit: number) {
     return groupReviewsApi.ofUser(props.username, { page, limit })

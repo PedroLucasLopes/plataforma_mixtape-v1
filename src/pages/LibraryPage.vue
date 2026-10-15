@@ -126,7 +126,7 @@
             :empty-description="emptyDescription"
             :empty-title="emptyTitle"
             :label="t('library.gridLabel')"
-            :loader="loadLibrary"
+            :loader="loadLibraryStacks"
             :watch-key="[username, filters]"
           />
 
@@ -315,6 +315,11 @@
 
   function loadLibrary (page: number, limit: number) {
     return libraryApi.ofUser(props.username, filters.value, { page, limit })
+  }
+
+  /** A grade empilha o álbum e as músicas dele que a pessoa também avaliou. */
+  function loadLibraryStacks (page: number, limit: number) {
+    return libraryApi.stacks(props.username, filters.value, { page, limit })
   }
 
   const typeOptions = computed<SegmentedOption<TypeFilter>[]>(() => [

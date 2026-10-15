@@ -8,6 +8,8 @@
 
     <MxRating v-if="rating !== null" show-value size="sm" :value="rating" />
 
+    <blockquote v-if="body" class="crate-card__body" data-testid="crate-pulled-card-body">{{ body }}</blockquote>
+
     <p v-if="meta" class="crate-card__meta">
       <VIcon aria-hidden="true" :icon="metaIcon" size="16" />
       {{ meta }}
@@ -76,6 +78,8 @@
     meta?: string | null
     metaIcon?: string
     rating?: number | null
+    /** O texto da resenha (painel das avaliações recentes do perfil): os primeiros parágrafos; o resto, na página dela. */
+    body?: string | null
     reviewTo?: RouteLocationRaw | null
     cover?: string | null
     year?: string | null
@@ -87,6 +91,7 @@
     meta: null,
     metaIcon: 'mdi-headphones',
     rating: null,
+    body: null,
     reviewTo: null,
     cover: null,
     year: null,
@@ -133,6 +138,23 @@
   margin: 0;
   font-weight: 600;
   color: var(--mx-on-surface-muted);
+}
+
+.crate-card__body {
+  display: -webkit-box;
+  margin: 2px 0 0;
+  padding: 10px 14px;
+  overflow: hidden;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  border-left: 3px solid var(--mx-link);
+  border-radius: 0 var(--mx-radius-sm) var(--mx-radius-sm) 0;
+  background: color-mix(in srgb, var(--mx-link) 8%, transparent);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  line-clamp: 8;
 }
 
 .crate-card__meta {

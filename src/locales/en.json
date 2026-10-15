@@ -666,6 +666,8 @@
       "PLAYLIST_FULL": "The playlist reached its item limit.",
       "PLAYLIST_ITEM_NOT_FOUND": "Item not found in the playlist.",
       "FAVORITES_FULL": "You already have {limit} favorites. Remove one on your profile to add another.",
+      "FAVORITES_FULL_ALBUM": "You already have {limit} favorite albums. Remove one on your profile to add another.",
+      "FAVORITES_FULL_TRACK": "You already have {limit} favorite songs. Remove one on your profile to add another.",
       "TOO_MANY_REQUESTS": "Too many attempts in a row. Wait a moment and try again.",
       "PAYLOAD_TOO_LARGE": "What you sent is too large.",
       "FORBIDDEN": "You don't have permission to do that.",
@@ -1130,6 +1132,10 @@
     "genreLabel": "Filter by genre",
     "gridLabel": "Rated albums and songs",
     "openReview": "See the review of {title}",
+    "stack": {
+      "fromAlbum": "From {album}",
+      "toggle": "The rated song from {title} | The {count} rated songs from {title}"
+    },
     "viewLabel": "View",
     "views": {
       "crate": "Stack",
@@ -1484,9 +1490,11 @@
   "favorites": {
     "add": "Add {title} to favorites",
     "added": "{title} is now in your favorites",
+    "albums": "Favorite albums",
+    "tracks": "Favorite songs",
     "choose": "Pick favorites",
     "description": "The albums and songs {name} loves most",
-    "descriptionMine": "Up to {limit} albums and songs that say who you are, in your order",
+    "descriptionMine": "Up to {albums} albums and {tracks} songs that say who you are, each group in your order",
     "edit": "Edit",
     "editor": {
       "add": "Add",
@@ -1494,13 +1502,14 @@
       "addTitle": "Add more",
       "albumPlaceholder": "Album or artist name",
       "count": "{count} of {limit}",
-      "description": "Pick up to {limit} albums and songs and put them in any order. They show on your profile for everyone.",
+      "description": "Pick up to {albums} albums and {tracks} songs and put each group in any order. They show on your profile for everyone.",
       "emptyList": "No favorites yet: search below and add some.",
       "kindLabel": "Search albums or songs",
-      "listLabel": "Your favorites, in order",
+      "listLabel": "{group}, in order",
       "moveDown": "Move {title} down",
       "moveUp": "Move {title} up",
       "noResults": "Nothing found. Try another name.",
+      "over": "{count} here, and {limit} fit: remove {extra} to save.",
       "remove": "Remove {title}",
       "resultsLabel": "Search results",
       "save": "Save favorites",
@@ -1511,7 +1520,7 @@
     },
     "empty": "{name} hasn’t picked favorites yet",
     "emptyMine": "Pick your favorites",
-    "emptyMineDescription": "Up to {limit} albums and songs that tell who you are. They stay here, at the top of your profile.",
+    "emptyMineDescription": "Up to {albums} albums and {tracks} songs that tell who you are. They stay here, at the top of your profile.",
     "remove": "Remove {title} from favorites",
     "removed": "{title} left your favorites",
     "title": "Favorites"

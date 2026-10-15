@@ -2,58 +2,75 @@
   <MxDialog
     v-model="open"
     data-testid="favorites-editor-dialog"
-    :description="t('favorites.editor.description', { limit: FAVORITES_LIMIT })"
+    :description="t('favorites.editor.description', { albums: FAVORITE_LIMITS.ALBUM, tracks: FAVORITE_LIMITS.TRACK })"
     :title="t('favorites.editor.title')"
   >
     <div class="editor">
-      <p aria-live="polite" class="editor__count">{{ t('favorites.editor.count', { count: draft.length, limit: FAVORITES_LIMIT }) }}</p>
+      <section
+        v-for="group in groups"
+        :key="group.kind"
+        :aria-labelledby="`favorites-editor-${group.kind}`"
+        class="editor__group"
+      >
+        <header class="editor__group-header">
+          <h3 :id="`favorites-editor-${group.kind}`" class="editor__subtitle">{{ group.title }}</h3>
 
-      <ol v-if="draft.length > 0" :aria-label="t('favorites.editor.listLabel')" class="editor__list">
-        <li v-for="(entry, index) in draft" :key="entry.key" class="editor__row" data-testid="favorites-editor-dialog-row">
-          <span aria-hidden="true" class="editor__position">{{ index + 1 }}</span>
+          <p aria-live="polite" class="editor__count" :class="{ 'editor__count--over': group.over > 0 }">
+            {{ t('favorites.editor.count', { count: group.entries.length, limit: group.limit }) }}
+          </p>
+        </header>
 
-          <MxItemCard
-            data-testid="favorites-editor-dialog-row-card"
-            v-bind="entry.card"
-            :heading-level="3"
-            layout="row"
-            :to="undefined"
-          />
+        <p v-if="group.over > 0" class="editor__error" data-testid="favorites-editor-dialog-over" role="alert">
+          {{ t('favorites.editor.over', { count: group.entries.length, limit: group.limit, extra: group.over }) }}
+        </p>
 
-          <div class="editor__row-actions">
-            <MxIconButton
-              data-testid="favorites-editor-dialog-up"
-              :disabled="index === 0"
-              icon="mdi-arrow-up"
-              :label="t('favorites.editor.moveUp', { title: entry.card.title })"
-              size="sm"
-              variant="ghost"
-              @click="move(index, -1)"
+        <ol v-if="group.entries.length > 0" :aria-label="t('favorites.editor.listLabel', { group: group.title })" class="editor__list">
+          <li v-for="(entry, index) in group.entries" :key="entry.key" class="editor__row" data-testid="favorites-editor-dialog-row">
+            <span aria-hidden="true" class="editor__position">{{ index + 1 }}</span>
+
+            <MxItemCard
+              data-testid="favorites-editor-dialog-row-card"
+              v-bind="entry.card"
+              :heading-level="4"
+              layout="row"
+              :to="undefined"
             />
 
-            <MxIconButton
-              data-testid="favorites-editor-dialog-down"
-              :disabled="index === draft.length - 1"
-              icon="mdi-arrow-down"
-              :label="t('favorites.editor.moveDown', { title: entry.card.title })"
-              size="sm"
-              variant="ghost"
-              @click="move(index, 1)"
-            />
+            <div class="editor__row-actions">
+              <MxIconButton
+                data-testid="favorites-editor-dialog-up"
+                :disabled="index === 0"
+                icon="mdi-arrow-up"
+                :label="t('favorites.editor.moveUp', { title: entry.card.title })"
+                size="sm"
+                variant="ghost"
+                @click="move(entry.key, -1)"
+              />
 
-            <MxIconButton
-              data-testid="favorites-editor-dialog-remove"
-              icon="mdi-close"
-              :label="t('favorites.editor.remove', { title: entry.card.title })"
-              size="sm"
-              variant="ghost"
-              @click="remove(index)"
-            />
-          </div>
-        </li>
-      </ol>
+              <MxIconButton
+                data-testid="favorites-editor-dialog-down"
+                :disabled="index === group.entries.length - 1"
+                icon="mdi-arrow-down"
+                :label="t('favorites.editor.moveDown', { title: entry.card.title })"
+                size="sm"
+                variant="ghost"
+                @click="move(entry.key, 1)"
+              />
 
-      <p v-else class="editor__hint">{{ t('favorites.editor.emptyList') }}</p>
+              <MxIconButton
+                data-testid="favorites-editor-dialog-remove"
+                icon="mdi-close"
+                :label="t('favorites.editor.remove', { title: entry.card.title })"
+                size="sm"
+                variant="ghost"
+                @click="remove(entry.key)"
+              />
+            </div>
+          </li>
+        </ol>
+
+        <p v-else class="editor__hint">{{ t('favorites.editor.emptyList') }}</p>
+      </section>
 
       <h3 class="editor__subtitle">{{ t('favorites.editor.addTitle') }}</h3>
 
@@ -83,14 +100,14 @@
           <MxItemCard
             data-testid="favorites-editor-dialog-result-card"
             v-bind="result.card"
-            :heading-level="3"
+            :heading-level="4"
             layout="row"
             :to="undefined"
           >
             <template #actions>
               <MxButton
                 data-testid="favorites-editor-dialog-add"
-                :disabled="inDraft(result.key) || full"
+                :disabled="inDraft(result.key) || full(result.kind)"
                 :icon="inDraft(result.key) ? 'mdi-check' : 'mdi-star-plus-outline'"
                 :label="inDraft(result.key) ? t('favorites.editor.added') : t('favorites.editor.add')"
                 size="sm"
@@ -107,6 +124,7 @@
 
       <MxButton
         data-testid="favorites-editor-dialog-save"
+        :disabled="groups.some(group => group.over > 0)"
         icon="mdi-content-save-outline"
         :label="t('favorites.editor.save')"
         :loading="saving"
@@ -123,7 +141,7 @@
   import { computed, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useCatalogCards } from '@/composables/useCatalogCards'
-  import { FAVORITES_LIMIT, FAVORITES_SEARCH_LIMIT } from '@/constants/api'
+  import { FAVORITE_GROUPS, FAVORITE_LIMITS, FAVORITES_SEARCH_LIMIT } from '@/constants/api'
   import { SEARCH_TEXT_LENGTH } from '@/constants/validation'
   import { errorMessage } from '@/services/http'
   import { catalogApi } from '@/services/mixtape'
@@ -152,7 +170,21 @@
   const error = ref<string | null>(null)
   const results = ref<DraftEntry[]>([])
 
-  const full = computed(() => draft.value.length >= FAVORITES_LIMIT)
+  /**
+   * Álbuns e músicas em listas separadas, cada uma com o seu limite. Quem tinha mais que o limite de um tipo (de antes
+   * do limite por tipo) vê todos, com o aviso, e só salva depois de tirar o excesso.
+   */
+  const groups = computed(() => FAVORITE_GROUPS.map(group => {
+    const entries = draft.value.filter(entry => entry.kind === group)
+    const limit = FAVORITE_LIMITS[group]
+    return {
+      kind: group,
+      title: group === 'ALBUM' ? t('favorites.albums') : t('favorites.tracks'),
+      entries,
+      limit,
+      over: Math.max(0, entries.length - limit),
+    }
+  }))
 
   const kindOptions = computed<SegmentedOption<FavoriteKind>[]>(() => [
     { value: 'ALBUM', label: t('library.types.albums'), icon: 'mdi-album' },
@@ -180,26 +212,38 @@
     }
   })
 
+  function full (group: FavoriteKind): boolean {
+    return draft.value.filter(entry => entry.kind === group).length >= FAVORITE_LIMITS[group]
+  }
+
   function inDraft (key: string): boolean {
     return draft.value.some(entry => entry.key === key)
   }
 
-  function move (index: number, step: number): void {
-    const next = [...draft.value]
-    const [entry] = next.splice(index, 1)
+  /** Sobe ou desce dentro do próprio grupo (a lista guarda os dois tipos misturados; a ordem de cada um é a que vale). */
+  function move (key: string, step: number): void {
+    const entry = draft.value.find(item => item.key === key)
     if (!entry) {
       return
     }
-    next.splice(index + step, 0, entry)
-    draft.value = next
+    const siblings = draft.value.filter(item => item.kind === entry.kind)
+    const from = siblings.indexOf(entry)
+    const to = from + step
+    if (to < 0 || to >= siblings.length) {
+      return
+    }
+    const reordered = [...siblings]
+    reordered.splice(from, 1)
+    reordered.splice(to, 0, entry)
+    draft.value = [...draft.value.filter(item => item.kind !== entry.kind), ...reordered]
   }
 
-  function remove (index: number): void {
-    draft.value = draft.value.filter((_, position) => position !== index)
+  function remove (key: string): void {
+    draft.value = draft.value.filter(entry => entry.key !== key)
   }
 
   function add (entry: DraftEntry): void {
-    if (full.value || inDraft(entry.key)) {
+    if (full(entry.kind) || inDraft(entry.key)) {
       return
     }
     draft.value = [...draft.value, entry]
@@ -229,7 +273,7 @@
     saving.value = true
     error.value = null
     try {
-      await store.replace(draft.value.map(entry => ({ kind: entry.kind, id: entry.id })))
+      await store.replace(groups.value.flatMap(group => group.entries.map(entry => ({ kind: entry.kind, id: entry.id }))))
       toast.success(t('favorites.editor.saved'))
       open.value = false
     } catch (error_) {
@@ -246,8 +290,19 @@
   gap: 14px;
 }
 
+.editor__group {
+  display: grid;
+  gap: 10px;
+}
+
+.editor__group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .editor__count {
-  justify-self: start;
   margin: 0;
   padding: 4px 12px;
   font-size: 0.875rem;
@@ -256,6 +311,12 @@
   color: var(--mx-on-cta);
   background: var(--mx-cta);
   border-radius: var(--mx-radius-pill);
+}
+
+.editor__count--over {
+  color: var(--mx-error);
+  background: color-mix(in srgb, var(--mx-error) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--mx-error) 45%, transparent);
 }
 
 .editor__list,

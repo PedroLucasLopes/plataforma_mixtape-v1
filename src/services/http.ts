@@ -116,6 +116,9 @@ function messageKey (code: string, details: Record<string, unknown>) {
   if (code === 'CONTENT_REJECTED' && moderationTerms(details).length === 0) {
     return 'errors.code.CONTENT_REJECTED_TONE'
   }
+  if (code === 'FAVORITES_FULL' && (details.kind === 'ALBUM' || details.kind === 'TRACK')) {
+    return `errors.code.FAVORITES_FULL_${details.kind}`
+  }
   return `errors.code.${code}`
 }
 
