@@ -195,6 +195,7 @@
               open
               pickable
               :records="recentRecords"
+              wide-panel
               @pick="openRecentReview"
             >
               <template #pulled="{ record }">

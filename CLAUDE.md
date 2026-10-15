@@ -35,10 +35,10 @@ COMPOSE_PROFILES=cloudflare docker compose up -d  # + o túnel da Cloudflare (pr
   camada nem fica no histórico da imagem.
 - **CI:** `GITHUB_TOKEN` com `packages: read`, depois de dar a este repositório acesso ao pacote
   (*Manage Actions access* na página do pacote). Sem isso, o secret `MIXTAPE_LIB_TOKEN`.
-- **Versão:** `^0.7.2`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
+- **Versão:** `^0.7.3`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
   biblioteca quebra): trocar é `npm install @pedrolucaslopes/mixtape-ui@^0.<n>.0` e conferir o que
   mudou no `CLAUDE.md` dela. A 0.4.0 trocou `listens` por `listeners` no `MxItemCard`; a 0.5.0 trocou o
-  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada; a 0.7.2 trouxe a `MxCoverStack` (pilhas da grade da biblioteca) e o `pickable` da `MxCrate` (o clique na pilha de avaliações recentes do perfil abre a avaliação).
+  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada; a 0.7.2 trouxe a `MxCoverStack` (pilhas da grade da biblioteca) e o `pickable` da `MxCrate` (o clique na pilha de avaliações recentes do perfil abre a avaliação); a 0.7.3, o `widePanel` da `MxCrate` (resenha em 2/3 e discos em 1/3 no perfil).
 - **Espaçamento entre letras** vem dos tokens da biblioteca (`--mx-tracking-display`, `-title`,
   `-numeral`); só o logotipo (`AppBrand`) tem o dele.
 - **Testar mudança da biblioteca antes de publicar:** `npm run build` e
@@ -161,7 +161,7 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
   com nota, "Ver disco" e "Ver avaliação", e troca enquanto se folheia; lá não existe puxar nem devolver. Nas outras
   pilhas, o painel só abre ao puxar.
 - **Avaliações recentes do perfil em pilha** (`?view=crate`): também com o painel aberto, à direita (embaixo, em
-  largura estreita), com a nota e o texto da resenha (`body` do `CratePulledCard`, até 8 linhas), trocando conforme o
+  largura estreita), com 2/3 da largura para a resenha e 1/3 para os discos (`widePanel`, a pedido), com a nota e o texto da resenha (`body` do `CratePulledCard`, até 8 linhas), trocando conforme o
   mouse folheia, sem clicar. Com `pickable`, o clique (ou Enter) no disco da frente abre a avaliação dele.
 - **Descubra fica dentro do meu perfil**, só para o dono (não é página nem aba, e não tem estilo definido):
   `DiscoverCard` mostra `DISCOVER_ALBUMS` (10) álbuns de `GET /me/discover`, sorteados a cada pedido entre os mais
