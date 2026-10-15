@@ -1,0 +1,52 @@
+# Atualizações automáticas, uma vez por semana, em pull request. As actions são fixadas por commit:
+# sem isto, a versão fixada envelheceria calada, sem as correções de segurança.
+#
+# A @pedrolucaslopes/mixtape-ui é privada: o Dependabot só a enxerga com um token clássico de
+# read:packages no secret MIXTAPE_LIB_TOKEN da seção *Dependabot* (secrets do Dependabot são
+# separados dos do Actions).
+version: 2
+
+registries:
+  github-packages:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.MIXTAPE_LIB_TOKEN }}
+
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /
+    registries:
+      - github-packages
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    ignore:
+      # O TypeScript 7 (compilador nativo) não exporta `typescript/lib/tsc`, de que o vue-tsc 3
+      # precisa: o major do TypeScript sobe junto com um vue-tsc que o suporte, à mão.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      # Os tipos do Node acompanham o Node do CI e das imagens (24).
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+    groups:
+      biblioteca:
+        patterns: ["@pedrolucaslopes/*"]
+      producao:
+        dependency-type: production
+        update-types: [minor, patch]
+      desenvolvimento:
+        dependency-type: development
+        update-types: [minor, patch]
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

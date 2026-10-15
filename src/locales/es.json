@@ -1,0 +1,1711 @@
+{
+  "app": {
+    "name": "Mixtape",
+    "home": "Mixtape: página de inicio"
+  },
+  "nav": {
+    "main": "Navegación principal",
+    "more": "Más páginas",
+    "tabs": "Navegación rápida",
+    "home": "Inicio",
+    "search": "Buscar",
+    "charts": "Listas",
+    "reviews": "Reseñas",
+    "rankings": "Ranking",
+    "awards": "Awards",
+    "playlists": "Playlists",
+    "groups": "Grupos",
+    "profile": "Perfil",
+    "myProfile": "Mi perfil",
+    "myLibrary": "Mi biblioteca",
+    "settings": "Ajustes",
+    "admin": "Administración",
+    "rate": "Calificar",
+    "howItWorks": "Cómo funciona",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de uso"
+  },
+  "common": {
+    "and": "y",
+    "cancel": "Cancelar",
+    "loading": "Cargando…",
+    "no": "No",
+    "position": "{position}.º",
+    "save": "Guardar",
+    "seeAll": "Ver todo",
+    "showLess": "Mostrar menos",
+    "skipToContent": "Saltar al contenido",
+    "undo": "Deshacer",
+    "yes": "Sí"
+  },
+  "seo": {
+    "home": {
+      "title": "Mixtape · Califica álbumes y canciones, disco a disco",
+      "description": "Califica álbumes y canciones de 0 a 5 discos, escribe reseñas, arma playlists, compite en rankings con tus amigos y gana insignias y Awards."
+    }
+  },
+  "auth": {
+    "backHome": "Volver al inicio",
+    "birthDate": "Fecha de nacimiento",
+    "birthDateHint": "Necesitas tener al menos {age} años. No aparece en tu perfil.",
+    "consent": "Al crear la cuenta aceptas los {terms} y la {privacy}.",
+    "createAccount": "Crear cuenta",
+    "confirmPassword": "Confirma la contraseña",
+    "createPassword": "Crea tu contraseña",
+    "email": "Correo electrónico",
+    "errors": {
+      "birthDate": "Ingresa una fecha de nacimiento válida.",
+      "email": "Ingresa un correo válido.",
+      "fullName": "El nombre debe tener de {min} a {max} caracteres, con letras.",
+      "loginRequired": "Ingresa tu correo o nombre de usuario.",
+      "password": "La contraseña todavía no cumple todas las reglas de la lista.",
+      "passwordConfirmation": "Las contraseñas no coinciden.",
+      "passwordConfirmationRequired": "Repite la contraseña para confirmarla.",
+      "passwordRequired": "Ingresa la contraseña.",
+      "username": "Usa de 3 a 30 caracteres: minúsculas, números, punto o guion bajo, sin empezar ni terminar con un símbolo."
+    },
+    "forgot": {
+      "back": "Volver a iniciar sesión",
+      "eyebrow": "Le pasa a todo el mundo",
+      "lead": "Dinos el correo de tu cuenta y te enviamos un enlace para crear una contraseña nueva. La contraseña solo cambia con ese enlace.",
+      "otherEmail": "Usar otro correo",
+      "resend": "Enviar de nuevo",
+      "resendIn": "Enviar de nuevo en {seconds} s",
+      "sent": "Si existe una cuenta con {email}, el enlace llega en un momento. Vale por {minutes} minutos y funciona una sola vez.",
+      "sentTitle": "Revisa tu correo",
+      "spam": "¿No llegó? Revisa el spam y las promociones antes de pedirlo de nuevo.",
+      "submit": "Enviar enlace",
+      "title": "¿Olvidaste tu contraseña?"
+    },
+    "forgotLink": "¿Olvidaste tu contraseña?",
+    "forgotNote": "Tu contraseña es solo tuya: Mixtape nunca crea, muestra ni envía contraseñas.",
+    "fullName": "Nombre completo",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "headline": "Tu banda sonora merece una nota.",
+    "lead": "Califica álbumes y canciones, escribe reseñas, arma playlists y compite en el ranking con tu gente.",
+    "loginEyebrow": "Qué bueno verte",
+    "loginField": "Correo o nombre de usuario",
+    "loginLead": "Entra para calificar, dar me gusta y seguir tu progreso.",
+    "loginTitle": "Entrar en Mixtape",
+    "marquee": {
+      "rate": "Califica",
+      "review": "Reseña",
+      "collect": "Colecciona",
+      "compete": "Compite",
+      "win": "Gana Awards"
+    },
+    "marqueeLabel": "Lo que puedes hacer en Mixtape",
+    "noAccount": "¿Todavía no tienes cuenta?",
+    "password": "Contraseña",
+    "passwordRules": {
+      "length": "De {min} a {max} caracteres",
+      "mix": "Letras y números",
+      "personal": "Sin tu correo ni tu nombre de usuario"
+    },
+    "registerEyebrow": "Empecemos",
+    "registerLead": "Toma menos de un minuto. Tú eliges tu contraseña y personalizas el perfil después.",
+    "registerTitle": "Crea tu cuenta",
+    "required": "Entra en tu cuenta para continuar.",
+    "reset": {
+      "account": "Cuenta {'@'}{username}",
+      "checking": "Revisando el enlace…",
+      "confirm": "Confirma la contraseña nueva",
+      "done": "¡Contraseña nueva guardada! Entra con ella para continuar.",
+      "eyebrow": "Ya casi",
+      "invalid": "El enlace vale por poco tiempo y funciona una sola vez, y un pedido nuevo desactiva los anteriores. Pide otro: lleva un minuto.",
+      "invalidTitle": "Este enlace ya no vale",
+      "lead": "Al guardar, se cierran todas las sesiones abiertas, en cualquier dispositivo. Después, entra con la contraseña nueva.",
+      "newPassword": "Contraseña nueva",
+      "requestNew": "Pedir un enlace nuevo",
+      "submit": "Guardar contraseña nueva",
+      "title": "Crea tu contraseña nueva"
+    },
+    "signedOut": "Cerraste la sesión.",
+    "signIn": "Entrar",
+    "signUp": "Crear cuenta",
+    "username": "Nombre de usuario",
+    "usernameHint": "Es tu dirección en Mixtape, con hasta {max} caracteres.",
+    "welcome": "¡Te damos la bienvenida, {name}! Tu cuenta está lista.",
+    "welcomeBack": "¡Qué bueno verte de nuevo, {name}!",
+    "wizard": {
+      "aboutTitle": "Sobre ti",
+      "accountTitle": "Cómo vas a entrar",
+      "back": "Volver",
+      "continue": "Continuar",
+      "doneTitle": "Revisa y crea tu cuenta",
+      "edit": "Editar",
+      "editStep": "Editar {step}",
+      "genresNotSaved": "Tu cuenta se creó, pero tus estilos no se guardaron. Elígelos de nuevo en la configuración.",
+      "label": "Pasos del registro",
+      "noGenres": "Ningún estilo por ahora. Puedes elegirlos después, en la configuración.",
+      "retry": "Reintentar",
+      "skip": "Saltar por ahora",
+      "steps": {
+        "about": "Sobre ti",
+        "account": "Cuenta",
+        "done": "Listo",
+        "taste": "Gustos"
+      },
+      "tasteError": "No pudimos cargar los estilos ahora. Reintenta o elígelos después, en la configuración.",
+      "tasteLabel": "Estilos que te gustan",
+      "tasteLead": "Toca los globos de los estilos que te gustan, hasta {max}. Cada uno lleva álbumes de artistas distintos de ese estilo.",
+      "tasteTitle": "¿Qué te gusta?"
+    }
+  },
+  "search": {
+    "crateLabel": "Resultados para “{query}”, en una pila de discos",
+    "viewLabel": "Vista",
+    "views": { "crate": "Pila", "grid": "Cuadrícula" },
+    "clearRecent": "Borrar",
+    "empty": "No encontramos nada para “{query}”",
+    "emptyDescription": "Revisa la ortografía, prueba junto con el nombre del artista o cambia el tipo de búsqueda.",
+    "exitRate": "Salir del modo calificar",
+    "eyebrow": "Buscar",
+    "forget": "Quitar “{query}” de las búsquedas recientes",
+    "forYou": {
+      "description": "Según los estilos que te gustan",
+      "empty": "Todavía no hay sugerencias para esos estilos. Inténtalo de nuevo en un momento.",
+      "more": "Más sugerencias",
+      "noGenres": "Cuéntanos qué te gusta y te sugerimos discos, canciones y artistas aquí.",
+      "pickGenres": "Elegir estilos",
+      "title": "Para ti"
+    },
+    "genresHint": "Toca un género para buscarlo.",
+    "genresTitle": "Explora por género",
+    "kindLabel": "Qué buscar",
+    "kinds": {
+      "albums": "Álbumes",
+      "tracks": "Canciones",
+      "artists": "Artistas",
+      "people": "Personas"
+    },
+    "label": "Buscar en el catálogo",
+    "lead": "Álbumes, EP, sencillos, canciones y artistas de todo el catálogo de MusicBrainz, y las personas de Mixtape.",
+    "people": {
+      "emptyDescription": "Revisa la ortografía o busca por el {'@'}usuario.",
+      "idle": "Busca por el nombre o el {'@'}usuario de quien está en Mixtape para ver su perfil y sus calificaciones.",
+      "label": "Buscar personas",
+      "resultsLabel": "Personas encontradas"
+    },
+    "placeholder": "Álbumes, canciones, artistas…",
+    "placeholders": {
+      "albums": "Ej.: Clube da Esquina",
+      "tracks": "Ej.: Construção",
+      "artists": "Ej.: Gal Costa",
+      "people": "Ej.: Ana o {'@'}ana.souza"
+    },
+    "rateArtistsHint": "Los artistas no se califican: abre un artista para calificar sus discos.",
+    "rateEyebrow": "Calificar",
+    "rateHint": "Elige un álbum o una canción y toca “Calificar”.",
+    "rateLead": "Busca el disco que estás escuchando y dale tu nota de 0 a 5.",
+    "rateTitle": "¿Qué vamos a calificar?",
+    "recent": "Búsquedas recientes",
+    "results": "{formatted} resultado para “{query}” | {formatted} resultados para “{query}”",
+    "resultsLabel": "Resultados de la búsqueda",
+    "searching": "Buscando “{query}”…",
+    "seeDiscography": "Ver discografía",
+    "seoQuery": "“{query}” en la búsqueda",
+    "seoTitle": "Buscar",
+    "suggestions": "Sugerencias",
+    "title": "¿Qué estás escuchando?",
+    "tooShort": "Escribe al menos {min} caracteres para buscar.",
+    "trendingDescription": "Lo que la comunidad más calificó este mes.",
+    "trendingTitle": "Tendencias en Mixtape",
+    "world": {
+      "description": {
+        "albums": "Los álbumes más escuchados del mundo esta semana, según ListenBrainz.",
+        "artists": "Los artistas más escuchados del mundo esta semana, según ListenBrainz.",
+        "tracks": "Las canciones más escuchadas del mundo esta semana, según ListenBrainz."
+      },
+      "empty": "Las listas del mundo no respondieron ahora.",
+      "title": "Tendencias en el mundo"
+    }
+  },
+  "composer": {
+    "albumSubtitle": "Calificación de álbum",
+    "bodyLabel": "Tu reseña (opcional)",
+    "bodyPlaceholder": "¿Qué te hizo sentir este disco?",
+    "created": "¡Calificación publicada!",
+    "delete": "Eliminar calificación",
+    "deleted": "Calificación eliminada.",
+    "deleteMessage": "Se borrarán la nota, el texto y los me gusta de esta calificación.",
+    "deleteTitle": "¿Eliminar tu calificación?",
+    "editTitle": "Editar calificación de “{title}”",
+    "galera": {
+      "blocked": "Tu calificación de este elemento ya está en la reseña de la pandilla {group}. Cada calificación entra en una sola reseña de la pandilla.",
+      "bringPrivate": "Ya habías calificado este elemento: esa calificación entra en la reseña de la pandilla y solo la pandilla la verá.",
+      "bringPublic": "Ya habías calificado este elemento: esa calificación entra en la reseña de la pandilla, con la nota y el texto que dejes aquí.",
+      "flag": "Reseña de la pandilla · {group}",
+      "private": "Grupo privado: solo la pandilla ve tu nota, también en tu perfil.",
+      "public": "Grupo público: tu nota aparece en la reseña de la pandilla y en tu perfil, para todos."
+    },
+    "groupSaved": "¡Tu nota entró en la reseña de la pandilla {group}!",
+    "groupSaveFailed": "No pudimos guardar tu nota ahora.",
+    "inGroupReview": "Esta calificación forma parte de la reseña de la pandilla {group}: lo que cambies aquí cambia allí también.",
+    "publish": "Publicar",
+    "rate": "Calificar",
+    "ratingLabel": "Tu nota",
+    "signInToRate": "Entra en tu cuenta para calificar.",
+    "title": "Calificar “{title}”",
+    "trackSubtitle": "Calificación de canción",
+    "update": "Guardar cambios",
+    "updated": "¡Calificación actualizada!",
+    "writtenHint": "Falta {count} carácter para que cuente como reseña (mínimo de {minimum}). | Faltan {count} caracteres para que cuente como reseña (mínimo de {minimum}).",
+    "writtenReady": "Listo: esto ya cuenta como reseña y suma puntos extra.",
+    "yourRating": "Tu nota: {rating}"
+  },
+  "playlists": {
+    "added": "Agregado a “{title}”.",
+    "byOwner": "de {name}",
+    "create": "Nueva playlist",
+    "created": "¡Playlist “{title}” creada!",
+    "empty": "Todavía no hay playlists públicas",
+    "emptyDescription": "Crea la primera y muestra tus discos favoritos al mundo.",
+    "explore": "Explorar playlists",
+    "exploreDescription": "Colecciones públicas actualizadas hace poco por la comunidad.",
+    "eyebrow": "Colecciones",
+    "form": {
+      "create": "Crear playlist",
+      "createDescription": "Junta álbumes, canciones, artistas y reseñas en una colección.",
+      "createTitle": "Nueva playlist",
+      "description": "Descripción (opcional)",
+      "editDescription": "Cambia el nombre, la descripción o quién puede verla.",
+      "editTitle": "Editar playlist",
+      "privateHint": "Solo tú ves esta playlist.",
+      "publicHint": "Cualquiera con el enlace puede verla, y aparece en tu perfil.",
+      "title": "Título",
+      "titleError": "El título debe tener de {min} a {max} caracteres.",
+      "visibility": "Quién puede verla"
+    },
+    "items": "{count} elemento | {count} elementos",
+    "lead": "Colecciones de álbumes, canciones, artistas y reseñas armadas por la comunidad.",
+    "mine": "Mis playlists",
+    "mineDescription": "Tus colecciones, incluidas las privadas.",
+    "mineEmpty": "Todavía no tienes playlists",
+    "mineEmptyDescription": "Crea una y ve agregando discos y reseñas por el camino.",
+    "ofUser": "Playlists de {'@'}{username}",
+    "ofUserDescription": "Colecciones públicas de {'@'}{username}.",
+    "ofUserEmpty": "{'@'}{username} todavía no tiene playlists públicas",
+    "ofUserEmptyDescription": "Cuando las tenga, aparecerán aquí.",
+    "open": "Abrir",
+    "private": "Privada",
+    "public": "Pública",
+    "signInToAdd": "Entra en tu cuenta para armar playlists.",
+    "signInToCreate": "Entra en tu cuenta para crear playlists.",
+    "title": "Playlists",
+    "titleLabel": "Nombre de la nueva playlist",
+    "visibility": "Visibilidad"
+  },
+  "playlist": {
+    "addedAt": "Agregado {date}",
+    "by": "de {name}",
+    "createdAt": "Creada el {date}",
+    "delete": "Eliminar",
+    "deleted": "Playlist eliminada.",
+    "deleteMessage": "Se borrarán “{title}” y todos sus elementos. No se puede deshacer.",
+    "deleteTitle": "¿Eliminar playlist?",
+    "edit": "Editar",
+    "editNote": "Editar nota",
+    "empty": "Playlist vacía",
+    "emptyDescription": "Todavía no hay nada aquí.",
+    "emptyOwnerDescription": "Abre un álbum, canción, artista o reseña y usa “Agregar a playlist”.",
+    "eyebrow": "Playlist",
+    "eyebrowPrivate": "Playlist privada",
+    "findSomething": "Buscar algo para agregar",
+    "itemRemoved": "“{title}” salió de la playlist.",
+    "items": "{count} elemento | {count} elementos",
+    "kindLabels": {
+      "ALBUM": "Álbum",
+      "TRACK": "Canción",
+      "ARTIST": "Artista",
+      "REVIEW": "Reseña"
+    },
+    "kinds": {
+      "ALBUM": "Álbum | Álbumes",
+      "TRACK": "Canción | Canciones",
+      "ARTIST": "Artista | Artistas",
+      "REVIEW": "Reseña | Reseñas"
+    },
+    "loading": "Cargando playlist",
+    "moveDown": "Bajar",
+    "moveUp": "Subir",
+    "note": "Nota",
+    "noteDescription": "Un comentario corto que aparece junto al elemento.",
+    "noteSaved": "Nota guardada.",
+    "notFound": "Playlist no encontrada",
+    "notFoundDescription": "Puede haber sido eliminada o ser privada.",
+    "removeItem": "Quitar de la playlist",
+    "reorderHint": "Usa las flechas para cambiar el orden.",
+    "showMore": "Mostrar más (queda {count}) | Mostrar más (quedan {count})",
+    "reviewTitle": "Reseña de {'@'}{username} sobre “{title}”",
+    "saved": "Playlist actualizada.",
+    "seoDescription": "Playlist de {'@'}{username} con {count} elemento en Mixtape. | Playlist de {'@'}{username} con {count} elementos en Mixtape.",
+    "share": "Compartir playlist",
+    "shareTitle": "Compartir playlist",
+    "stats": {
+      "items": "Elementos"
+    },
+    "unavailable": "Elemento no disponible",
+    "updatedAt": "Actualizada {date}"
+  },
+  "picker": {
+    "create": "O crea una nueva",
+    "createAndAdd": "Crear y agregar",
+    "empty": "Todavía no tienes playlists. Crea la primera aquí abajo.",
+    "note": "Nota (opcional)",
+    "noteHint": "Aparece junto al elemento en la playlist.",
+    "title": "Agregar a playlist",
+    "yours": "Tus playlists"
+  },
+  "share": {
+    "copied": "¡Enlace copiado!",
+    "copyFailed": "No se pudo copiar.",
+    "qrAlt": "Código QR del perfil de {'@'}{username} en Mixtape"
+  },
+  "review": {
+    "aboutItem": "Sobre lo calificado",
+    "addToPlaylist": "Agregar a playlist",
+    "allReviews": "Ver todas las calificaciones",
+    "delete": "Eliminar",
+    "deleted": "Calificación eliminada.",
+    "deleteMessage": "Se borrarán la nota, el texto y los me gusta de esta calificación.",
+    "deleteTitle": "¿Eliminar calificación?",
+    "edit": "Editar calificación",
+    "editedAt": "editada el {date}",
+    "galeraTitle": "Reseña de la pandilla",
+    "privateNotice": "Solo tú ves esta calificación. Hazla pública para que aparezca en tu perfil para todos.",
+    "publish": "Hacer pública",
+    "published": "Calificación pública: ahora aparece en tu perfil.",
+    "eyebrow": "Reseña de {'@'}{username}",
+    "kinds": {
+      "ALBUM": "Álbum",
+      "TRACK": "Canción",
+      "ARTIST": "Artista"
+    },
+    "likes": "Me gusta",
+    "loading": "Cargando calificación",
+    "moreReviews": "Más sobre “{title}”",
+    "noOtherReviews": "Todavía no hay otras calificaciones",
+    "notFound": "Calificación no encontrada",
+    "notFoundDescription": "Puede que quien la escribió la haya eliminado.",
+    "openItem": "Abrir “{title}”",
+    "openItemShort": "Ver detalles",
+    "playlistLabel": "Reseña de {'@'}{author} sobre “{title}”",
+    "publishedAt": "Publicada el {date}",
+    "ratingOutOf": "{rating} de 5",
+    "seoDescription": "{'@'}{username} le dio {rating} de 5 a “{title}” en Mixtape.",
+    "seoTitle": "{'@'}{username} sobre “{title}”",
+    "share": "Compartir",
+    "shareTitle": "Compartir calificación"
+  },
+  "reviews": {
+    "empty": "Todavía no hay calificaciones",
+    "sortLabel": "Ordenar por",
+    "sorts": {
+      "recent": "Recientes",
+      "popular": "Populares",
+      "rating_desc": "Notas más altas",
+      "rating_asc": "Notas más bajas"
+    }
+  },
+  "item": {
+    "addToPlaylist": "Agregar a playlist",
+    "beFirst": "Nadie lo calificó todavía. ¡Sé la primera persona!",
+    "communityRating": "Nota de la comunidad",
+    "details": "Detalles",
+    "distribution": "Distribución de notas",
+    "genres": "Géneros",
+    "highlights": "Destacados",
+    "listenOn": "Dónde escuchar",
+    "listeners": "Oyentes en ListenBrainz",
+    "listenersSentence": "personas distintas, desde siempre",
+    "moreEyebrow": "Sigue escuchando",
+    "moreFrom": "Más de {name}",
+    "noGenres": "No hay géneros registrados en MusicBrainz.",
+    "noLinks": "Todavía no hay enlaces registrados.",
+    "noRatingYet": "Todavía sin nota",
+    "noReviews": "Todavía no hay calificaciones",
+    "noReviewsDescription": "¿Qué tal ser la primera persona en calificarlo?",
+    "ratingSentence": "promedio de {formatted} calificación | promedio de {formatted} calificaciones",
+    "reviewsCount": "Calificaciones",
+    "reviewsEyebrow": "Comunidad",
+    "reviewsTitle": "Calificaciones",
+    "seeArtist": "Ver artista",
+    "share": "Compartir",
+    "source": "Datos del catálogo:",
+    "sourceLicense": "datos abiertos mantenidos por la comunidad",
+    "yourRating": "Tu nota: {rating}"
+  },
+  "album": {
+    "cards": {
+      "editions": "Ediciones",
+      "editionsSentence": "lanzamiento oficial | lanzamientos entre países, formatos y reediciones",
+      "tracks": "Pistas",
+      "tracksSentence": "{duration} de música, de principio a fin"
+    },
+    "edition": {
+      "barcode": "Código de barras",
+      "catalogNumber": "Número de catálogo",
+      "country": "País",
+      "date": "Lanzamiento",
+      "formats": "Formatos",
+      "labels": "Sellos",
+      "language": "Idioma",
+      "lead": "Edición de referencia para la lista de pistas. | Edición de referencia entre {count} ediciones.",
+      "name": "Título de la edición",
+      "openSource": "Ver en MusicBrainz",
+      "packaging": "Empaque",
+      "source": "Fuente",
+      "status": "Estado",
+      "title": "Edición"
+    },
+    "loading": "Cargando álbum",
+    "notFound": "Álbum no encontrado",
+    "notFoundDescription": "Revisa el enlace o busca el disco en el buscador.",
+    "noTracks": "La lista de pistas todavía no fue registrada.",
+    "reviewsDescription": "Qué le pareció “{title}” a la comunidad.",
+    "seoDescription": "“{title}”, de {artist} ({year}), con {count} pistas. Califícalo de 0 a 5 y lee reseñas en Mixtape.",
+    "seoDescriptionRated": "“{title}”, de {artist}: nota {rating} de 5 en {count} calificación en Mixtape. | “{title}”, de {artist}: nota {rating} de 5 en {count} calificaciones en Mixtape.",
+    "seoTitle": "{title} — {artist}",
+    "shareText": "Mira este disco en Mixtape: “{title}”, de {artist}",
+    "shareTitle": "{title} — {artist}",
+    "story": {
+      "duration": "{duration} de duración",
+      "editions": "{formatted} edición | {formatted} ediciones por el mundo",
+      "released": "Lanzado el {date}",
+      "tracks": "{formatted} pista | {formatted} pistas",
+      "undated": "Fecha de lanzamiento desconocida"
+    },
+    "tracklist": "Pistas",
+    "tracklistDescription": "{count} pista · {duration} | {count} pistas · {duration}"
+  },
+  "track": {
+    "appearsOn": "Aparece en",
+    "appearsOnDescription": "Álbumes, EP, sencillos y recopilatorios que incluyen esta grabación.",
+    "cards": {
+      "appearsOn": "Lanzamientos",
+      "appearsOnSentence": "lanzamiento incluye esta grabación | lanzamientos incluyen esta grabación",
+      "duration": "Duración",
+      "durationSentence": "puedes escucharla {plays} veces seguidas en una hora",
+      "people": "Créditos",
+      "peopleSentence": "persona en los créditos | personas en los créditos"
+    },
+    "credits": "Créditos",
+    "creditsDescription": "Quién compuso, tocó, produjo y grabó.",
+    "creditsDescriptionWork": "Quién compuso, tocó, produjo y grabó “{work}”.",
+    "details": "Detalles",
+    "detailsItems": {
+      "album": "Álbum",
+      "duration": "Duración",
+      "released": "Lanzamiento",
+      "source": "Fuente",
+      "version": "Versión",
+      "work": "Obra"
+    },
+    "eyebrow": "Canción",
+    "fromAlbum": "Del álbum",
+    "isrc": "ISRC | ISRC",
+    "isrcHint": "Código internacional de la grabación: identifica esta pista en tiendas y servicios de streaming.",
+    "loading": "Cargando canción",
+    "noCredits": "Los créditos de esta grabación todavía no fueron registrados en MusicBrainz.",
+    "notFound": "Canción no encontrada",
+    "notFoundDescription": "Revisa el enlace o busca la canción en el buscador.",
+    "reviewsDescription": "Qué le pareció “{title}” a la comunidad.",
+    "seoDescription": "“{title}”, de {artist}, del álbum {album}. Califícala de 0 a 5 y lee reseñas en Mixtape.",
+    "seoDescriptionRated": "“{title}”, de {artist}: nota {rating} de 5 en {count} calificación en Mixtape. | “{title}”, de {artist}: nota {rating} de 5 en {count} calificaciones en Mixtape.",
+    "seoTitle": "{title} — {artist}",
+    "shareText": "Mira esta canción en Mixtape: “{title}”, de {artist}",
+    "shareTitle": "{title} — {artist}",
+    "story": {
+      "duration": "{duration} de duración",
+      "released": "Lanzada el {date}",
+      "undated": "Fecha de lanzamiento desconocida"
+    },
+    "workFact": "Obra registrada"
+  },
+  "artist": {
+    "about": "Acerca de",
+    "cards": {
+      "discography": "Discografía",
+      "since": "En activo desde",
+      "sinceActive": "{years} años de carrera hasta ahora",
+      "sinceEnded": "terminó su actividad en {end}",
+      "sinceEndedUnknown": "ya no está en activo",
+      "topTrack": "Canción más escuchada",
+      "topTrackSentence": "{listeners} oyentes en ListenBrainz"
+    },
+    "details": {
+      "area": "Región",
+      "begin": "Inicio",
+      "beginArea": "Origen",
+      "country": "País",
+      "disambiguation": "Observación",
+      "end": "Fin",
+      "endedUnknown": "Terminado, fecha desconocida",
+      "gender": "Género",
+      "sortName": "Nombre para ordenar",
+      "source": "Fuente",
+      "type": "Tipo"
+    },
+    "discography": "Discografía",
+    "discographyEyebrow": "{count} lanzamiento | {count} lanzamientos",
+    "elsewhere": "En internet",
+    "eyebrow": "Artista",
+    "filterAll": "Todo",
+    "filterLabel": "Filtrar por tipo",
+    "genericType": "Artista",
+    "loading": "Cargando artista",
+    "noDiscography": "No hay lanzamientos con este filtro.",
+    "notFound": "Artista no encontrado",
+    "notFoundDescription": "Revisa el enlace o busca el artista en el buscador.",
+    "photoBy": "Foto: {author}",
+    "photoSource": "Ver en Wikimedia Commons",
+    "rateAlbum": "Calificar un disco",
+    "monthlyListeners": "Oyentes mensuales en ListenBrainz",
+    "monthlyListenersSentence": "personas distintas en {period}",
+    "releases": "Lanzamientos",
+    "seoDescription": "{story} {count} lanzamiento en el catálogo. Califica los discos en Mixtape. | {story} {count} lanzamientos en el catálogo. Califica los discos en Mixtape.",
+    "shareText": "Mira a {name} en Mixtape",
+    "shareTitle": "{name} en Mixtape",
+    "showAllTracks": "Ver las {count} canciones",
+    "story": {
+      "from": "{kind} de {place}",
+      "genres": "géneros: {genres}"
+    },
+    "topTracks": "Canciones más escuchadas",
+    "topTracksDescription": "Las pistas con más oyentes en ListenBrainz.",
+    "topTracksEyebrow": "Top canciones",
+    "years": "Años de trayectoria"
+  },
+  "errors": {
+    "code": {
+      "VALIDATION_FAILED": "Algunos campos no son válidos. Revísalos e inténtalo de nuevo.",
+      "INVALID_EMAIL": "Ingresa un correo válido.",
+      "INVALID_USERNAME": "El nombre de usuario debe tener de 3 a 30 caracteres: minúsculas, números, punto o guion bajo, sin empezar ni terminar con un símbolo.",
+      "USERNAME_RESERVED": "Este nombre de usuario está reservado.",
+      "INVALID_FULL_NAME": "Ingresa tu nombre completo, con letras.",
+      "INVALID_BIRTH_DATE": "Fecha de nacimiento no válida.",
+      "UNDERAGE": "Necesitas tener al menos {minAge} años para crear una cuenta.",
+      "WEAK_PASSWORD": "La contraseña no cumple las reglas: revisa la lista debajo del campo.",
+      "BREACHED_PASSWORD": "Esta contraseña ya apareció en filtraciones de datos y podría adivinarse. Elige otra.",
+      "EMAIL_ALREADY_REGISTERED": "Este correo ya está registrado. ¿Qué tal si entras?",
+      "USERNAME_ALREADY_TAKEN": "Este nombre de usuario ya está en uso.",
+      "INVALID_CREDENTIALS": "Correo, usuario o contraseña incorrectos.",
+      "TOO_MANY_LOGIN_ATTEMPTS": "Demasiadas contraseñas incorrectas seguidas en esta cuenta. Por seguridad, vuelve a intentarlo en {wait}.",
+      "LOGIN_BLOCKED": "Por seguridad, el inicio de sesión de esta cuenta se bloqueó tras demasiadas contraseñas incorrectas. Crea una nueva con «¿Olvidaste tu contraseña?»: eso lo desbloquea al instante.",
+      "LOGIN_DENIED": "El servicio de inicio de sesión no permitió el acceso a esta cuenta.",
+      "IDENTITY_PROVIDER_UNAVAILABLE": "El servicio de inicio de sesión no está disponible ahora. Vuelve a intentarlo en unos minutos.",
+      "IDENTITY_REJECTED": "El servicio de inicio de sesión rechazó la solicitud. Revisa los datos e inténtalo de nuevo.",
+      "INVALID_REFRESH_TOKEN": "Tu sesión terminó. Vuelve a entrar.",
+      "REFRESH_TOKEN_REUSED": "Sesión cerrada por seguridad. Vuelve a entrar.",
+      "REFRESH_TOKEN_EXPIRED": "Tu sesión caducó. Vuelve a entrar.",
+      "INVALID_ACCESS_TOKEN": "Tu sesión terminó. Vuelve a entrar.",
+      "AUTHENTICATION_REQUIRED": "Entra en tu cuenta para continuar.",
+      "PASSWORD_RESET_INVALID": "Este enlace ya no vale: los enlaces caducan pronto y funcionan una sola vez. Pide otro.",
+      "PASSWORD_RESET_TOO_MANY": "Ya pediste varios enlaces hace un momento. Revisa tu bandeja de entrada (y el spam) o inténtalo de nuevo en {wait}.",
+      "ACCOUNT_DELETION_INVALID": "Este enlace ya no vale: los enlaces caducan pronto y funcionan una sola vez. Pide otro en Cuenta y seguridad.",
+      "ACCOUNT_DELETION_TOO_MANY": "Ya pediste varios enlaces hace poco. Revisa la bandeja de entrada (y el spam) o inténtalo de nuevo en {wait}.",
+      "EMAIL_UNAVAILABLE": "El envío de correos está desactivado en esta instalación, así que ahora no se puede cambiar la contraseña.",
+      "EMAIL_SEND_FAILED": "No pudimos enviar el correo ahora. Inténtalo de nuevo en unos minutos.",
+      "ACCOUNT_NOT_FOUND": "Cuenta no encontrada.",
+      "BIO_TOO_LONG": "La biografía es demasiado larga.",
+      "INVALID_AVATAR_URL": "Usa un enlace https válido para la foto.",
+      "AVATAR_HOST_NOT_ALLOWED": "Usa una foto de Gravatar, GitHub, Google, Imgur, Unsplash o Wikimedia.",
+      "TOO_MANY_GENRES": "Elegiste demasiados géneros.",
+      "INVALID_GENRE": "Uno de los géneros tiene un nombre demasiado largo.",
+      "UNKNOWN_GENRES": "Algunos géneros no existen en el catálogo.",
+      "INVALID_MBID": "Este enlace no apunta a un elemento válido del catálogo.",
+      "ALBUM_NOT_FOUND": "Álbum no encontrado en el catálogo.",
+      "TRACK_NOT_FOUND": "Canción no encontrada en el catálogo.",
+      "ARTIST_NOT_FOUND": "Artista no encontrado en el catálogo.",
+      "MUSIC_ITEM_NOT_FOUND": "Elemento no encontrado en el catálogo.",
+      "CATALOG_BUSY": "El catálogo musical está recibiendo muchas consultas. Inténtalo de nuevo en unos segundos.",
+      "CATALOG_UNAVAILABLE": "No se pudo consultar el catálogo musical ahora.",
+      "CHARTS_DISABLED": "Las listas globales están desactivadas en esta instalación.",
+      "CHARTS_UNAVAILABLE": "No se pudieron cargar las listas ahora.",
+      "INVALID_SEARCH_QUERY": "Escribe un término de búsqueda un poco más largo.",
+      "INVALID_RATING": "La nota va de 0 a 5, en pasos de medio disco.",
+      "INVALID_RATING_RANGE": "La nota mínima no puede ser mayor que la máxima.",
+      "REVIEW_NOT_FOUND": "Calificación no encontrada.",
+      "REVIEW_ALREADY_EXISTS": "Ya calificaste este elemento. Edita tu calificación.",
+      "REVIEW_TOO_LONG": "El texto de la calificación es demasiado largo.",
+      "NOT_REVIEW_AUTHOR": "Solo quien la escribió puede cambiar esta calificación.",
+      "CANNOT_LIKE_OWN_REVIEW": "No puedes dar me gusta a tu propia calificación.",
+      "REVIEW_IN_OTHER_GROUP_REVIEW": "Tu calificación de este elemento ya forma parte de otra reseña de la pandilla.",
+      "VISIBILITY_FOLLOWS_GROUP": "Esta calificación está en una reseña de la pandilla y sigue la visibilidad del grupo.",
+      "CONTENT_REJECTED": "El texto tiene palabras que no se permiten aquí ({terms}). Cámbialas e inténtalo de nuevo.",
+      "CONTENT_REJECTED_TONE": "La moderación bloqueó el texto por ofensa, odio o amenaza. Reescríbelo e inténtalo de nuevo.",
+      "USER_NOT_FOUND": "Usuario no encontrado.",
+      "INVALID_PERIOD": "Período no válido.",
+      "PERIOD_NOT_CLOSED": "Los Awards de un mes solo se calculan cuando el mes termina.",
+      "GROUP_NOT_FOUND": "Grupo no encontrado.",
+      "INVALID_GROUP_NAME": "El nombre del grupo no tiene una longitud válida.",
+      "INVALID_GROUP_DESCRIPTION": "La descripción del grupo es demasiado larga.",
+      "NOT_GROUP_MEMBER": "Este grupo es privado. Entra con una invitación para participar.",
+      "NOT_GROUP_OWNER": "Solo quien creó el grupo puede hacer eso.",
+      "INVITE_NOT_FOUND": "Invitación no válida o caducada.",
+      "ALREADY_GROUP_MEMBER": "Ya formas parte de este grupo.",
+      "GROUP_FULL": "El grupo alcanzó el límite de miembros.",
+      "CANNOT_REMOVE_SELF": "Para salir del grupo, usa “Salir del grupo”.",
+      "MEMBER_NOT_FOUND": "Esa persona no forma parte del grupo.",
+      "GROUP_REVIEW_NOT_FOUND": "Reseña de la pandilla no encontrada.",
+      "GROUP_REVIEW_ALREADY_EXISTS": "La pandilla ya tiene una reseña de este elemento.",
+      "GROUP_REVIEW_HAS_ENTRIES": "Alguien ya puntuó: esta reseña de la pandilla ya no se puede deshacer.",
+      "CANNOT_CANCEL_GROUP_REVIEW": "Solo quien la sugirió o el dueño del grupo puede deshacer esta reseña de la pandilla.",
+      "PLAYLIST_NOT_FOUND": "Playlist no encontrada.",
+      "INVALID_PLAYLIST_TITLE": "El título de la playlist no tiene una longitud válida.",
+      "NOT_PLAYLIST_OWNER": "Solo quien creó la playlist puede cambiarla.",
+      "INVALID_PLAYLIST_ITEM": "Este elemento no se puede agregar a la playlist.",
+      "ITEM_ALREADY_IN_PLAYLIST": "Este elemento ya está en la playlist.",
+      "PLAYLIST_FULL": "La playlist alcanzó el límite de elementos.",
+      "PLAYLIST_ITEM_NOT_FOUND": "Elemento no encontrado en la playlist.",
+      "FAVORITES_FULL": "Ya tienes {limit} favoritos. Quita uno en tu perfil para agregar otro.",
+      "TOO_MANY_REQUESTS": "Demasiados intentos seguidos. Espera un poco e inténtalo de nuevo.",
+      "PAYLOAD_TOO_LARGE": "Lo que enviaste es demasiado grande.",
+      "FORBIDDEN": "No tienes permiso para hacer eso.",
+      "NETWORK_ERROR": "Sin conexión con Mixtape. Revisa tu internet."
+    },
+    "fallback": "Algo salió mal. Inténtalo de nuevo.",
+    "notFound": {
+      "eyebrow": "Error 404",
+      "title": "Esa pista no está en el disco",
+      "description": "La página que buscas no existe o cambió de dirección.",
+      "home": "Ir al inicio",
+      "search": "Buscar en el catálogo"
+    },
+    "status": {
+      "badRequest": "Revisa los datos e inténtalo de nuevo.",
+      "conflict": "Esto choca con algo que ya existe.",
+      "forbidden": "No tienes permiso para hacer eso.",
+      "network": "Sin conexión con Mixtape. Revisa tu internet.",
+      "notFound": "No encontramos lo que buscabas.",
+      "rule": "Las reglas de Mixtape no permiten esta acción.",
+      "server": "Mixtape tropezó. Inténtalo de nuevo en un momento.",
+      "tooManyRequests": "Demasiados intentos seguidos. Espera un poco e inténtalo de nuevo.",
+      "unauthorized": "Entra en tu cuenta para continuar.",
+      "unavailable": "El servicio no está disponible ahora. Inténtalo de nuevo en un momento."
+    }
+  },
+  "gamification": {
+    "tiers": {
+      "DEMO": "Cinta Demo",
+      "BRONZE": "Disco de Bronce",
+      "SILVER": "Disco de Plata",
+      "GOLD": "Disco de Oro",
+      "PLATINUM": "Disco de Platino",
+      "DIAMOND": "Disco de Diamante"
+    },
+    "badges": {
+      "CRITIC": {
+        "name": "Crítico",
+        "description": "Escribe reseñas (calificaciones con texto)."
+      },
+      "CROWD_FAVORITE": {
+        "name": "Favorito del Público",
+        "description": "Recibe me gusta en tus calificaciones."
+      },
+      "HITMAKER": {
+        "name": "Hitmaker",
+        "description": "Ten una calificación con muchos “me gusta”."
+      },
+      "ECLECTIC": {
+        "name": "Ecléctico",
+        "description": "Califica discos de géneros musicales distintos."
+      },
+      "CURATOR": { "name": "Curador", "description": "Crea playlists." },
+      "SOCIAL": {
+        "name": "La Banda Reunida",
+        "description": "Participa en grupos con amigos."
+      },
+      "PIONEER": {
+        "name": "Pionero",
+        "description": "Sé la primera persona en calificar un disco en Mixtape."
+      },
+      "MARATHONER": {
+        "name": "Maratonista",
+        "description": "Califica muchos elementos en un solo día."
+      },
+      "AWARD_WINNER": {
+        "name": "Premiado",
+        "description": "Gana Awards mensuales."
+      }
+    },
+    "badgeTiers": {
+      "1": "Bronce",
+      "2": "Plata",
+      "3": "Oro",
+      "4": "Platino"
+    },
+    "reasons": {
+      "REVIEW_CREATED": "Calificar un álbum o canción",
+      "REVIEW_WRITTEN": "Escribir una reseña",
+      "PIONEER_REVIEW": "Ser la primera persona en calificar un elemento",
+      "LIKE_RECEIVED": "Recibir un me gusta"
+    },
+    "metrics": {
+      "writtenReviews": "reseñas escritas",
+      "likesReceived": "me gusta recibidos",
+      "maxLikesOnReview": "me gusta en una sola calificación",
+      "distinctGenres": "géneros distintos calificados",
+      "playlistsCreated": "playlists creadas",
+      "groupsJoined": "grupos en los que participa",
+      "pioneerReviews": "calificaciones pioneras",
+      "maxReviewsInADay": "calificaciones en un solo día",
+      "awardsWon": "Awards ganados"
+    },
+    "awards": {
+      "CRITIC_OF_THE_MONTH": {
+        "name": "Crítico del Mes",
+        "description": "Más notoriedad en el mes: me gusta recibidos."
+      },
+      "MOST_ACTIVE_OF_THE_MONTH": {
+        "name": "Más Activo del Mes",
+        "description": "Más puntos de participación en el mes."
+      },
+      "REVIEW_OF_THE_MONTH": {
+        "name": "Reseña del Mes",
+        "description": "La calificación pública del mes con más me gusta."
+      },
+      "ROOKIE_OF_THE_MONTH": {
+        "name": "Revelación del Mes",
+        "description": "Quien llegó en el mes y más puntos sumó."
+      }
+    }
+  },
+  "catalog": {
+    "listenersFrom": "{formatted} oyente en {source} | {formatted} oyentes en {source}",
+    "lifeSpan": {
+      "active": "desde {begin}",
+      "ended": "de {begin} hasta el fin de su actividad",
+      "range": "{begin}–{end}",
+      "until": "hasta {end}"
+    },
+    "releaseTypes": {
+      "album": "Álbum",
+      "single": "Sencillo",
+      "ep": "EP",
+      "broadcast": "Transmisión",
+      "other": "Otro"
+    },
+    "releaseTypeCounts": {
+      "album": "{formatted} álbum | {formatted} álbumes",
+      "single": "{formatted} sencillo | {formatted} sencillos",
+      "ep": "{formatted} EP | {formatted} EP",
+      "broadcast": "{formatted} transmisión | {formatted} transmisiones",
+      "other": "{formatted} otro | {formatted} otros"
+    },
+    "secondaryTypes": {
+      "compilation": "Recopilatorio",
+      "soundtrack": "Banda sonora",
+      "spokenword": "Palabra hablada",
+      "interview": "Entrevista",
+      "audiobook": "Audiolibro",
+      "audio_drama": "Radioteatro",
+      "live": "En vivo",
+      "remix": "Remix",
+      "dj_mix": "DJ mix",
+      "mixtape_street": "Mixtape",
+      "demo": "Demo",
+      "field_recording": "Grabación de campo"
+    },
+    "releaseStatus": {
+      "official": "Oficial",
+      "promotion": "Promocional",
+      "bootleg": "No oficial",
+      "pseudo_release": "Pseudolanzamiento",
+      "withdrawn": "Retirado",
+      "cancelled": "Cancelado"
+    },
+    "artistTypes": {
+      "person": "Artista solista",
+      "group": "Grupo",
+      "orchestra": "Orquesta",
+      "choir": "Coro",
+      "character": "Personaje",
+      "other": "Artista"
+    },
+    "genders": {
+      "male": "Masculino",
+      "female": "Femenino",
+      "non_binary": "No binario",
+      "other": "Otro",
+      "not_applicable": "No aplica"
+    },
+    "roles": {
+      "composer": "Composición",
+      "lyricist": "Letra",
+      "writer": "Autoría",
+      "producer": "Producción",
+      "engineer": "Ingeniería de sonido",
+      "audio": "Ingeniería de audio",
+      "recording": "Grabación",
+      "mix": "Mezcla",
+      "mastering": "Masterización",
+      "vocal": "Voz",
+      "instrument": "Instrumentos",
+      "performer": "Interpretación",
+      "performing_orchestra": "Orquesta",
+      "arranger": "Arreglos",
+      "conductor": "Dirección",
+      "orchestrator": "Orquestación",
+      "programming": "Programación",
+      "remixer": "Remix",
+      "editor": "Edición",
+      "sound": "Sonido",
+      "balance": "Balance",
+      "chorus_master": "Dirección de coro",
+      "concertmaster": "Concertino",
+      "mix_dj": "DJ mix"
+    }
+  },
+  "filters": {
+    "period": "Período",
+    "periods": {
+      "week": "Semana",
+      "month": "Mes",
+      "year": "Año",
+      "all_time": "Siempre"
+    }
+  },
+  "consent": {
+    "accept": "Aceptar todo",
+    "description": "Usamos una cookie esencial para mantener tu sesión y, con tu permiso, cookies de anuncios personalizados de Google AdSense. Puedes cambiarlo cuando quieras en los ajustes.",
+    "reject": "Solo esenciales",
+    "title": "Cookies y anuncios"
+  },
+  "ads": {
+    "label": "Publicidad"
+  },
+  "footer": {
+    "account": "Cuenta",
+    "attribution": "Datos abiertos de",
+    "cookies": "Cookies",
+    "copyright": "© {year} Mixtape. Hecho con música.",
+    "explore": "Explorar",
+    "label": "Pie de página",
+    "mixtape": "Mixtape",
+    "tagline": "El lugar para calificar, reseñar y coleccionar la música que te mueve."
+  },
+  "celebration": {
+    "continue": "Continuar",
+    "profile": "Ver mi perfil",
+    "text": "Llegaste a {count} calificaciones y subiste de nivel. ¡Qué racha!",
+    "title": "¡Nuevo disco desbloqueado!"
+  },
+  "genres": {
+    "noData": "No se encontraron géneros"
+  },
+  "home": {
+    "awards": {
+      "description": "Lo más destacado del último mes calculado.",
+      "period": "Lo más destacado de {period}.",
+      "title": "Awards del mes"
+    },
+    "cta": {
+      "description": "Crea tu cuenta gratis, califica lo que escuchas y mira tu disco pasar de Cinta Demo a Diamante.",
+      "title": "¿Armamos tu mixtape?"
+    },
+    "genresLabel": "Géneros musicales del catálogo",
+    "greeting": {
+      "morning": "Buenos días, {name}",
+      "afternoon": "Buenas tardes, {name}",
+      "night": "Buenas noches, {name}"
+    },
+    "hero": {
+      "charts": "Ver listas",
+      "eyebrow": "El Letterboxd de la música",
+      "lead": "Califica de 0 a 5 discos, escribe reseñas, arma playlists y mira lo que todos están escuchando.",
+      "rate": "Calificar ahora",
+      "title": "Tu banda sonora merece una nota"
+    },
+    "playlists": {
+      "description": "Colecciones armadas por la comunidad.",
+      "title": "Playlists de la comunidad"
+    },
+    "progressTitle": "Tu progreso",
+    "ranking": {
+      "description": "Quién sumó más puntos este mes.",
+      "title": "Ranking del mes"
+    },
+    "reviews": {
+      "description": "Reseñas recién salidas del horno.",
+      "empty": "Todavía no hay reseñas",
+      "emptyDescription": "¡Sé la primera persona en escribir una!",
+      "title": "Últimas reseñas"
+    },
+    "seeProfile": "Ver perfil completo",
+    "tiers": {
+      "description": "Cada calificación te lleva más lejos: empieza con una Cinta Demo y llega al Disco de Diamante.",
+      "eyebrow": "Discos de nivel",
+      "min": "desde el registro | desde {formatted} calificación | desde {formatted} calificaciones",
+      "more": "Cómo funciona",
+      "title": "Del demo al diamante"
+    },
+    "tracks": {
+      "description": "Las canciones más calificadas del período.",
+      "title": "Canciones en tendencia"
+    },
+    "trending": {
+      "albums": "Álbumes en tendencia",
+      "description": "Los álbumes que la comunidad más calificó.",
+      "empty": "Todavía no hay calificaciones en este período.",
+      "meta": "{formatted} calificación | {formatted} calificaciones",
+      "more": "Ver listas",
+      "title": "Tendencias en Mixtape",
+      "top": "Top 1"
+    },
+    "world": {
+      "description": "Los álbumes más escuchados del mundo esta semana, según ListenBrainz.",
+      "empty": "Las listas globales no están disponibles ahora.",
+      "eyebrow": "Mundo",
+      "title": "El mundo está escuchando"
+    }
+  },
+  "charts": {
+    "disabled": "Listas globales desactivadas",
+    "disabledDescription": "Esta instalación de Mixtape no consulta ListenBrainz. Mira lo que es tendencia en las calificaciones de la comunidad.",
+    "empty": "Nada por aquí todavía",
+    "emptyDescription": "No hay datos de oyentes para este período.",
+    "emptyMixtapeDescription": "Nadie calificó nada en este período todavía. ¿Empiezas tú?",
+    "eyebrow": "Listas",
+    "kindLabel": "Tipo",
+    "leadMixtape": "Lo más calificado por la comunidad de Mixtape, con la nota promedio de cada uno.",
+    "leadWorld": "Los álbumes, canciones y artistas más escuchados en el período por quienes registran lo que oyen en ListenBrainz, una comunidad abierta de todo el mundo. Al lado, cuántas de esas personas escucharon cada álbum y artista el mes pasado (en las canciones, desde siempre).",
+    "monthlyListeners": "{formatted} oyente de ListenBrainz en {month} | {formatted} oyentes de ListenBrainz en {month}",
+    "allTimeListeners": "{formatted} oyente de ListenBrainz desde siempre | {formatted} oyentes de ListenBrainz desde siempre",
+    "loaded": "{count} posición en la lista | {count} posiciones en la lista",
+    "ratingStat": "Nota {rating} · {formatted} calificación | Nota {rating} · {formatted} calificaciones",
+    "rest": "Demás posiciones",
+    "seoTitle": "Listas",
+    "sourceLabel": "Fuente de la lista",
+    "sourceMixtape": "Lista calculada a partir de las calificaciones de Mixtape.",
+    "sources": {
+      "mixtape": "En Mixtape",
+      "world": "En el mundo"
+    },
+    "sourceWorld": "Datos de oyentes de",
+    "title": "Lo que está sonando",
+    "top3": "Top 3"
+  },
+  "feed": {
+    "empty": "No hay reseñas por aquí",
+    "emptyDescription": "Cambia los filtros o vuelve en un rato.",
+    "eyebrow": "Comunidad",
+    "lead": "Todo lo que la comunidad está calificando, de las notas rápidas a las reseñas detalladas.",
+    "minLength": "Los textos de {count} caracteres o más cuentan como reseña.",
+    "points": "+{points} pts",
+    "sorts": {
+      "recent": "Recientes",
+      "popular": "Populares"
+    },
+    "title": "Reseñas",
+    "withText": "Solo con texto",
+    "writeText": "Calificar suma puntos de participación, y las reseñas y los me gusta recibidos valen aún más.",
+    "writeTitle": "Escribe tú también"
+  },
+  "profile": {
+    "awards": "Awards",
+    "awardsDescription": "Podios ganados en los Awards mensuales.",
+    "badges": "Insignias ({count})",
+    "badgesDescription": "Logros con cuatro niveles: Bronce, Plata, Oro y Platino.",
+    "badgesEarned": "Insignias ganadas",
+    "cards": {
+      "average": "Nota promedio",
+      "averageSentence": "en {count} calificación | en {count} calificaciones",
+      "disc": "Disco actual",
+      "discNext": "falta {count} calificación para el {next} | faltan {count} calificaciones para el {next}",
+      "discTop": "¡nivel máximo alcanzado!",
+      "ranking": "En el ranking general",
+      "rankingMonth": "{position} este mes",
+      "rankingNoMonth": "todavía sin puntos este mes",
+      "topGenre": "Género favorito",
+      "topGenreSentence": "{count} calificación en este género | {count} calificaciones en este género"
+    },
+    "collections": "Colecciones",
+    "distribution": "Cómo califica",
+    "edit": "Editar perfil",
+    "favoriteGenres": "Géneros favoritos",
+    "highlights": "Lo destacado del perfil",
+    "library": "Biblioteca",
+    "libraryCount": "{count} calificación | {count} calificaciones",
+    "loading": "Cargando perfil",
+    "memberSince": "en Mixtape desde {date}",
+    "nextBadges": "Próximas insignias",
+    "noAwards": "Todavía no hay Awards. ¡El próximo puede ser tuyo!",
+    "noBadges": "Todavía no ganó insignias.",
+    "noBadgesMine": "Todavía no tienes insignias. ¡Califica, escribe reseñas y entra en una reseña de la pandilla para ganar la primera!",
+    "noBioMine": "Cuenta un poco sobre tu gusto musical en los ajustes.",
+    "noGenres": "Todavía no hay géneros calificados.",
+    "noReviews": "Todavía no calificó ningún álbum",
+    "noReviewsMine": "Todavía no calificaste ningún álbum",
+    "notFound": "Perfil no encontrado",
+    "notFoundDescription": "Revisa el nombre de usuario en el enlace.",
+    "persona": {
+      "balanced": "El equilibrio lo es todo: notas bien repartidas.",
+      "generous": "Corazón blando: da notas altas a menudo.",
+      "none": "Las notas aparecen aquí después de las primeras calificaciones.",
+      "tough": "Crítico exigente: una nota alta hay que ganársela."
+    },
+    "playlists": "Playlists",
+    "playlistsCount": "{count} playlist pública | {count} playlists públicas",
+    "progress": "Progreso",
+    "progressDescription": "Disco actual, puntos y posición en los rankings.",
+    "scores": "Puntos y ranking",
+    "scoresDescription": "Puntos y posición en los rankings.",
+    "qrText": "Muestra el código para que otros conozcan tu gusto musical.",
+    "qrTitle": "Código QR del perfil",
+    "recent": "Álbumes calificados recientemente",
+    "recentDescription": "Las últimas notas.",
+    "recentCrate": "Álbumes calificados por {name}, en una pila de discos",
+    "recentViewLabel": "Cómo mostrar los álbumes calificados",
+    "recentViews": { "crate": "Pila", "rail": "Fila" },
+    "galera": "Reseñas de la pandilla",
+    "galeraDescription": "Las reseñas hechas con los grupos. Las de grupos privados solo se ven para los miembros.",
+    "galeraDescriptionMine": "Tus notas en las reseñas de la pandilla. Las de grupos privados solo las ve la pandilla.",
+    "noGalera": "No hay reseñas de la pandilla por aquí",
+    "noGaleraMine": "Todavía no participaste en una reseña de la pandilla",
+    "noGaleraMineHint": "En un grupo, toca “Reseña de la pandilla” y elige un disco para calificar juntos.",
+    "seeLibrary": "Ver biblioteca ({count})",
+    "seoDescription": "{name}: {tier} con {count} calificación en Mixtape. | {name}: {tier} con {count} calificaciones en Mixtape.",
+    "seoTitle": "{name} ({'@'}{username})",
+    "share": "Compartir perfil",
+    "shareTitle": "Compartir perfil",
+    "stats": {
+      "albums": "Álbumes",
+      "average": "Promedio",
+      "playlists": "Playlists",
+      "reviews": "Calificaciones",
+      "tracks": "Canciones"
+    },
+    "topGenres": "Géneros más calificados"
+  },
+  "crate": {
+    "kinds": { "ALBUM": "Álbum", "ARTIST": "Artista", "TRACK": "Canción" },
+    "open": {
+      "ALBUM": "Ver disco",
+      "ARTIST": "Ver artista",
+      "TRACK": "Ver canción"
+    },
+    "rateArtist": "Calificar un disco",
+    "seeReview": "Ver reseña"
+  },
+  "discover": {
+    "crateLabel": "Descubre: álbumes sorteados para ti",
+    "empty": "Ya calificaste todo por aquí",
+    "retry": "Intentar de nuevo",
+    "sentence": "Hojea la pila y saca un disco que todavía no calificaste. ¿Te gustó? Guárdalo para escuchar y calificar después.",
+    "shuffle": "Sortear otros",
+    "title": "Descubre"
+  },
+  "listenLater": {
+    "added": "{title} fue a tu lista “Escuchar después”.",
+    "addedOn": "Guardado {when}",
+    "crateLabel": "Tu pila “Escuchar después”",
+    "description": "Lo que guardaste para escuchar y calificar. Cuando lo calificas, sale de la lista. Solo tú lo ves.",
+    "empty": "Nada guardado todavía",
+    "emptyDescription": "Saca un disco en Descubre, aquí en tu perfil, y guárdalo para escuchar después.",
+    "removed": "{title} salió de tu lista “Escuchar después”.",
+    "save": "Escuchar después",
+    "saved": "En la lista",
+    "signIn": "Inicia sesión para guardar discos para escuchar después.",
+    "title": "Escuchar después"
+  },
+  "library": {
+    "allGenres": "Todos los géneros",
+    "clearFilters": "Quitar filtros",
+    "distribution": "Distribución de notas",
+    "empty": "Biblioteca vacía",
+    "emptyDescription": "Todavía no hay calificaciones aquí.",
+    "emptyFiltered": "Nada con estos filtros",
+    "emptyFilteredDescription": "Prueba otro género, tipo o rango de notas.",
+    "emptyMineDescription": "Califica tu primer disco y aparecerá aquí.",
+    "filters": "Filtros",
+    "genreCount": "{genre} ({count})",
+    "genreLabel": "Filtrar por género",
+    "gridLabel": "Discos y canciones calificados",
+    "openReview": "Ver la calificación de {title}",
+    "viewLabel": "Vista",
+    "views": {
+      "crate": "Pila",
+      "grid": "Cuadrícula",
+      "list": "Lista"
+    },
+    "crateLabel": "Discos y canciones calificados, en una pila de discos",
+    "withReview": "Con reseña",
+    "galera": "Pandilla · {group}",
+    "visibility": {
+      "group": "Solo la pandilla",
+      "private": "Solo tú"
+    },
+    "ratingRange": "Notas de {min} a {max}",
+    "ratingRangeLabel": "Rango de notas",
+    "seoDescription": "Las calificaciones de {name} en Mixtape: {count} calificación. | Las calificaciones de {name} en Mixtape: {count} calificaciones.",
+    "seoLoading": "Biblioteca",
+    "seoTitle": "Biblioteca de {name} ({'@'}{username})",
+    "stats": {
+      "albums": "Álbumes",
+      "average": "Promedio",
+      "reviews": "Calificaciones",
+      "tracks": "Canciones"
+    },
+    "title": "Biblioteca de {name}",
+    "titleMine": "Mi biblioteca",
+    "topGenres": "Géneros más calificados",
+    "typeLabel": "Tipo",
+    "types": {
+      "albums": "Álbumes",
+      "all": "Todo",
+      "tracks": "Canciones"
+    }
+  },
+  "progress": {
+    "allTime": "Desde siempre",
+    "notoriety": "Notoriedad",
+    "participation": "Participación",
+    "points": "Puntos",
+    "positionAllTime": "General",
+    "positionMonth": "Este mes",
+    "ranking": "Posición en el ranking",
+    "seeRanking": "Ver ranking completo",
+    "thisMonth": "Este mes",
+    "unranked": "—"
+  },
+  "rankings": {
+    "categories": {
+      "overall": "General",
+      "participation": "Participación",
+      "notoriety": "Notoriedad"
+    },
+    "category": "Categoría",
+    "categoryHints": {
+      "overall": "La suma de los puntos de participación y de notoriedad.",
+      "participation": "Puntos por calificar, escribir reseñas y ser pionero.",
+      "notoriety": "Puntos por el reconocimiento de la comunidad: me gusta recibidos."
+    },
+    "empty": "Ranking vacío",
+    "emptyDescription": "Nadie sumó puntos en este período todavía.",
+    "eyebrow": "Ranking",
+    "howMore": "Ver todas las reglas",
+    "howTitle": "Cómo sumar puntos",
+    "lead": "Quién más califica, escribe y recibe el reconocimiento de la comunidad.",
+    "mine": "Tu posición",
+    "period": "Período",
+    "podium": "Podio",
+    "points": "{points} pts",
+    "title": "Quién mueve Mixtape"
+  },
+  "rules": {
+    "categories": {
+      "PARTICIPATION": "Participación",
+      "NOTORIETY": "Notoriedad"
+    },
+    "categoryHints": {
+      "PARTICIPATION": "Cuánto contribuyes a Mixtape.",
+      "NOTORIETY": "Cuánto reconoce la comunidad tus calificaciones."
+    },
+    "points": "{points} pts"
+  },
+  "awards": {
+    "empty": "Todavía no hay Awards calculados",
+    "emptyDescription": "Los Awards salen cuando termina cada mes. ¡Sigue calificando!",
+    "eyebrow": "Awards mensuales",
+    "historyLine": "{period} · {position} puesto · {score} pts",
+    "howItWorks": "Cómo funcionan los Awards",
+    "lead": "Cada mes, lo más destacado de la comunidad sube al podio: Crítico, Más Activo, Reseña y Revelación del mes.",
+    "next": "Mes siguiente",
+    "noWinner": "Nadie sumó puntos en esta categoría.",
+    "periodLabel": "Mes",
+    "periodNav": "Elegir el mes",
+    "previous": "Mes anterior",
+    "reviewBy": "de {'@'}{username}",
+    "reviewOf": "Reseña: “{title}” ({rating})",
+    "score": "{score} pts",
+    "seoTitle": "Awards de {period}",
+    "showing": "Mostrando los Awards de {period}",
+    "title": "Los Awards"
+  },
+  "how": {
+    "awardLabel": "Award",
+    "awardsDescription": "Cada mes, cuatro categorías con un podio de tres puestos.",
+    "awardsTitle": "Awards mensuales",
+    "badgesDescription": "Cada insignia tiene cuatro niveles. Las bloqueadas siguen visibles para que sepas el camino.",
+    "badgesTitle": "Insignias",
+    "ctaTitle": "¿Listo para poner a girar tu primer disco?",
+    "discsDescription": "Tu nivel sube según la cantidad de calificaciones.",
+    "discsTitle": "Discos de nivel",
+    "eyebrow": "Cómo funciona",
+    "halfDiscs": "Puedes usar medio disco: 3,5 es distinto de 3 y de 4. El cero también vale, porque a veces un disco es eso.",
+    "lead": "Califica, escribe, da me gusta, colecciona y compite: todo en Mixtape se convierte en puntos, discos, insignias y Awards.",
+    "metric": "Cuenta: {metric}",
+    "nav": {
+      "awards": "Awards",
+      "badges": "Insignias",
+      "discs": "Discos",
+      "points": "Puntos",
+      "rating": "Notas"
+    },
+    "navLabel": "Secciones de esta página",
+    "pointsDescription": "La participación es cuánto contribuyes; la notoriedad es cuánto te reconoce la comunidad. Los textos de {count} caracteres o más cuentan como reseña.",
+    "pointsTitle": "Puntos",
+    "rankingText": "Los puntos alimentan el ranking global y el de cada grupo, por semana, mes, año o desde siempre.",
+    "rankingTitle": "Rankings",
+    "ratingDescription": "De 0 a 5 discos, en pasos de medio disco.",
+    "ratingTitle": "Cómo calificar",
+    "scale": {
+      "0": "Imposible de escuchar",
+      "1": "Flojo",
+      "2": "Tiene sus momentos",
+      "3": "Bueno",
+      "4": "Muy bueno",
+      "5": "Obra maestra"
+    },
+    "seeRanking": "Ver el ranking",
+    "step": "Paso {number}",
+    "steps": {
+      "rate": {
+        "title": "Califica",
+        "text": "Dale una nota de 0 a 5 a álbumes y canciones."
+      },
+      "write": {
+        "title": "Reseña",
+        "text": "Escribe qué te pareció: los textos más largos suman puntos extra."
+      },
+      "react": {
+        "title": "Dale me gusta",
+        "text": "Deja un corazón en las calificaciones que te gusten."
+      },
+      "galera": {
+        "title": "Junta a la pandilla",
+        "text": "Sugiere un disco en tu grupo y cada uno da su nota en la reseña de la pandilla."
+      },
+      "collect": {
+        "title": "Colecciona",
+        "text": "Arma playlists con álbumes, canciones, artistas y reseñas."
+      },
+      "compete": {
+        "title": "Compite",
+        "text": "Crea grupos, invita amigos y sube en el ranking."
+      }
+    },
+    "stepsLabel": "Paso a paso",
+    "tierMin": "desde el registro | desde {formatted} calificación | desde {formatted} calificaciones",
+    "tierStart": "desde el registro",
+    "title": "Cómo funciona Mixtape"
+  },
+  "galera": {
+    "alreadyExists": "La pandilla ya tiene una reseña de este elemento. Te la abrimos.",
+    "average": "Media de la pandilla: {rating}",
+    "cancel": "Deshacer sugerencia",
+    "cancelled": "Sugerencia deshecha.",
+    "cancelMessage": "La sugerencia de “{title}” saldrá del grupo. Se puede deshacer mientras nadie haya puntuado.",
+    "cancelTitle": "¿Deshacer la sugerencia?",
+    "copyLink": "Copiar enlace",
+    "editMine": "Editar mi nota",
+    "emptyDescription": "Toca “Reseña de la pandilla”, elige un álbum o una canción y cada uno da su nota.",
+    "emptyTitle": "Todavía no hay reseñas de la pandilla",
+    "entriesStat": "Notas",
+    "eyebrow": "Reseña de la pandilla · {group}",
+    "hintPrivate": "Grupo privado: solo los miembros ven estas reseñas, también en el perfil de cada uno.",
+    "hintPublic": "Grupo público: estas reseñas se ven para todos, en el perfil de cada miembro.",
+    "inOtherGroup": "Tu calificación de este elemento ya está en la reseña de la pandilla de otro grupo.",
+    "linkCopied": "¡Enlace copiado!",
+    "loading": "Cargando reseña de la pandilla",
+    "membersStat": "Miembros",
+    "noAverage": "Sin notas todavía",
+    "notFound": "Reseña de la pandilla no encontrada",
+    "notFoundDescription": "Puede que se haya deshecho, o es de un grupo privado del que no formas parte.",
+    "openGroup": "Abrir el grupo",
+    "propose": {
+      "albumPlaceholder": "Nombre del álbum o del artista",
+      "description": "Elige el álbum o la canción que la pandilla va a calificar junta. Cada uno da su nota.",
+      "empty": "No encontramos nada. Prueba otro nombre.",
+      "hint": "Busca por nombre y toca “Sugerir”.",
+      "kindLabel": "Qué calificar",
+      "pick": "Sugerir",
+      "resultsLabel": "Resultados de la búsqueda",
+      "searchLabel": "Buscar en el catálogo",
+      "title": "Reseña de la pandilla",
+      "trackPlaceholder": "Nombre de la canción o del artista"
+    },
+    "proposed": "¡“{title}” sugerido a la pandilla! Ahora da tu nota.",
+    "rateMine": "Dar mi nota",
+    "seoDescription": "La reseña de la pandilla {group} sobre “{title}”: {count} nota. | La reseña de la pandilla {group} sobre “{title}”: {count} notas.",
+    "seoTitle": "Reseña de la pandilla {group}: {title}",
+    "start": "Reseña de la pandilla",
+    "title": "Reseñas de la pandilla"
+  },
+  "groups": {
+    "code": "Código o enlace de invitación",
+    "codeError": "Pega el código (de 6 a 16 letras y números) o el enlace de invitación.",
+    "codeHint": "Pide a alguien del grupo que comparta la invitación.",
+    "create": "Crear grupo",
+    "created": "¡Grupo “{name}” creado! Ahora invita a tu gente.",
+    "createText": "Arma una banda, invita amigos y compitan en un ranking solo de ustedes.",
+    "createTitle": "Nuevo grupo",
+    "empty": "Todavía no estás en ningún grupo",
+    "emptyDescription": "Crea un grupo o entra con la invitación de alguien.",
+    "eyebrow": "Grupos",
+    "form": {
+      "create": "Crear grupo",
+      "createDescription": "Ponle un nombre y una descripción a la banda.",
+      "createTitle": "Nuevo grupo",
+      "description": "Descripción (opcional)",
+      "editDescription": "Cambia el nombre, la descripción o quién ve las reseñas de la pandilla.",
+      "exposeWarning": "Al hacer público el grupo, las reseñas de la pandilla que ya existen se verán para todos, también en el perfil de cada miembro.",
+      "editTitle": "Editar grupo",
+      "name": "Nombre del grupo",
+      "nameError": "El nombre debe tener de {min} a {max} caracteres.",
+      "privateHint": "Solo los miembros ven las reseñas de la pandilla, también en el perfil de cada uno.",
+      "publicHint": "Las reseñas de la pandilla se ven para todos, con el nombre del grupo, en el perfil de cada miembro. Entrar sigue siendo solo por invitación.",
+      "visibilityLabel": "Quién ve las reseñas de la pandilla"
+    },
+    "joinTitle": "¿Recibiste una invitación?",
+    "lead": "Ranking, feed y top discos solo de tu banda.",
+    "members": "{count} miembro | {count} miembros",
+    "mine": "Tus grupos ({count})",
+    "preview": "Ver invitación",
+    "roles": {
+      "OWNER": "Dueño(a)"
+    },
+    "since": "desde {date}",
+    "title": "Grupos",
+    "visibility": {
+      "private": "Grupo privado",
+      "public": "Grupo público"
+    }
+  },
+  "group": {
+    "codeCopied": "¡Código {code} copiado!",
+    "copyCode": "Código: {code}",
+    "delete": "Eliminar grupo",
+    "deleted": "Grupo eliminado.",
+    "deleteMessage": "“{name}” se eliminará para todos los miembros, con su ranking y su feed. Las notas de las reseñas de la pandilla quedan en el perfil de cada uno como calificaciones individuales (las de un grupo privado, visibles solo para quien las escribió). No se puede deshacer.",
+    "deleteTitle": "¿Eliminar grupo?",
+    "edit": "Editar grupo",
+    "eyebrow": "Grupo",
+    "eyebrowOwner": "Tu grupo",
+    "feedEmpty": "El feed está vacío",
+    "feedEmptyDescription": "Cuando alguien del grupo califique un disco, aparecerá aquí.",
+    "invite": "Invitar",
+    "inviteTitle": "Invitar al grupo",
+    "joinedAt": "se unió el {date}",
+    "leave": "Salir del grupo",
+    "leaveMessage": "Vas a salir de “{name}”. Tus notas en las reseñas de la pandilla quedan en tu perfil como calificaciones tuyas (las de un grupo privado, solo para ti). Para volver necesitarás una nueva invitación.",
+    "leaveOwnerMessage": "Creaste “{name}”. Si sales, el miembro más antiguo se queda con el grupo, y tus notas en las reseñas de la pandilla quedan en tu perfil como calificaciones tuyas.",
+    "leaveTitle": "¿Salir del grupo?",
+    "left": "Saliste del grupo.",
+    "loading": "Cargando grupo",
+    "membersLabel": "Miembros ({count})",
+    "notFound": "Grupo no encontrado",
+    "notFoundDescription": "Puede haber sido eliminado o no formas parte de él. Entra con la invitación de alguien del grupo.",
+    "owner": "Creado por {name}",
+    "regenerate": "Nueva invitación",
+    "regenerated": "Nuevo código de invitación generado. El anterior dejó de funcionar.",
+    "regenerateMessage": "El código actual dejará de funcionar, y quien todavía no entró necesitará el nuevo enlace.",
+    "regenerateTitle": "¿Generar una nueva invitación?",
+    "remove": "Quitar",
+    "removed": "{name} salió del grupo.",
+    "removeMember": "Quitar a {name} del grupo",
+    "removeMessage": "{name} saldrá del grupo y dejará de aparecer en su ranking. Sus notas en las reseñas de la pandilla pasan a ser calificaciones individuales.",
+    "removeTitle": "¿Quitar miembro?",
+    "saved": "Grupo actualizado.",
+    "tabs": {
+      "feed": "Feed",
+      "galera": "Reseñas de la pandilla",
+      "members": "Miembros",
+      "ranking": "Ranking",
+      "top": "Top del grupo"
+    },
+    "tabsLabel": "Secciones del grupo",
+    "topEmpty": "Todavía no hay elementos con dos calificaciones o más.",
+    "topHint": "Lo mejor calificado por el grupo, con al menos dos calificaciones.",
+    "topTitle": "Top del grupo"
+  },
+  "invite": {
+    "eyebrow": "Invitación al grupo",
+    "join": "Unirme al grupo",
+    "joined": "¡Ahora formas parte de “{name}”!",
+    "myGroups": "Ver mis grupos",
+    "notFound": "Invitación no válida",
+    "notFoundDescription": "La invitación puede haber caducado o haber sido cambiada. Pide un enlace nuevo a alguien del grupo.",
+    "ownedBy": "Grupo de {name}",
+    "seoDescription": "Una invitación a un grupo en Mixtape.",
+    "seoTitle": "Invitación: {name}",
+    "signInToJoin": "Entrar para participar"
+  },
+  "settings": {
+    "account": "Cuenta y seguridad",
+    "accountHint": "Correo, contraseña y sesiones",
+    "adsAll": "Anuncios personalizados según tus intereses.",
+    "adsEssential": "Anuncios sin personalizar, sin cookies de intereses.",
+    "adsPersonalization": "Anuncios personalizados",
+    "adsUndecided": "Todavía no elegiste.",
+    "appearance": "Apariencia e idioma",
+    "avatar": "Enlace de la foto (https)",
+    "avatarError": "Usa un enlace https válido.",
+    "avatarHint": "Pega el enlace https de tu foto en Gravatar, GitHub, Google, Imgur, Unsplash o Wikimedia.",
+    "bio": "Biografía",
+    "bioHint": "Aparece en tu perfil público.",
+    "bioPlaceholder": "Ej.: Escucho de todo, de la MPB al shoegaze, fan de los discos completos.",
+    "consent": {
+      "all": "Personalizados",
+      "essential": "Solo esenciales"
+    },
+    "consentReload": "Tu elección se aplica desde la próxima página que cargues.",
+    "eyebrow": "Ajustes",
+    "genres": "Géneros favoritos",
+    "genresHint": "Elige hasta {max}. Aparecen en tu perfil.",
+    "language": "Idioma",
+    "languageHint": "El idioma de la interfaz.",
+    "lead": "Tu perfil público y tus preferencias de apariencia y privacidad.",
+    "privacy": "Privacidad",
+    "profile": "Perfil público",
+    "profileHint": "Todo lo que pongas aquí lo verá quien visite tu perfil.",
+    "readPrivacy": "Leer la política de privacidad",
+    "saved": "¡Perfil actualizado!",
+    "theme": "Tema",
+    "themeHint": "Sigue al sistema o elige claro u oscuro.",
+    "themes": {
+      "dark": "Oscuro",
+      "light": "Claro",
+      "system": "Sistema"
+    },
+    "title": "Ajustes",
+    "viewProfile": "Ver mi perfil",
+    "welcomeText": "Elige tus géneros favoritos y cuenta un poco sobre ti: así tu perfil nace con tu estilo.",
+    "welcomeTitle": "¡Cuenta creada, {name}!"
+  },
+  "favorites": {
+    "add": "Agregar {title} a favoritos",
+    "added": "{title} entró en tus favoritos",
+    "choose": "Elegir favoritos",
+    "description": "Los álbumes y canciones que {name} más ama",
+    "descriptionMine": "Hasta {limit} álbumes y canciones que te representan, en el orden que quieras",
+    "edit": "Editar",
+    "editor": {
+      "add": "Agregar",
+      "added": "En la lista",
+      "addTitle": "Agregar más",
+      "albumPlaceholder": "Nombre del álbum o del artista",
+      "count": "{count} de {limit}",
+      "description": "Elige hasta {limit} álbumes y canciones y ordénalos como quieras. Aparecen en tu perfil para todos.",
+      "emptyList": "Todavía no hay favoritos: busca abajo y agrega.",
+      "kindLabel": "Buscar álbumes o canciones",
+      "listLabel": "Tus favoritos, en orden",
+      "moveDown": "Bajar {title}",
+      "moveUp": "Subir {title}",
+      "noResults": "No encontramos nada. Prueba otro nombre.",
+      "remove": "Quitar {title}",
+      "resultsLabel": "Resultados de la búsqueda",
+      "save": "Guardar favoritos",
+      "saved": "¡Favoritos guardados!",
+      "searchLabel": "Buscar en el catálogo",
+      "title": "Tus favoritos",
+      "trackPlaceholder": "Nombre de la canción o del artista"
+    },
+    "empty": "{name} todavía no eligió sus favoritos",
+    "emptyMine": "Elige tus favoritos",
+    "emptyMineDescription": "Hasta {limit} álbumes y canciones que cuentan quién eres. Quedan aquí, arriba en tu perfil.",
+    "remove": "Quitar {title} de favoritos",
+    "removed": "{title} salió de tus favoritos",
+    "title": "Favoritos"
+  },
+  "account": {
+    "data": "Tus datos",
+    "deletePage": {
+      "account": "Cuenta {'@'}{username}",
+      "cancel": "Cambié de idea",
+      "checking": "Revisando el enlace…",
+      "done": "Todo fue borrado, y un último aviso llegó a tu correo. Gracias por haber pasado por aquí.",
+      "doneTitle": "Cuenta eliminada",
+      "eyebrow": "Eliminación de la cuenta",
+      "home": "Ir al inicio",
+      "invalid": "El enlace vale por poco tiempo y funciona una sola vez, y un pedido nuevo desactiva los anteriores. Pide otro en Cuenta y seguridad.",
+      "invalidTitle": "Este enlace ya no vale",
+      "items": {
+        "groups": "Tu participación en los grupos (en los tuyos, el miembro más antiguo pasa a ser el dueño)",
+        "likes": "Los me gusta que diste y los que recibiste",
+        "lists": "Playlists, favoritos y la lista \"Escuchar después\"",
+        "points": "Puntos, insignias y Awards",
+        "reviews": "Calificaciones y reseñas"
+      },
+      "lead": "No tiene vuelta atrás. Desaparece al instante, para siempre:",
+      "requestNew": "Pedir un enlace nuevo",
+      "submit": "Eliminar mi cuenta para siempre",
+      "title": "¿Eliminar tu cuenta?"
+    },
+    "deletion": {
+      "button": "Enviar enlace para eliminar la cuenta",
+      "lead": "Elimina la cuenta y todo lo suyo: calificaciones, me gusta, playlists, favoritos, la lista \"Escuchar después\", puntos e insignias. En tus grupos, el miembro más antiguo pasa a ser el dueño. No tiene vuelta atrás.",
+      "note": "Por seguridad, la eliminación solo ocurre con el enlace que enviamos a {email}. No se borra nada hasta que confirmes con él.",
+      "sent": "Enlace enviado a {email}. Vale por {minutes} minutos y funciona una sola vez.",
+      "title": "Eliminar cuenta"
+    },
+    "fields": {
+      "birthDate": "Nacimiento",
+      "createdAt": "Cuenta creada el",
+      "email": "Correo",
+      "name": "Nombre",
+      "role": "Tipo de cuenta",
+      "username": "Usuario"
+    },
+    "lead": "Datos privados de la cuenta, contraseña, sesiones abiertas y eliminación de la cuenta.",
+    "password": "Contraseña",
+    "passwordLead": "¿Olvidaste tu contraseña o quieres cambiarla? Te enviamos un enlace a {email}. La contraseña solo cambia con ese enlace: quien entre en tu cuenta sin acceso a tu correo no puede cambiarla.",
+    "privateNote": "Tu correo y tu fecha de nacimiento no aparecen en tu perfil público.",
+    "resendIn": "Enviar de nuevo en {seconds} s",
+    "resetLinkSent": "Enlace enviado a {email}. Vale por {minutes} minutos y funciona una sola vez.",
+    "roles": {
+      "USER": "Usuario",
+      "ADMIN": "Administración"
+    },
+    "sendResetLink": "Enviar enlace para cambiar la contraseña",
+    "sessions": "Sesiones",
+    "sessionsLead": "Cierra la sesión en este dispositivo o en todos a la vez, útil si usaste una computadora pública.",
+    "signedOutEverywhere": "Cerraste la sesión en todos los dispositivos.",
+    "signOut": "Salir en este dispositivo",
+    "signOutEverywhere": "Salir en todos los dispositivos",
+    "signOutEverywhereMessage": "Se cerrarán todas las sesiones, incluida esta.",
+    "signOutEverywhereTitle": "¿Salir en todos los dispositivos?",
+    "title": "Cuenta y seguridad"
+  },
+  "admin": {
+    "ads": {
+      "client": "Publisher",
+      "enabled": "Activo",
+      "placements": "Ubicaciones",
+      "provider": "Proveedor",
+      "testMode": "Modo de prueba"
+    },
+    "adsTitle": "Anuncios",
+    "awardsText": "Calcula, o vuelve a calcular, los Awards de un mes ya terminado. Úsalo para corregir o adelantar el cálculo automático.",
+    "awardsTitle": "Calcular Awards",
+    "compute": "Calcular",
+    "computed": "Awards de {period} calculados.",
+    "eyebrow": "Administración",
+    "lead": "Herramientas para quien administra Mixtape.",
+    "openAwards": "Abrir la página de los Awards",
+    "placements": {
+      "HOME_TOP": "Inicio, arriba",
+      "HOME_FEED": "Inicio, feed",
+      "SEARCH_RESULTS": "Búsqueda",
+      "ALBUM_SIDEBAR": "Álbum, lateral",
+      "ALBUM_BOTTOM": "Álbum, abajo",
+      "PROFILE_BOTTOM": "Perfil, abajo",
+      "RANKINGS_SIDEBAR": "Ranking, lateral"
+    },
+    "result": "Resultado de {period}",
+    "title": "Panel de administración"
+  },
+  "legal": {
+    "contactEmail": "por correo a {email}",
+    "contactFallback": "por los canales de contacto indicados en el sitio",
+    "eyebrow": "Documentos",
+    "toc": "En esta página",
+    "updated": "Actualizado el {date}",
+    "privacy": {
+      "title": "Política de privacidad",
+      "lead": "Cómo trata Mixtape tus datos personales, de forma directa y sin jerga legal innecesaria.",
+      "sections": {
+        "controller": {
+          "title": "Quién cuida tus datos",
+          "body": "Mixtape es el responsable de los datos personales tratados en esta plataforma, según la Ley General de Protección de Datos de Brasil (LGPD) y, cuando corresponda, el GDPR. Puedes enviar tus dudas sobre esta política {contact}."
+        },
+        "data": {
+          "title": "Qué datos recopilamos",
+          "body": "- Registro: nombre completo, nombre de usuario, correo, fecha de nacimiento y contraseña. La contraseña la guarda Auth0, el servicio de inicio de sesión de Mixtape, solo como hash y nunca en texto plano; Mixtape no guarda ninguna contraseña.\n- Perfil, si quieres completarlo: bio, estilos favoritos y el enlace de una foto en Gravatar, GitHub, Google, Imgur, Unsplash o Wikimedia.\n- Lo que publicas: calificaciones, reseñas, me gusta, playlists, grupos y reseñas de la pandilla.\n- Datos técnicos: dirección IP e información del navegador, usados para seguridad, prevención de abusos y funcionamiento de la sesión, y el registro de accesos (fecha, hora e IP de cada entrada) que exige la ley."
+        },
+        "purposes": {
+          "title": "Para qué los usamos",
+          "body": "- Crear y mantener tu cuenta y tu sesión.\n- Mostrar tu perfil público, tus calificaciones y tus colecciones.\n- Calcular puntos, discos de nivel, insignias, rankings y Awards.\n- Proteger la plataforma contra fraude, spam y accesos indebidos.\n- Mantener las conversaciones respetuosas: las reseñas pasan por un filtro de palabras ofensivas y, cuando está activada, por la moderación automática de OpenAI.\n- Mostrar anuncios, personalizados solo con tu consentimiento.\n\nLas bases legales son la prestación del servicio que contrataste al crear la cuenta, el interés legítimo en mantener la plataforma segura y tu consentimiento para anuncios personalizados."
+        },
+        "cookies": {
+          "title": "Cookies y almacenamiento del navegador",
+          "body": "Usamos una cookie esencial y protegida (HttpOnly y SameSite Strict) para mantener tu sesión de forma segura. Tu navegador también guarda preferencias como tema, idioma, búsquedas recientes y tu elección sobre los anuncios. Nada de esto se usa para rastrearte en otros sitios."
+        },
+        "ads": {
+          "title": "Anuncios",
+          "body": "Mostramos anuncios de Google AdSense. Si aceptas anuncios personalizados, Google puede usar cookies para mostrarte anuncios según tus intereses. Si eliges “Solo esenciales”, los anuncios siguen apareciendo, pero sin personalización. Puedes cambiar esta elección cuando quieras en los ajustes o en el enlace “Cookies” del pie de página. Más información en policies.google.com/technologies/ads."
+        },
+        "sharing": {
+          "title": "Con quién compartimos",
+          "body": "Tu perfil, tus calificaciones y tus playlists públicas pueden ser vistos por cualquiera; las reseñas de la pandilla de un grupo privado, solo por los miembros del grupo. No vendemos datos personales. Otros servicios reciben solo lo necesario:\n\n- Inicio de sesión: Auth0, de Okta, guarda tu correo y tu contraseña (solo como hash) y comprueba la contraseña cuando entras: la escribes en la página de Mixtape y pasa por nuestro servidor directo a Auth0, sin guardarse ni registrarse aquí. Sus servidores están en Estados Unidos; esta transferencia es necesaria para que entres en Mixtape. Cuando eliminas tu cuenta, también desaparece de Auth0.\n- Catálogo: viene de fuentes abiertas (MusicBrainz, Cover Art Archive, ListenBrainz y Wikimedia Commons). Las portadas pasan por el propio Mixtape. Las fotos de artistas y las fotos de perfil las carga tu navegador directamente desde donde están alojadas (Wikimedia, Gravatar y los demás servicios aceptados), que reciben tu dirección IP como en cualquier acceso a internet, pero no la página de Mixtape de donde vinieron.\n- Contraseña nueva: para comprobar si ya apareció en filtraciones, enviamos a Pwned Passwords (Have I Been Pwned) solo los 5 primeros caracteres de su resumen criptográfico; la contraseña en sí solo va a Auth0.\n- Moderación: cuando la moderación automática está activada, el texto de las reseñas lo analiza la API de moderación de OpenAI antes de publicarse.\n\nPodemos compartir datos cuando la ley lo exija."
+        },
+        "retention": {
+          "title": "Cuánto tiempo los guardamos",
+          "body": "Guardamos tus datos mientras tu cuenta exista. El registro de accesos (fecha, hora e IP de cada entrada, registro, cambio de contraseña y eliminación) se conserva 6 meses, como exige el Marco Civil da Internet de Brasil (art. 15), incluso después de eliminar la cuenta, y luego se borra. Cuando eliminas una calificación, una playlist o un grupo, el contenido deja de mostrarse y sale de la base de datos. Cuando eliminas tu cuenta, desaparece de Mixtape y de Auth0."
+        },
+        "rights": {
+          "title": "Tus derechos",
+          "body": "Según la LGPD, puedes en cualquier momento:\n\n- confirmar si tratamos tus datos y acceder a ellos;\n- corregir datos incompletos o desactualizados, en buena parte directamente en los ajustes;\n- pedir la anonimización, el bloqueo o la eliminación de datos;\n- pedir la portabilidad e información sobre el uso compartido;\n- retirar el consentimiento para los anuncios personalizados.\n\nPara ejercer estos derechos, escríbenos {contact}."
+        },
+        "security": {
+          "title": "Seguridad",
+          "body": "Las contraseñas se comprueban contra filtraciones conocidas y Auth0 las guarda con un hash fuerte; después de varias contraseñas incorrectas seguidas, el inicio de sesión espera unos minutos (y Auth0 también bloquea los intentos repetidos); la sesión usa tokens de corta duración y una cookie protegida, el tráfico debe pasar por HTTPS y el sitio aplica una política de seguridad de contenido estricta. Ningún sistema es infalible: si notas algo raro, avísanos."
+        },
+        "children": {
+          "title": "Edad mínima",
+          "body": "Mixtape no está pensado para niños. Necesitas tener la edad mínima indicada en el registro, 13 años por defecto, para crear una cuenta."
+        },
+        "changes": {
+          "title": "Cambios en esta política",
+          "body": "Podemos actualizar esta política para acompañar cambios en el servicio o en la ley. La fecha de la última actualización está al principio de la página, y avisaremos de los cambios relevantes en el propio sitio."
+        },
+        "contact": {
+          "title": "Contacto",
+          "body": "Escríbenos {contact}."
+        }
+      }
+    },
+    "terms": {
+      "title": "Términos de uso",
+      "lead": "Las reglas para usar Mixtape y calificar, dar me gusta y coleccionar junto con la comunidad.",
+      "sections": {
+        "acceptance": {
+          "title": "Aceptación",
+          "body": "Al crear una cuenta o usar Mixtape, aceptas estos Términos y la Política de privacidad. Si no estás de acuerdo, no uses la plataforma."
+        },
+        "account": {
+          "title": "Tu cuenta",
+          "body": "- Cada persona puede tener una cuenta, con datos verdaderos.\n- Tú eliges tu propia contraseña y eres responsable de mantenerla en secreto: Mixtape nunca crea ni envía contraseñas.\n- Avísanos si sospechas que alguien usa tu cuenta de forma indebida."
+        },
+        "content": {
+          "title": "Tu contenido",
+          "body": "Tus calificaciones, reseñas y playlists siguen siendo tuyas. Al publicarlas, permites que Mixtape las muestre y comparta dentro de la plataforma y en las vistas previas de enlaces. El contenido público puede verlo cualquier persona."
+        },
+        "conduct": {
+          "title": "Reglas de convivencia",
+          "body": "No publiques contenido ilegal, discursos de odio, acoso, spam, datos personales de terceros ni material que infrinja derechos de autor. La administración puede quitar contenido que incumpla estas reglas y suspender cuentas reincidentes."
+        },
+        "catalog": {
+          "title": "Catálogo musical",
+          "body": "Los datos del catálogo vienen de proyectos abiertos mantenidos por la comunidad: MusicBrainz (metadatos), Cover Art Archive (portadas), ListenBrainz (oyentes y listas) y Wikimedia Commons (fotos de artistas, con crédito al autor y a la licencia). Mixtape no está afiliado a esos proyectos ni a los sellos y artistas listados. El ícono de hamburguesa del menú es de Font Awesome Free (fontawesome.com), bajo la licencia CC BY 4.0."
+        },
+        "gamification": {
+          "title": "Puntos y premios",
+          "body": "Los puntos, discos de nivel, insignias, rankings y Awards existen para hacer la experiencia más divertida. No tienen valor monetario, no se pueden canjear por nada y las reglas pueden ajustarse para mantener una competencia justa."
+        },
+        "ads": {
+          "title": "Anuncios",
+          "body": "Mixtape puede mostrar anuncios para mantenerse en línea. Están identificados como publicidad y respetan tu elección de privacidad."
+        },
+        "liability": {
+          "title": "Responsabilidades",
+          "body": "El servicio se ofrece tal como está. Hacemos lo posible para mantenerlo disponible y correcto, pero el catálogo depende de fuentes externas y puede tener fallas o quedar fuera de línea. No nos hacemos responsables del contenido publicado por los usuarios."
+        },
+        "termination": {
+          "title": "Cierre",
+          "body": "Puedes dejar de usar Mixtape cuando quieras. Podemos suspender o cerrar cuentas que violen estos Términos."
+        },
+        "changes": {
+          "title": "Cambios en los términos",
+          "body": "Podemos actualizar estos Términos. Avisaremos de los cambios relevantes en el sitio, y seguir usando Mixtape después significa que aceptas la nueva versión."
+        },
+        "contact": {
+          "title": "Contacto",
+          "body": "¿Dudas sobre estos Términos? Escríbenos {contact}."
+        }
+      }
+    }
+  }
+}

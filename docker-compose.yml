@@ -1,0 +1,39 @@
+name: mixtape-web-v1
+
+# Front do Mixtape em um container próprio (nginx). Configuração local no .env desta pasta
+# (copie de .env.example). A API roda no compose dela (mixtape-api-v1); sem rede compartilhada,
+# o nginx chega à API pela porta publicada na máquina (host.docker.internal).
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_CONTACT_EMAIL: ${VITE_CONTACT_EMAIL:-}
+      secrets:
+        - node_auth_token
+    image: mixtape-web:local
+    restart: unless-stopped
+    environment:
+      MIXTAPE_API_UPSTREAM: ${MIXTAPE_API_UPSTREAM:?defina MIXTAPE_API_UPSTREAM no .env}
+      MIXTAPE_PUBLIC_URL: ${MIXTAPE_PUBLIC_URL:?defina MIXTAPE_PUBLIC_URL no .env}
+    ports:
+      - "${WEB_PORT:-5180}:8080"
+    volumes:
+      # Cache de capas do nginx (proxy_cache em /var/cache/nginx/covers): fora do container, ele
+      # sobrevive aos rebuilds; dentro, cada deploy recomeçava do zero e as capas voltavam a demorar.
+      - nginx-cache:/var/cache/nginx
+    extra_hosts:
+      # No Linux o host.docker.internal não existe por padrão.
+      - "host.docker.internal:host-gateway"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+secrets:
+  node_auth_token:
+    environment: NODE_AUTH_TOKEN
+
+volumes:
+  nginx-cache:

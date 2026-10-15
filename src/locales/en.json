@@ -1,0 +1,1711 @@
+{
+  "app": {
+    "name": "Mixtape",
+    "home": "Mixtape: home page"
+  },
+  "nav": {
+    "main": "Main navigation",
+    "more": "More pages",
+    "tabs": "Quick navigation",
+    "home": "Home",
+    "search": "Search",
+    "charts": "Charts",
+    "reviews": "Reviews",
+    "rankings": "Rankings",
+    "awards": "Awards",
+    "playlists": "Playlists",
+    "groups": "Groups",
+    "profile": "Profile",
+    "myProfile": "My profile",
+    "myLibrary": "My library",
+    "settings": "Settings",
+    "admin": "Admin",
+    "rate": "Rate",
+    "howItWorks": "How it works",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use"
+  },
+  "common": {
+    "and": "and",
+    "cancel": "Cancel",
+    "loading": "Loading…",
+    "no": "No",
+    "position": "#{position}",
+    "save": "Save",
+    "seeAll": "See all",
+    "showLess": "Show less",
+    "skipToContent": "Skip to content",
+    "undo": "Undo",
+    "yes": "Yes"
+  },
+  "seo": {
+    "home": {
+      "title": "Mixtape · Rate albums and songs, disc by disc",
+      "description": "Rate albums and songs from 0 to 5 discs, write reviews, build playlists, climb the rankings with friends and earn badges and Awards."
+    }
+  },
+  "auth": {
+    "backHome": "Back to home",
+    "birthDate": "Date of birth",
+    "birthDateHint": "You must be at least {age} years old. It never shows on your profile.",
+    "consent": "By creating an account you agree to the {terms} and the {privacy}.",
+    "createAccount": "Create account",
+    "confirmPassword": "Confirm the password",
+    "createPassword": "Create your password",
+    "email": "Email",
+    "errors": {
+      "birthDate": "Enter a valid date of birth.",
+      "email": "Enter a valid email address.",
+      "fullName": "Your name must have {min} to {max} characters, including letters.",
+      "loginRequired": "Enter your email or username.",
+      "password": "The password doesn't meet every rule in the list yet.",
+      "passwordConfirmation": "The passwords don't match.",
+      "passwordConfirmationRequired": "Type the password again to confirm it.",
+      "passwordRequired": "Enter your password.",
+      "username": "Use 3 to 30 characters: lowercase letters, numbers, dots or underscores, not starting or ending with a symbol."
+    },
+    "forgot": {
+      "back": "Back to sign in",
+      "eyebrow": "Happens to everyone",
+      "lead": "Tell us your account email and we’ll send a link to create a new password. Passwords only change through that link.",
+      "otherEmail": "Use another email",
+      "resend": "Send again",
+      "resendIn": "Send again in {seconds}s",
+      "sent": "If there’s an account for {email}, the link arrives in a moment. It works for {minutes} minutes and only once.",
+      "sentTitle": "Check your email",
+      "spam": "Nothing yet? Check spam and promotions before asking again.",
+      "submit": "Send link",
+      "title": "Forgot your password?"
+    },
+    "forgotLink": "Forgot your password?",
+    "forgotNote": "Your password is yours alone: Mixtape never creates, shows or sends passwords.",
+    "fullName": "Full name",
+    "hasAccount": "Already have an account?",
+    "headline": "Your soundtrack deserves a rating.",
+    "lead": "Rate albums and songs, write reviews, build playlists and climb the rankings with your crew.",
+    "loginEyebrow": "Good to see you",
+    "loginField": "Email or username",
+    "loginLead": "Sign in to rate, like and follow your progress.",
+    "loginTitle": "Sign in to Mixtape",
+    "marquee": {
+      "rate": "Rate",
+      "review": "Review",
+      "collect": "Collect",
+      "compete": "Compete",
+      "win": "Win Awards"
+    },
+    "marqueeLabel": "What you can do on Mixtape",
+    "noAccount": "Don't have an account yet?",
+    "password": "Password",
+    "passwordRules": {
+      "length": "{min} to {max} characters",
+      "mix": "Letters and numbers",
+      "personal": "Doesn't contain your email or username"
+    },
+    "registerEyebrow": "Let's get started",
+    "registerLead": "It takes less than a minute. You choose your password and can personalize your profile later.",
+    "registerTitle": "Create your account",
+    "required": "Sign in to continue.",
+    "reset": {
+      "account": "Account {'@'}{username}",
+      "checking": "Checking the link…",
+      "confirm": "Confirm the new password",
+      "done": "New password saved! Sign in with it to continue.",
+      "eyebrow": "Almost there",
+      "invalid": "Links only work for a short while and only once, and a new request turns off the older ones. Ask for another one: it takes a minute.",
+      "invalidTitle": "This link no longer works",
+      "lead": "Saving closes every open session, on any device. Then just sign in with the new password.",
+      "newPassword": "New password",
+      "requestNew": "Request a new link",
+      "submit": "Save new password",
+      "title": "Create your new password"
+    },
+    "signedOut": "You signed out.",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "username": "Username",
+    "usernameHint": "It's your address on Mixtape, up to {max} characters.",
+    "welcome": "Welcome, {name}! Your account is ready.",
+    "welcomeBack": "Good to see you again, {name}!",
+    "wizard": {
+      "aboutTitle": "About you",
+      "accountTitle": "How you'll sign in",
+      "back": "Back",
+      "continue": "Continue",
+      "doneTitle": "Review and create your account",
+      "edit": "Edit",
+      "editStep": "Edit {step}",
+      "genresNotSaved": "Your account was created, but your styles weren't saved. Pick them again in settings.",
+      "label": "Sign-up steps",
+      "noGenres": "No styles for now. You can pick them later in settings.",
+      "retry": "Try again",
+      "skip": "Skip for now",
+      "steps": {
+        "about": "About you",
+        "account": "Account",
+        "done": "Done",
+        "taste": "Taste"
+      },
+      "tasteError": "We couldn't load the styles right now. Try again or pick them later in settings.",
+      "tasteLabel": "Styles you like",
+      "tasteLead": "Tap the balloons for the styles you like, up to {max}. Each one carries albums by different artists of that style.",
+      "tasteTitle": "What do you like?"
+    }
+  },
+  "search": {
+    "crateLabel": "Results for “{query}”, in a record stack",
+    "viewLabel": "View",
+    "views": { "crate": "Stack", "grid": "Grid" },
+    "clearRecent": "Clear",
+    "empty": "Nothing found for “{query}”",
+    "emptyDescription": "Check the spelling, add the artist's name or switch the search type.",
+    "exitRate": "Leave rating mode",
+    "eyebrow": "Search",
+    "forget": "Remove “{query}” from recent searches",
+    "forYou": {
+      "description": "Based on the styles you like",
+      "empty": "No suggestions for these styles yet. Try again in a moment.",
+      "more": "More suggestions",
+      "noGenres": "Tell us what you like and we'll suggest albums, songs and artists here.",
+      "pickGenres": "Pick styles",
+      "title": "For you"
+    },
+    "genresHint": "Tap a genre to search for it.",
+    "genresTitle": "Explore by genre",
+    "kindLabel": "What to search",
+    "kinds": {
+      "albums": "Albums",
+      "tracks": "Songs",
+      "artists": "Artists",
+      "people": "People"
+    },
+    "label": "Search the catalog",
+    "lead": "Albums, EPs, singles, songs and artists from the whole MusicBrainz catalog, and the people on Mixtape.",
+    "people": {
+      "emptyDescription": "Check the spelling or search by {'@'}username.",
+      "idle": "Search by the name or {'@'}username of anyone on Mixtape to see their profile and reviews.",
+      "label": "Search people",
+      "resultsLabel": "People found"
+    },
+    "placeholder": "Albums, songs, artists…",
+    "placeholders": {
+      "albums": "e.g. Clube da Esquina",
+      "tracks": "e.g. Construção",
+      "artists": "e.g. Gal Costa",
+      "people": "e.g. Ana or {'@'}ana.souza"
+    },
+    "rateArtistsHint": "Artists aren't rated: open an artist to rate their records.",
+    "rateEyebrow": "Rate",
+    "rateHint": "Pick an album or a song and tap “Rate”.",
+    "rateLead": "Look up the record you're playing and give it 0 to 5.",
+    "rateTitle": "What are we rating?",
+    "recent": "Recent searches",
+    "results": "{formatted} result for “{query}” | {formatted} results for “{query}”",
+    "resultsLabel": "Search results",
+    "searching": "Searching “{query}”…",
+    "seeDiscography": "See discography",
+    "seoQuery": "“{query}” in search",
+    "seoTitle": "Search",
+    "suggestions": "Suggestions",
+    "title": "What are you listening to?",
+    "tooShort": "Type at least {min} characters to search.",
+    "trendingDescription": "What the community rated the most this month.",
+    "trendingTitle": "Trending on Mixtape",
+    "world": {
+      "description": {
+        "albums": "The most played albums in the world this week, according to ListenBrainz.",
+        "artists": "The most played artists in the world this week, according to ListenBrainz.",
+        "tracks": "The most played songs in the world this week, according to ListenBrainz."
+      },
+      "empty": "The world charts didn't respond right now.",
+      "title": "Trending worldwide"
+    }
+  },
+  "composer": {
+    "albumSubtitle": "Album rating",
+    "bodyLabel": "Your review (optional)",
+    "bodyPlaceholder": "How did this record make you feel?",
+    "created": "Rating published!",
+    "delete": "Delete rating",
+    "deleted": "Rating deleted.",
+    "deleteMessage": "The score, text and likes of this rating will be deleted.",
+    "deleteTitle": "Delete your rating?",
+    "editTitle": "Edit rating of “{title}”",
+    "galera": {
+      "blocked": "Your rating of this item is already part of the crew review {group}. Each rating can join only one crew review.",
+      "bringPrivate": "You had already rated this item: that rating joins the crew review and only the crew will see it.",
+      "bringPublic": "You had already rated this item: that rating joins the crew review with the score and text you leave here.",
+      "flag": "Crew review · {group}",
+      "private": "Private group: only the crew sees your score, on your profile too.",
+      "public": "Public group: your score shows on the crew review and on your profile, for everyone."
+    },
+    "groupSaved": "Your score joined the crew review {group}!",
+    "groupSaveFailed": "We couldn't save your score right now.",
+    "inGroupReview": "This rating is part of the crew review {group}: whatever you change here changes there too.",
+    "publish": "Publish",
+    "rate": "Rate",
+    "ratingLabel": "Your rating",
+    "signInToRate": "Sign in to rate.",
+    "title": "Rate “{title}”",
+    "trackSubtitle": "Song rating",
+    "update": "Save changes",
+    "updated": "Rating updated!",
+    "writtenHint": "{count} more character to count as a review (minimum {minimum}). | {count} more characters to count as a review (minimum {minimum}).",
+    "writtenReady": "Done: this already counts as a review and earns bonus points.",
+    "yourRating": "Your rating: {rating}"
+  },
+  "playlists": {
+    "added": "Added to “{title}”.",
+    "byOwner": "by {name}",
+    "create": "New playlist",
+    "created": "Playlist “{title}” created!",
+    "empty": "No public playlists yet",
+    "emptyDescription": "Create the first one and show your favorite records to the world.",
+    "explore": "Explore playlists",
+    "exploreDescription": "Public collections recently updated by the community.",
+    "eyebrow": "Collections",
+    "form": {
+      "create": "Create playlist",
+      "createDescription": "Gather albums, songs, artists and reviews in one collection.",
+      "createTitle": "New playlist",
+      "description": "Description (optional)",
+      "editDescription": "Change the name, the description or who can see it.",
+      "editTitle": "Edit playlist",
+      "privateHint": "Only you can see this playlist.",
+      "publicHint": "Anyone with the link can see it, and it shows on your profile.",
+      "title": "Title",
+      "titleError": "The title must have {min} to {max} characters.",
+      "visibility": "Who can see it"
+    },
+    "items": "{count} item | {count} items",
+    "lead": "Collections of albums, songs, artists and reviews put together by the community.",
+    "mine": "My playlists",
+    "mineDescription": "Your collections, including private ones.",
+    "mineEmpty": "You don't have playlists yet",
+    "mineEmptyDescription": "Create one and keep adding records and reviews along the way.",
+    "ofUser": "Playlists by {'@'}{username}",
+    "ofUserDescription": "Public collections by {'@'}{username}.",
+    "ofUserEmpty": "{'@'}{username} has no public playlists yet",
+    "ofUserEmptyDescription": "When there are some, they'll show up here.",
+    "open": "Open",
+    "private": "Private",
+    "public": "Public",
+    "signInToAdd": "Sign in to build playlists.",
+    "signInToCreate": "Sign in to create playlists.",
+    "title": "Playlists",
+    "titleLabel": "New playlist name",
+    "visibility": "Visibility"
+  },
+  "playlist": {
+    "addedAt": "Added {date}",
+    "by": "by {name}",
+    "createdAt": "Created on {date}",
+    "delete": "Delete",
+    "deleted": "Playlist deleted.",
+    "deleteMessage": "“{title}” and all its items will be deleted. This can't be undone.",
+    "deleteTitle": "Delete playlist?",
+    "edit": "Edit",
+    "editNote": "Edit note",
+    "empty": "Empty playlist",
+    "emptyDescription": "Nothing here yet.",
+    "emptyOwnerDescription": "Open an album, song, artist or review and use “Add to playlist”.",
+    "eyebrow": "Playlist",
+    "eyebrowPrivate": "Private playlist",
+    "findSomething": "Find something to add",
+    "itemRemoved": "“{title}” left the playlist.",
+    "items": "{count} item | {count} items",
+    "kindLabels": {
+      "ALBUM": "Album",
+      "TRACK": "Song",
+      "ARTIST": "Artist",
+      "REVIEW": "Review"
+    },
+    "kinds": {
+      "ALBUM": "Album | Albums",
+      "TRACK": "Song | Songs",
+      "ARTIST": "Artist | Artists",
+      "REVIEW": "Review | Reviews"
+    },
+    "loading": "Loading playlist",
+    "moveDown": "Move down",
+    "moveUp": "Move up",
+    "note": "Note",
+    "noteDescription": "A short comment shown next to the item.",
+    "noteSaved": "Note saved.",
+    "notFound": "Playlist not found",
+    "notFoundDescription": "It may have been deleted or it may be private.",
+    "removeItem": "Remove from playlist",
+    "reorderHint": "Use the arrows to change the order.",
+    "showMore": "Show more ({count} left) | Show more ({count} left)",
+    "reviewTitle": "{'@'}{username}'s review of “{title}”",
+    "saved": "Playlist updated.",
+    "seoDescription": "A playlist by {'@'}{username} with {count} item on Mixtape. | A playlist by {'@'}{username} with {count} items on Mixtape.",
+    "share": "Share playlist",
+    "shareTitle": "Share playlist",
+    "stats": {
+      "items": "Items"
+    },
+    "unavailable": "Item unavailable",
+    "updatedAt": "Updated {date}"
+  },
+  "picker": {
+    "create": "Or create a new one",
+    "createAndAdd": "Create and add",
+    "empty": "You don't have playlists yet. Create the first one below.",
+    "note": "Note (optional)",
+    "noteHint": "Shown next to the item in the playlist.",
+    "title": "Add to playlist",
+    "yours": "Your playlists"
+  },
+  "share": {
+    "copied": "Link copied!",
+    "copyFailed": "Couldn't copy.",
+    "qrAlt": "QR code for {'@'}{username}'s profile on Mixtape"
+  },
+  "review": {
+    "aboutItem": "About the rated item",
+    "addToPlaylist": "Add to playlist",
+    "allReviews": "See all ratings",
+    "delete": "Delete",
+    "deleted": "Rating deleted.",
+    "deleteMessage": "The score, text and likes of this rating will be deleted.",
+    "deleteTitle": "Delete rating?",
+    "edit": "Edit rating",
+    "editedAt": "edited on {date}",
+    "galeraTitle": "Crew review",
+    "privateNotice": "Only you can see this rating. Make it public to show it on your profile for everyone.",
+    "publish": "Make public",
+    "published": "Rating made public: it now shows on your profile.",
+    "eyebrow": "Review by {'@'}{username}",
+    "kinds": {
+      "ALBUM": "Album",
+      "TRACK": "Song",
+      "ARTIST": "Artist"
+    },
+    "likes": "Likes",
+    "loading": "Loading rating",
+    "moreReviews": "More about “{title}”",
+    "noOtherReviews": "No other ratings yet",
+    "notFound": "Rating not found",
+    "notFoundDescription": "Its author may have deleted it.",
+    "openItem": "Open “{title}”",
+    "openItemShort": "See details",
+    "playlistLabel": "{'@'}{author}'s review of “{title}”",
+    "publishedAt": "Published on {date}",
+    "ratingOutOf": "{rating} out of 5",
+    "seoDescription": "{'@'}{username} gave “{title}” {rating} out of 5 on Mixtape.",
+    "seoTitle": "{'@'}{username} on “{title}”",
+    "share": "Share",
+    "shareTitle": "Share rating"
+  },
+  "reviews": {
+    "empty": "No ratings yet",
+    "sortLabel": "Sort by",
+    "sorts": {
+      "recent": "Recent",
+      "popular": "Popular",
+      "rating_desc": "Highest rated",
+      "rating_asc": "Lowest rated"
+    }
+  },
+  "item": {
+    "addToPlaylist": "Add to playlist",
+    "beFirst": "Nobody rated it yet. Be the first!",
+    "communityRating": "Community rating",
+    "details": "Details",
+    "distribution": "Rating distribution",
+    "genres": "Genres",
+    "highlights": "Highlights",
+    "listenOn": "Listen on",
+    "listeners": "Listeners on ListenBrainz",
+    "listenersSentence": "different people, all time",
+    "moreEyebrow": "Keep listening",
+    "moreFrom": "More from {name}",
+    "noGenres": "No genres registered on MusicBrainz.",
+    "noLinks": "No links registered yet.",
+    "noRatingYet": "No rating yet",
+    "noReviews": "No ratings yet",
+    "noReviewsDescription": "How about being the first to rate it?",
+    "ratingSentence": "average of {formatted} rating | average of {formatted} ratings",
+    "reviewsCount": "Ratings",
+    "reviewsEyebrow": "Community",
+    "reviewsTitle": "Ratings",
+    "seeArtist": "See artist",
+    "share": "Share",
+    "source": "Catalog data:",
+    "sourceLicense": "open data kept by the community",
+    "yourRating": "Your rating: {rating}"
+  },
+  "album": {
+    "cards": {
+      "editions": "Editions",
+      "editionsSentence": "official release | releases across countries, formats and reissues",
+      "tracks": "Tracks",
+      "tracksSentence": "{duration} of music, start to finish"
+    },
+    "edition": {
+      "barcode": "Barcode",
+      "catalogNumber": "Catalog number",
+      "country": "Country",
+      "date": "Release date",
+      "formats": "Formats",
+      "labels": "Labels",
+      "language": "Language",
+      "lead": "Reference edition for the track list. | Reference edition among {count} editions.",
+      "name": "Edition title",
+      "openSource": "See on MusicBrainz",
+      "packaging": "Packaging",
+      "source": "Source",
+      "status": "Status",
+      "title": "Edition"
+    },
+    "loading": "Loading album",
+    "notFound": "Album not found",
+    "notFoundDescription": "Check the link or look the record up in search.",
+    "noTracks": "The track list hasn't been registered yet.",
+    "reviewsDescription": "What the community thought of “{title}”.",
+    "seoDescription": "“{title}” by {artist} ({year}), {count} tracks. Rate it from 0 to 5 and read reviews on Mixtape.",
+    "seoDescriptionRated": "“{title}” by {artist}: rated {rating} out of 5 in {count} rating on Mixtape. | “{title}” by {artist}: rated {rating} out of 5 in {count} ratings on Mixtape.",
+    "seoTitle": "{title} — {artist}",
+    "shareText": "Check out this record on Mixtape: “{title}” by {artist}",
+    "shareTitle": "{title} — {artist}",
+    "story": {
+      "duration": "{duration} long",
+      "editions": "{formatted} edition | {formatted} editions around the world",
+      "released": "Released on {date}",
+      "tracks": "{formatted} track | {formatted} tracks",
+      "undated": "Unknown release date"
+    },
+    "tracklist": "Tracks",
+    "tracklistDescription": "{count} track · {duration} | {count} tracks · {duration}"
+  },
+  "track": {
+    "appearsOn": "Appears on",
+    "appearsOnDescription": "Albums, EPs, singles and compilations that include this recording.",
+    "cards": {
+      "appearsOn": "Releases",
+      "appearsOnSentence": "release includes this recording | releases include this recording",
+      "duration": "Length",
+      "durationSentence": "you can play it {plays} times in a row in an hour",
+      "people": "Credits",
+      "peopleSentence": "person in the credits | people in the credits"
+    },
+    "credits": "Credits",
+    "creditsDescription": "Who wrote, played, produced and recorded it.",
+    "creditsDescriptionWork": "Who wrote, played, produced and recorded “{work}”.",
+    "details": "Details",
+    "detailsItems": {
+      "album": "Album",
+      "duration": "Length",
+      "released": "Release date",
+      "source": "Source",
+      "version": "Version",
+      "work": "Work"
+    },
+    "eyebrow": "Song",
+    "fromAlbum": "From the album",
+    "isrc": "ISRC | ISRCs",
+    "isrcHint": "The recording's international code: it identifies this track in stores and streaming services.",
+    "loading": "Loading song",
+    "noCredits": "The credits for this recording haven't been registered on MusicBrainz yet.",
+    "notFound": "Song not found",
+    "notFoundDescription": "Check the link or look the song up in search.",
+    "reviewsDescription": "What the community thought of “{title}”.",
+    "seoDescription": "“{title}” by {artist}, from the album {album}. Rate it from 0 to 5 and read reviews on Mixtape.",
+    "seoDescriptionRated": "“{title}” by {artist}: rated {rating} out of 5 in {count} rating on Mixtape. | “{title}” by {artist}: rated {rating} out of 5 in {count} ratings on Mixtape.",
+    "seoTitle": "{title} — {artist}",
+    "shareText": "Check out this song on Mixtape: “{title}” by {artist}",
+    "shareTitle": "{title} — {artist}",
+    "story": {
+      "duration": "{duration} long",
+      "released": "Released on {date}",
+      "undated": "Unknown release date"
+    },
+    "workFact": "Registered work"
+  },
+  "artist": {
+    "about": "About",
+    "cards": {
+      "discography": "Discography",
+      "since": "Active since",
+      "sinceActive": "{years} years of career so far",
+      "sinceEnded": "disbanded or retired in {end}",
+      "sinceEndedUnknown": "no longer active",
+      "topTrack": "Most played song",
+      "topTrackSentence": "{listeners} listeners on ListenBrainz"
+    },
+    "details": {
+      "area": "Area",
+      "begin": "Began",
+      "beginArea": "Origin",
+      "country": "Country",
+      "disambiguation": "Note",
+      "end": "Ended",
+      "endedUnknown": "Ended, date unknown",
+      "gender": "Gender",
+      "sortName": "Sort name",
+      "source": "Source",
+      "type": "Type"
+    },
+    "discography": "Discography",
+    "discographyEyebrow": "{count} release | {count} releases",
+    "elsewhere": "Around the web",
+    "eyebrow": "Artist",
+    "filterAll": "All",
+    "filterLabel": "Filter by type",
+    "genericType": "Artist",
+    "loading": "Loading artist",
+    "noDiscography": "No releases for this filter.",
+    "notFound": "Artist not found",
+    "notFoundDescription": "Check the link or look the artist up in search.",
+    "photoBy": "Photo: {author}",
+    "photoSource": "See on Wikimedia Commons",
+    "rateAlbum": "Rate a record",
+    "monthlyListeners": "Monthly listeners on ListenBrainz",
+    "monthlyListenersSentence": "different people in {period}",
+    "releases": "Releases",
+    "seoDescription": "{story} {count} release in the catalog. Rate the records on Mixtape. | {story} {count} releases in the catalog. Rate the records on Mixtape.",
+    "shareText": "Check out {name} on Mixtape",
+    "shareTitle": "{name} on Mixtape",
+    "showAllTracks": "See all {count} songs",
+    "story": {
+      "from": "{kind} from {place}",
+      "genres": "genres: {genres}"
+    },
+    "topTracks": "Most played songs",
+    "topTracksDescription": "The tracks with the most listeners on ListenBrainz.",
+    "topTracksEyebrow": "Top songs",
+    "years": "Years active"
+  },
+  "errors": {
+    "code": {
+      "VALIDATION_FAILED": "Some fields are invalid. Check them and try again.",
+      "INVALID_EMAIL": "Enter a valid email address.",
+      "INVALID_USERNAME": "Usernames have 3 to 30 characters: lowercase letters, numbers, dots or underscores, not starting or ending with a symbol.",
+      "USERNAME_RESERVED": "This username is reserved.",
+      "INVALID_FULL_NAME": "Enter your full name, with letters.",
+      "INVALID_BIRTH_DATE": "Invalid date of birth.",
+      "UNDERAGE": "You must be at least {minAge} years old to create an account.",
+      "WEAK_PASSWORD": "The password doesn't meet the rules: check the list below the field.",
+      "BREACHED_PASSWORD": "This password has shown up in data breaches and could be guessed. Pick another one.",
+      "EMAIL_ALREADY_REGISTERED": "This email is already registered. How about signing in?",
+      "USERNAME_ALREADY_TAKEN": "This username is already taken.",
+      "INVALID_CREDENTIALS": "Wrong email, username or password.",
+      "TOO_MANY_LOGIN_ATTEMPTS": "Too many wrong passwords in a row on this account. For your security, try again in {wait}.",
+      "LOGIN_BLOCKED": "For your security, sign-in for this account was locked after too many wrong passwords. Create a new one with “Forgot your password?”: that unlocks it right away.",
+      "LOGIN_DENIED": "The sign-in service didn't allow access to this account.",
+      "IDENTITY_PROVIDER_UNAVAILABLE": "The sign-in service is down right now. Please try again in a few minutes.",
+      "IDENTITY_REJECTED": "The sign-in service refused the request. Check your details and try again.",
+      "INVALID_REFRESH_TOKEN": "Your session ended. Please sign in again.",
+      "REFRESH_TOKEN_REUSED": "Session closed for security. Please sign in again.",
+      "REFRESH_TOKEN_EXPIRED": "Your session expired. Please sign in again.",
+      "INVALID_ACCESS_TOKEN": "Your session ended. Please sign in again.",
+      "AUTHENTICATION_REQUIRED": "Sign in to continue.",
+      "PASSWORD_RESET_INVALID": "This link no longer works: links expire quickly and only work once. Ask for another one.",
+      "PASSWORD_RESET_TOO_MANY": "You asked for several links just now. Check your inbox (and spam) or try again in {wait}.",
+      "ACCOUNT_DELETION_INVALID": "This link no longer works: links expire quickly and only work once. Request another one in Account and security.",
+      "ACCOUNT_DELETION_TOO_MANY": "You've requested several links just now. Check your inbox (and spam) or try again in {wait}.",
+      "EMAIL_UNAVAILABLE": "Email is turned off on this installation, so the password can’t be changed right now.",
+      "EMAIL_SEND_FAILED": "We couldn’t send the email right now. Try again in a few minutes.",
+      "ACCOUNT_NOT_FOUND": "Account not found.",
+      "BIO_TOO_LONG": "The bio is too long.",
+      "INVALID_AVATAR_URL": "Use a valid https link for the photo.",
+      "AVATAR_HOST_NOT_ALLOWED": "Use a photo from Gravatar, GitHub, Google, Imgur, Unsplash or Wikimedia.",
+      "TOO_MANY_GENRES": "You picked too many genres.",
+      "INVALID_GENRE": "One of the genres has a name that's too long.",
+      "UNKNOWN_GENRES": "Some genres don't exist in the catalog.",
+      "INVALID_MBID": "This link doesn't point to a valid catalog item.",
+      "ALBUM_NOT_FOUND": "Album not found in the catalog.",
+      "TRACK_NOT_FOUND": "Song not found in the catalog.",
+      "ARTIST_NOT_FOUND": "Artist not found in the catalog.",
+      "MUSIC_ITEM_NOT_FOUND": "Item not found in the catalog.",
+      "CATALOG_BUSY": "The music catalog is getting a lot of requests. Try again in a few seconds.",
+      "CATALOG_UNAVAILABLE": "Couldn't reach the music catalog right now.",
+      "CHARTS_DISABLED": "Global charts are turned off on this installation.",
+      "CHARTS_UNAVAILABLE": "Couldn't load the charts right now.",
+      "INVALID_SEARCH_QUERY": "Type a slightly longer search term.",
+      "INVALID_RATING": "Ratings go from 0 to 5, in half-disc steps.",
+      "INVALID_RATING_RANGE": "The minimum rating can't be higher than the maximum.",
+      "REVIEW_NOT_FOUND": "Rating not found.",
+      "REVIEW_ALREADY_EXISTS": "You already rated this item. Edit your existing rating.",
+      "REVIEW_TOO_LONG": "The review text is too long.",
+      "NOT_REVIEW_AUTHOR": "Only its author can change this rating.",
+      "CANNOT_LIKE_OWN_REVIEW": "You can't like your own rating.",
+      "REVIEW_IN_OTHER_GROUP_REVIEW": "Your rating of this item is already part of another crew review.",
+      "VISIBILITY_FOLLOWS_GROUP": "This rating is part of a crew review and follows the group's visibility.",
+      "CONTENT_REJECTED": "The text has words that aren't allowed here ({terms}). Change them and try again.",
+      "CONTENT_REJECTED_TONE": "The text was blocked by moderation for abuse, hate or threats. Rewrite it and try again.",
+      "USER_NOT_FOUND": "User not found.",
+      "INVALID_PERIOD": "Invalid period.",
+      "PERIOD_NOT_CLOSED": "A month's Awards can only be computed after it ends.",
+      "GROUP_NOT_FOUND": "Group not found.",
+      "INVALID_GROUP_NAME": "The group name doesn't have a valid length.",
+      "INVALID_GROUP_DESCRIPTION": "The group description is too long.",
+      "NOT_GROUP_MEMBER": "This group is private. Join through an invite to take part.",
+      "NOT_GROUP_OWNER": "Only the group's creator can do that.",
+      "INVITE_NOT_FOUND": "Invalid or expired invite.",
+      "ALREADY_GROUP_MEMBER": "You're already in this group.",
+      "GROUP_FULL": "The group reached its member limit.",
+      "CANNOT_REMOVE_SELF": "To leave the group, use “Leave group”.",
+      "MEMBER_NOT_FOUND": "This person isn't in the group.",
+      "GROUP_REVIEW_NOT_FOUND": "Crew review not found.",
+      "GROUP_REVIEW_ALREADY_EXISTS": "The crew already has a review of this item.",
+      "GROUP_REVIEW_HAS_ENTRIES": "Someone already rated it: this crew review can't be undone anymore.",
+      "CANNOT_CANCEL_GROUP_REVIEW": "Only whoever suggested it or the group owner can undo this crew review.",
+      "PLAYLIST_NOT_FOUND": "Playlist not found.",
+      "INVALID_PLAYLIST_TITLE": "The playlist title doesn't have a valid length.",
+      "NOT_PLAYLIST_OWNER": "Only the playlist's creator can change it.",
+      "INVALID_PLAYLIST_ITEM": "This item can't be added to the playlist.",
+      "ITEM_ALREADY_IN_PLAYLIST": "This item is already in the playlist.",
+      "PLAYLIST_FULL": "The playlist reached its item limit.",
+      "PLAYLIST_ITEM_NOT_FOUND": "Item not found in the playlist.",
+      "FAVORITES_FULL": "You already have {limit} favorites. Remove one on your profile to add another.",
+      "TOO_MANY_REQUESTS": "Too many attempts in a row. Wait a moment and try again.",
+      "PAYLOAD_TOO_LARGE": "What you sent is too large.",
+      "FORBIDDEN": "You don't have permission to do that.",
+      "NETWORK_ERROR": "Can't reach Mixtape. Check your connection."
+    },
+    "fallback": "Something went wrong. Try again.",
+    "notFound": {
+      "eyebrow": "Error 404",
+      "title": "That track isn't on the record",
+      "description": "The page you're looking for doesn't exist or has moved.",
+      "home": "Go home",
+      "search": "Search the catalog"
+    },
+    "status": {
+      "badRequest": "Check the information and try again.",
+      "conflict": "This conflicts with something that already exists.",
+      "forbidden": "You don't have permission to do that.",
+      "network": "Can't reach Mixtape. Check your connection.",
+      "notFound": "We couldn't find what you were looking for.",
+      "rule": "Mixtape's rules don't allow this action.",
+      "server": "Mixtape tripped up. Try again in a moment.",
+      "tooManyRequests": "Too many attempts in a row. Wait a moment and try again.",
+      "unauthorized": "Sign in to continue.",
+      "unavailable": "The service is unavailable right now. Try again in a moment."
+    }
+  },
+  "gamification": {
+    "tiers": {
+      "DEMO": "Demo Tape",
+      "BRONZE": "Bronze Record",
+      "SILVER": "Silver Record",
+      "GOLD": "Gold Record",
+      "PLATINUM": "Platinum Record",
+      "DIAMOND": "Diamond Record"
+    },
+    "badges": {
+      "CRITIC": {
+        "name": "Critic",
+        "description": "Write reviews (ratings with text)."
+      },
+      "CROWD_FAVORITE": {
+        "name": "Crowd Favorite",
+        "description": "Get likes on your ratings."
+      },
+      "HITMAKER": {
+        "name": "Hitmaker",
+        "description": "Have a highly liked rating."
+      },
+      "ECLECTIC": {
+        "name": "Eclectic",
+        "description": "Rate records from different genres."
+      },
+      "CURATOR": { "name": "Curator", "description": "Create playlists." },
+      "SOCIAL": {
+        "name": "The Gang's All Here",
+        "description": "Join groups with friends."
+      },
+      "PIONEER": {
+        "name": "Pioneer",
+        "description": "Be the first to rate a record on Mixtape."
+      },
+      "MARATHONER": {
+        "name": "Marathoner",
+        "description": "Rate lots of items in a single day."
+      },
+      "AWARD_WINNER": {
+        "name": "Award Winner",
+        "description": "Win monthly Awards."
+      }
+    },
+    "badgeTiers": {
+      "1": "Bronze",
+      "2": "Silver",
+      "3": "Gold",
+      "4": "Platinum"
+    },
+    "reasons": {
+      "REVIEW_CREATED": "Rate an album or song",
+      "REVIEW_WRITTEN": "Write a review",
+      "PIONEER_REVIEW": "Be the first to rate an item",
+      "LIKE_RECEIVED": "Get a like"
+    },
+    "metrics": {
+      "writtenReviews": "reviews written",
+      "likesReceived": "likes received",
+      "maxLikesOnReview": "likes on a single rating",
+      "distinctGenres": "different genres rated",
+      "playlistsCreated": "playlists created",
+      "groupsJoined": "groups joined",
+      "pioneerReviews": "pioneer ratings",
+      "maxReviewsInADay": "ratings in a single day",
+      "awardsWon": "Awards won"
+    },
+    "awards": {
+      "CRITIC_OF_THE_MONTH": {
+        "name": "Critic of the Month",
+        "description": "Most notoriety in the month: likes received."
+      },
+      "MOST_ACTIVE_OF_THE_MONTH": {
+        "name": "Most Active of the Month",
+        "description": "Most participation points in the month."
+      },
+      "REVIEW_OF_THE_MONTH": {
+        "name": "Review of the Month",
+        "description": "The month's public rating with the most likes."
+      },
+      "ROOKIE_OF_THE_MONTH": {
+        "name": "Rookie of the Month",
+        "description": "Who joined in the month and scored the most."
+      }
+    }
+  },
+  "catalog": {
+    "listenersFrom": "{formatted} listener on {source} | {formatted} listeners on {source}",
+    "lifeSpan": {
+      "active": "since {begin}",
+      "ended": "{begin} until they stopped",
+      "range": "{begin}–{end}",
+      "until": "until {end}"
+    },
+    "releaseTypes": {
+      "album": "Album",
+      "single": "Single",
+      "ep": "EP",
+      "broadcast": "Broadcast",
+      "other": "Other"
+    },
+    "releaseTypeCounts": {
+      "album": "{formatted} album | {formatted} albums",
+      "single": "{formatted} single | {formatted} singles",
+      "ep": "{formatted} EP | {formatted} EPs",
+      "broadcast": "{formatted} broadcast | {formatted} broadcasts",
+      "other": "{formatted} other | {formatted} others"
+    },
+    "secondaryTypes": {
+      "compilation": "Compilation",
+      "soundtrack": "Soundtrack",
+      "spokenword": "Spoken word",
+      "interview": "Interview",
+      "audiobook": "Audiobook",
+      "audio_drama": "Audio drama",
+      "live": "Live",
+      "remix": "Remix",
+      "dj_mix": "DJ mix",
+      "mixtape_street": "Mixtape",
+      "demo": "Demo",
+      "field_recording": "Field recording"
+    },
+    "releaseStatus": {
+      "official": "Official",
+      "promotion": "Promotional",
+      "bootleg": "Bootleg",
+      "pseudo_release": "Pseudo-release",
+      "withdrawn": "Withdrawn",
+      "cancelled": "Cancelled"
+    },
+    "artistTypes": {
+      "person": "Solo artist",
+      "group": "Group",
+      "orchestra": "Orchestra",
+      "choir": "Choir",
+      "character": "Character",
+      "other": "Artist"
+    },
+    "genders": {
+      "male": "Male",
+      "female": "Female",
+      "non_binary": "Non-binary",
+      "other": "Other",
+      "not_applicable": "Not applicable"
+    },
+    "roles": {
+      "composer": "Composer",
+      "lyricist": "Lyrics",
+      "writer": "Writer",
+      "producer": "Producer",
+      "engineer": "Engineer",
+      "audio": "Audio engineer",
+      "recording": "Recording",
+      "mix": "Mixing",
+      "mastering": "Mastering",
+      "vocal": "Vocals",
+      "instrument": "Instruments",
+      "performer": "Performer",
+      "performing_orchestra": "Orchestra",
+      "arranger": "Arranger",
+      "conductor": "Conductor",
+      "orchestrator": "Orchestrator",
+      "programming": "Programming",
+      "remixer": "Remixer",
+      "editor": "Editor",
+      "sound": "Sound",
+      "balance": "Balance",
+      "chorus_master": "Chorus master",
+      "concertmaster": "Concertmaster",
+      "mix_dj": "DJ mix"
+    }
+  },
+  "filters": {
+    "period": "Period",
+    "periods": {
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all_time": "All time"
+    }
+  },
+  "consent": {
+    "accept": "Accept all",
+    "description": "We use one essential cookie to keep you signed in and, with your permission, personalized ad cookies from Google AdSense. You can change this anytime in settings.",
+    "reject": "Essential only",
+    "title": "Cookies and ads"
+  },
+  "ads": {
+    "label": "Advertisement"
+  },
+  "footer": {
+    "account": "Account",
+    "attribution": "Open data from",
+    "cookies": "Cookies",
+    "copyright": "© {year} Mixtape. Made with music.",
+    "explore": "Explore",
+    "label": "Footer",
+    "mixtape": "Mixtape",
+    "tagline": "The place to rate, review and collect the music that moves you."
+  },
+  "celebration": {
+    "continue": "Continue",
+    "profile": "See my profile",
+    "text": "You reached {count} ratings and leveled up. What a run!",
+    "title": "New record unlocked!"
+  },
+  "genres": {
+    "noData": "No genres found"
+  },
+  "home": {
+    "awards": {
+      "description": "The highlights of the last computed month.",
+      "period": "The highlights of {period}.",
+      "title": "Monthly Awards"
+    },
+    "cta": {
+      "description": "Create your free account, rate what you listen to and watch your record go from Demo Tape to Diamond.",
+      "title": "Ready to make your mixtape?"
+    },
+    "genresLabel": "Genres in the catalog",
+    "greeting": {
+      "morning": "Good morning, {name}",
+      "afternoon": "Good afternoon, {name}",
+      "night": "Good evening, {name}"
+    },
+    "hero": {
+      "charts": "See charts",
+      "eyebrow": "Letterboxd for music",
+      "lead": "Rate from 0 to 5 discs, write reviews, build playlists and see what everyone's listening to.",
+      "rate": "Rate now",
+      "title": "Your soundtrack deserves a rating"
+    },
+    "playlists": {
+      "description": "Collections put together by the community.",
+      "title": "Community playlists"
+    },
+    "progressTitle": "Your progress",
+    "ranking": {
+      "description": "Who scored the most this month.",
+      "title": "This month's ranking"
+    },
+    "reviews": {
+      "description": "Reviews fresh out of the oven.",
+      "empty": "No reviews yet",
+      "emptyDescription": "Be the first to write one!",
+      "title": "Latest reviews"
+    },
+    "seeProfile": "See full profile",
+    "tiers": {
+      "description": "Every rating takes you further: start with a Demo Tape and reach the Diamond Record.",
+      "eyebrow": "Level records",
+      "min": "right when you sign up | from {formatted} rating | from {formatted} ratings",
+      "more": "How it works",
+      "title": "From demo to diamond"
+    },
+    "tracks": {
+      "description": "The most rated songs in the period.",
+      "title": "Trending songs"
+    },
+    "trending": {
+      "albums": "Trending albums",
+      "description": "The albums the community rated the most.",
+      "empty": "No ratings in this period yet.",
+      "meta": "{formatted} rating | {formatted} ratings",
+      "more": "See charts",
+      "title": "Trending on Mixtape",
+      "top": "Top 1"
+    },
+    "world": {
+      "description": "The most played albums in the world this week, according to ListenBrainz.",
+      "empty": "Global charts aren't available right now.",
+      "eyebrow": "World",
+      "title": "The world is listening"
+    }
+  },
+  "charts": {
+    "disabled": "Global charts turned off",
+    "disabledDescription": "This Mixtape installation doesn't query ListenBrainz. See what's trending in the community's ratings instead.",
+    "empty": "Nothing here yet",
+    "emptyDescription": "There's no listener data for this period.",
+    "emptyMixtapeDescription": "Nobody rated anything in this period yet. How about starting?",
+    "eyebrow": "Charts",
+    "kindLabel": "Type",
+    "leadMixtape": "The items the Mixtape community rated the most, with each one's average rating.",
+    "leadWorld": "The albums, songs and artists played the most in the period by people who log their listening on ListenBrainz, an open community from all over the world. Next to each, how many of those people listened to each album and artist last month (for songs, all time).",
+    "monthlyListeners": "{formatted} listener on ListenBrainz in {month} | {formatted} listeners on ListenBrainz in {month}",
+    "allTimeListeners": "{formatted} all-time listener on ListenBrainz | {formatted} all-time listeners on ListenBrainz",
+    "loaded": "{count} chart position | {count} chart positions",
+    "ratingStat": "Rated {rating} · {formatted} rating | Rated {rating} · {formatted} ratings",
+    "rest": "Other positions",
+    "seoTitle": "Charts",
+    "sourceLabel": "Chart source",
+    "sourceMixtape": "Chart computed from Mixtape's ratings.",
+    "sources": {
+      "mixtape": "On Mixtape",
+      "world": "Worldwide"
+    },
+    "sourceWorld": "Listener data from",
+    "title": "What's playing",
+    "top3": "Top 3"
+  },
+  "feed": {
+    "empty": "No reviews here",
+    "emptyDescription": "Change the filters or come back in a bit.",
+    "eyebrow": "Community",
+    "lead": "Everything the community has been rating, from quick scores to thoughtful reviews.",
+    "minLength": "Texts with {count} characters or more count as reviews.",
+    "points": "+{points} pts",
+    "sorts": {
+      "recent": "Recent",
+      "popular": "Popular"
+    },
+    "title": "Reviews",
+    "withText": "With text only",
+    "writeText": "Rating earns participation points, and reviews and likes received are worth even more.",
+    "writeTitle": "Write one too"
+  },
+  "profile": {
+    "awards": "Awards",
+    "awardsDescription": "Podiums won in the monthly Awards.",
+    "badges": "Badges ({count})",
+    "badgesDescription": "Achievements with four levels: Bronze, Silver, Gold and Platinum.",
+    "badgesEarned": "Badges earned",
+    "cards": {
+      "average": "Average rating",
+      "averageSentence": "across {count} rating | across {count} ratings",
+      "disc": "Current record",
+      "discNext": "{count} rating left until the {next} | {count} ratings left until the {next}",
+      "discTop": "top level reached!",
+      "ranking": "Overall ranking",
+      "rankingMonth": "{position} this month",
+      "rankingNoMonth": "no points this month yet",
+      "topGenre": "Favorite genre",
+      "topGenreSentence": "{count} rating in this genre | {count} ratings in this genre"
+    },
+    "collections": "Collections",
+    "distribution": "How they rate",
+    "edit": "Edit profile",
+    "favoriteGenres": "Favorite genres",
+    "highlights": "Profile highlights",
+    "library": "Library",
+    "libraryCount": "{count} rating | {count} ratings",
+    "loading": "Loading profile",
+    "memberSince": "on Mixtape since {date}",
+    "nextBadges": "Next badges",
+    "noAwards": "No Awards yet. The next one could be yours!",
+    "noBadges": "No badges earned yet.",
+    "noBadgesMine": "You don't have badges yet. Rate, write reviews and join a crew review to earn the first one!",
+    "noBioMine": "Tell people about your music taste in settings.",
+    "noGenres": "No genres rated yet.",
+    "noReviews": "No albums rated yet",
+    "noReviewsMine": "You haven't rated any album yet",
+    "notFound": "Profile not found",
+    "notFoundDescription": "Check the username in the link.",
+    "persona": {
+      "balanced": "Balance is everything: well-spread ratings.",
+      "generous": "Soft-hearted: gives high ratings often.",
+      "none": "Ratings show up here after the first ones.",
+      "tough": "Tough critic: a high rating has to be earned."
+    },
+    "playlists": "Playlists",
+    "playlistsCount": "{count} public playlist | {count} public playlists",
+    "progress": "Progress",
+    "progressDescription": "Current record, points and ranking positions.",
+    "scores": "Points and ranking",
+    "scoresDescription": "Points and ranking positions.",
+    "qrText": "Show the code so people can check out your music taste.",
+    "qrTitle": "Profile QR code",
+    "recent": "Recently rated albums",
+    "recentDescription": "The latest ratings.",
+    "recentCrate": "Albums rated by {name}, in a record stack",
+    "recentViewLabel": "How to show the rated albums",
+    "recentViews": { "crate": "Stack", "rail": "Row" },
+    "galera": "Crew reviews",
+    "galeraDescription": "Reviews made with groups. Private-group ones only show for members.",
+    "galeraDescriptionMine": "Your scores in crew reviews. Only the crew sees private-group ones.",
+    "noGalera": "No crew reviews here",
+    "noGaleraMine": "You haven't joined a crew review yet",
+    "noGaleraMineHint": "In a group, tap “Crew review” and pick a record to rate together.",
+    "seeLibrary": "See library ({count})",
+    "seoDescription": "{name}: {tier} with {count} rating on Mixtape. | {name}: {tier} with {count} ratings on Mixtape.",
+    "seoTitle": "{name} ({'@'}{username})",
+    "share": "Share profile",
+    "shareTitle": "Share profile",
+    "stats": {
+      "albums": "Albums",
+      "average": "Average",
+      "playlists": "Playlists",
+      "reviews": "Ratings",
+      "tracks": "Songs"
+    },
+    "topGenres": "Most rated genres"
+  },
+  "crate": {
+    "kinds": { "ALBUM": "Album", "ARTIST": "Artist", "TRACK": "Track" },
+    "open": {
+      "ALBUM": "See album",
+      "ARTIST": "See artist",
+      "TRACK": "See track"
+    },
+    "rateArtist": "Rate a record",
+    "seeReview": "See review"
+  },
+  "discover": {
+    "crateLabel": "Discover: albums drawn for you",
+    "empty": "You’ve rated everything here",
+    "retry": "Try again",
+    "sentence": "Flip through the stack and pull out a record you haven’t rated yet. Like it? Save it to listen to and rate later.",
+    "shuffle": "Draw others",
+    "title": "Discover"
+  },
+  "listenLater": {
+    "added": "{title} went to your “Listen later” list.",
+    "addedOn": "Saved {when}",
+    "crateLabel": "Your “Listen later” stack",
+    "description": "What you saved to listen to and rate. Once you rate it, it leaves the list. Only you can see it.",
+    "empty": "Nothing saved yet",
+    "emptyDescription": "Pull a record out in Discover, right here on your profile, and save it to listen later.",
+    "removed": "{title} left your “Listen later” list.",
+    "save": "Listen later",
+    "saved": "On your list",
+    "signIn": "Sign in to save records to listen later.",
+    "title": "Listen later"
+  },
+  "library": {
+    "allGenres": "All genres",
+    "clearFilters": "Clear filters",
+    "distribution": "Rating distribution",
+    "empty": "Empty library",
+    "emptyDescription": "No ratings here yet.",
+    "emptyFiltered": "Nothing matches these filters",
+    "emptyFilteredDescription": "Try another genre, type or rating range.",
+    "emptyMineDescription": "Rate your first record and it shows up here.",
+    "filters": "Filters",
+    "genreCount": "{genre} ({count})",
+    "genreLabel": "Filter by genre",
+    "gridLabel": "Rated albums and songs",
+    "openReview": "See the review of {title}",
+    "viewLabel": "View",
+    "views": {
+      "crate": "Stack",
+      "grid": "Grid",
+      "list": "List"
+    },
+    "crateLabel": "Rated albums and tracks, in a record stack",
+    "withReview": "With review",
+    "galera": "Crew · {group}",
+    "visibility": {
+      "group": "Crew only",
+      "private": "Only you"
+    },
+    "ratingRange": "Ratings from {min} to {max}",
+    "ratingRangeLabel": "Rating range",
+    "seoDescription": "{name}'s ratings on Mixtape: {count} rating. | {name}'s ratings on Mixtape: {count} ratings.",
+    "seoLoading": "Library",
+    "seoTitle": "{name}'s library ({'@'}{username})",
+    "stats": {
+      "albums": "Albums",
+      "average": "Average",
+      "reviews": "Ratings",
+      "tracks": "Songs"
+    },
+    "title": "{name}'s library",
+    "titleMine": "My library",
+    "topGenres": "Most rated genres",
+    "typeLabel": "Type",
+    "types": {
+      "albums": "Albums",
+      "all": "All",
+      "tracks": "Songs"
+    }
+  },
+  "progress": {
+    "allTime": "All time",
+    "notoriety": "Notoriety",
+    "participation": "Participation",
+    "points": "Points",
+    "positionAllTime": "Overall",
+    "positionMonth": "This month",
+    "ranking": "Ranking position",
+    "seeRanking": "See full ranking",
+    "thisMonth": "This month",
+    "unranked": "—"
+  },
+  "rankings": {
+    "categories": {
+      "overall": "Overall",
+      "participation": "Participation",
+      "notoriety": "Notoriety"
+    },
+    "category": "Category",
+    "categoryHints": {
+      "overall": "Participation and notoriety points combined.",
+      "participation": "Points for rating, writing reviews and being a pioneer.",
+      "notoriety": "Points for the community's recognition: likes received."
+    },
+    "empty": "Empty ranking",
+    "emptyDescription": "Nobody scored in this period yet.",
+    "eyebrow": "Ranking",
+    "howMore": "See all the rules",
+    "howTitle": "How to score",
+    "lead": "Who rates, writes and gets recognized by the community the most.",
+    "mine": "Your position",
+    "period": "Period",
+    "podium": "Podium",
+    "points": "{points} pts",
+    "title": "Who moves Mixtape"
+  },
+  "rules": {
+    "categories": {
+      "PARTICIPATION": "Participation",
+      "NOTORIETY": "Notoriety"
+    },
+    "categoryHints": {
+      "PARTICIPATION": "How much you contribute to Mixtape.",
+      "NOTORIETY": "How much the community recognizes your ratings."
+    },
+    "points": "{points} pts"
+  },
+  "awards": {
+    "empty": "No Awards computed yet",
+    "emptyDescription": "Awards come out after each month ends. Keep rating!",
+    "eyebrow": "Monthly Awards",
+    "historyLine": "{period} · {position} place · {score} pts",
+    "howItWorks": "How the Awards work",
+    "lead": "Every month the community's standouts take the podium: Critic, Most Active, Review and Rookie of the month.",
+    "next": "Next month",
+    "noWinner": "Nobody scored in this category.",
+    "periodLabel": "Month",
+    "periodNav": "Choose the month",
+    "previous": "Previous month",
+    "reviewBy": "by {'@'}{username}",
+    "reviewOf": "Review: “{title}” ({rating})",
+    "score": "{score} pts",
+    "seoTitle": "Awards for {period}",
+    "showing": "Showing the Awards for {period}",
+    "title": "The Awards"
+  },
+  "how": {
+    "awardLabel": "Award",
+    "awardsDescription": "Every month, four categories with a three-place podium.",
+    "awardsTitle": "Monthly Awards",
+    "badgesDescription": "Each badge has four levels. Locked ones stay visible so you know the way.",
+    "badgesTitle": "Badges",
+    "ctaTitle": "Ready to spin your first record?",
+    "discsDescription": "Your level goes up with the number of ratings.",
+    "discsTitle": "Level records",
+    "eyebrow": "How it works",
+    "halfDiscs": "Half discs are allowed: 3.5 is different from 3 and from 4. Zero counts too, because sometimes that's what a record is.",
+    "lead": "Rate, write, like, collect and compete: everything on Mixtape turns into points, records, badges and Awards.",
+    "metric": "Counts: {metric}",
+    "nav": {
+      "awards": "Awards",
+      "badges": "Badges",
+      "discs": "Records",
+      "points": "Points",
+      "rating": "Ratings"
+    },
+    "navLabel": "Sections on this page",
+    "pointsDescription": "Participation is how much you contribute; notoriety is how much the community recognizes you. Texts with {count} characters or more count as reviews.",
+    "pointsTitle": "Points",
+    "rankingText": "Points feed the global ranking and each group's ranking, by week, month, year or all time.",
+    "rankingTitle": "Rankings",
+    "ratingDescription": "From 0 to 5 discs, in half-disc steps.",
+    "ratingTitle": "How to rate",
+    "scale": {
+      "0": "Unlistenable",
+      "1": "Weak",
+      "2": "Has its moments",
+      "3": "Good",
+      "4": "Great",
+      "5": "Masterpiece"
+    },
+    "seeRanking": "See the ranking",
+    "step": "Step {number}",
+    "steps": {
+      "rate": {
+        "title": "Rate",
+        "text": "Give albums and songs a score from 0 to 5."
+      },
+      "write": {
+        "title": "Review",
+        "text": "Write what you thought: longer texts earn bonus points."
+      },
+      "react": {
+        "title": "Like",
+        "text": "Leave a heart on the ratings you enjoy."
+      },
+      "galera": {
+        "title": "Rate with your crew",
+        "text": "Suggest a record in your group and everyone adds their own score to the crew review."
+      },
+      "collect": {
+        "title": "Collect",
+        "text": "Build playlists with albums, songs, artists and reviews."
+      },
+      "compete": {
+        "title": "Compete",
+        "text": "Create groups, invite friends and climb the ranking."
+      }
+    },
+    "stepsLabel": "Step by step",
+    "tierMin": "right when you sign up | from {formatted} rating | from {formatted} ratings",
+    "tierStart": "right when you sign up",
+    "title": "How Mixtape works"
+  },
+  "galera": {
+    "alreadyExists": "The crew already has a review of this item. We opened it for you.",
+    "average": "Crew average: {rating}",
+    "cancel": "Undo suggestion",
+    "cancelled": "Suggestion undone.",
+    "cancelMessage": "The suggestion of “{title}” will leave the group. It can be undone while nobody has rated it.",
+    "cancelTitle": "Undo the suggestion?",
+    "copyLink": "Copy link",
+    "editMine": "Edit my score",
+    "emptyDescription": "Tap “Crew review”, pick an album or a song and everyone adds their own score.",
+    "emptyTitle": "No crew reviews yet",
+    "entriesStat": "Scores",
+    "eyebrow": "Crew review · {group}",
+    "hintPrivate": "Private group: only members see these reviews, on each member's profile too.",
+    "hintPublic": "Public group: these reviews show for everyone, on each member's profile.",
+    "inOtherGroup": "Your rating of this item is already in another group's crew review.",
+    "linkCopied": "Link copied!",
+    "loading": "Loading crew review",
+    "membersStat": "Members",
+    "noAverage": "No scores yet",
+    "notFound": "Crew review not found",
+    "notFoundDescription": "It may have been undone, or it belongs to a private group you're not in.",
+    "openGroup": "Open the group",
+    "propose": {
+      "albumPlaceholder": "Album or artist name",
+      "description": "Pick the album or song the crew will rate together. Everyone adds their own score.",
+      "empty": "Nothing found. Try another name.",
+      "hint": "Search by name and tap “Suggest”.",
+      "kindLabel": "What to rate",
+      "pick": "Suggest",
+      "resultsLabel": "Search results",
+      "searchLabel": "Search the catalog",
+      "title": "Crew review",
+      "trackPlaceholder": "Song or artist name"
+    },
+    "proposed": "“{title}” suggested to the crew! Now add your score.",
+    "rateMine": "Add my score",
+    "seoDescription": "{group}'s crew review of “{title}”: {count} score. | {group}'s crew review of “{title}”: {count} scores.",
+    "seoTitle": "{group}'s crew review: {title}",
+    "start": "Crew review",
+    "title": "Crew reviews"
+  },
+  "groups": {
+    "code": "Invite code or link",
+    "codeError": "Paste the code (6 to 16 letters and numbers) or the invite link.",
+    "codeHint": "Ask someone in the group to share the invite.",
+    "create": "Create group",
+    "created": "Group “{name}” created! Now invite your crew.",
+    "createText": "Build a crew, invite friends and compete in a ranking that's just yours.",
+    "createTitle": "New group",
+    "empty": "You're not in any group yet",
+    "emptyDescription": "Create a group or join through someone's invite.",
+    "eyebrow": "Groups",
+    "form": {
+      "create": "Create group",
+      "createDescription": "Give your crew a name and a description.",
+      "createTitle": "New group",
+      "description": "Description (optional)",
+      "editDescription": "Change the group's name, description or who sees its crew reviews.",
+      "exposeWarning": "Making the group public shows its existing crew reviews to everyone, on each member's profile too.",
+      "editTitle": "Edit group",
+      "name": "Group name",
+      "nameError": "The name must have {min} to {max} characters.",
+      "privateHint": "Only members see the crew reviews, on each member's profile too.",
+      "publicHint": "Crew reviews show for everyone, with the group's name, on each member's profile. Joining is still invite-only.",
+      "visibilityLabel": "Who sees the crew reviews"
+    },
+    "joinTitle": "Got an invite?",
+    "lead": "Rankings, a feed and top records just for your crew.",
+    "members": "{count} member | {count} members",
+    "mine": "Your groups ({count})",
+    "preview": "See invite",
+    "roles": {
+      "OWNER": "Owner"
+    },
+    "since": "since {date}",
+    "title": "Groups",
+    "visibility": {
+      "private": "Private group",
+      "public": "Public group"
+    }
+  },
+  "group": {
+    "codeCopied": "Code {code} copied!",
+    "copyCode": "Code: {code}",
+    "delete": "Delete group",
+    "deleted": "Group deleted.",
+    "deleteMessage": "“{name}” will be deleted for every member, along with its ranking and feed. Each crew review score stays on its author's profile as an individual rating (only the author sees the ones from a private group). This can't be undone.",
+    "deleteTitle": "Delete group?",
+    "edit": "Edit group",
+    "eyebrow": "Group",
+    "eyebrowOwner": "Your group",
+    "feedEmpty": "The feed is empty",
+    "feedEmptyDescription": "When someone in the group rates a record, it shows up here.",
+    "invite": "Invite",
+    "inviteTitle": "Invite to the group",
+    "joinedAt": "joined on {date}",
+    "leave": "Leave group",
+    "leaveMessage": "You'll leave “{name}”. Your crew review scores stay on your profile as your own ratings (private-group ones, visible only to you). To come back you'll need a new invite.",
+    "leaveOwnerMessage": "You created “{name}”. If you leave, the longest-standing member takes over, and your crew review scores stay on your profile as your own ratings.",
+    "leaveTitle": "Leave group?",
+    "left": "You left the group.",
+    "loading": "Loading group",
+    "membersLabel": "Members ({count})",
+    "notFound": "Group not found",
+    "notFoundDescription": "It may have been deleted, or you're not in it. Join through someone's invite.",
+    "owner": "Created by {name}",
+    "regenerate": "New invite",
+    "regenerated": "New invite code generated. The old one stopped working.",
+    "regenerateMessage": "The current code will stop working, and anyone who hasn't joined yet will need the new link.",
+    "regenerateTitle": "Generate a new invite?",
+    "remove": "Remove",
+    "removed": "{name} left the group.",
+    "removeMember": "Remove {name} from the group",
+    "removeMessage": "{name} will leave the group and stop showing up in its ranking. Their crew review scores become their individual ratings.",
+    "removeTitle": "Remove member?",
+    "saved": "Group updated.",
+    "tabs": {
+      "feed": "Feed",
+      "galera": "Crew reviews",
+      "members": "Members",
+      "ranking": "Ranking",
+      "top": "Group top"
+    },
+    "tabsLabel": "Group sections",
+    "topEmpty": "No items with two or more ratings yet.",
+    "topHint": "The group's best-rated items, with at least two ratings.",
+    "topTitle": "Group top"
+  },
+  "invite": {
+    "eyebrow": "Group invite",
+    "join": "Join group",
+    "joined": "You're now part of “{name}”!",
+    "myGroups": "See my groups",
+    "notFound": "Invalid invite",
+    "notFoundDescription": "The invite may have expired or been replaced. Ask someone in the group for a new link.",
+    "ownedBy": "{name}'s group",
+    "seoDescription": "An invite to a group on Mixtape.",
+    "seoTitle": "Invite: {name}",
+    "signInToJoin": "Sign in to join"
+  },
+  "settings": {
+    "account": "Account and security",
+    "accountHint": "Email, password and sessions",
+    "adsAll": "Ads personalized to your interests.",
+    "adsEssential": "Non-personalized ads, without interest cookies.",
+    "adsPersonalization": "Personalized ads",
+    "adsUndecided": "You haven't chosen yet.",
+    "appearance": "Appearance and language",
+    "avatar": "Photo link (https)",
+    "avatarError": "Use a valid https link.",
+    "avatarHint": "Paste the https link of your photo on Gravatar, GitHub, Google, Imgur, Unsplash or Wikimedia.",
+    "bio": "Bio",
+    "bioHint": "Shown on your public profile.",
+    "bioPlaceholder": "e.g. Listening to everything from MPB to shoegaze, a fan of full albums.",
+    "consent": {
+      "all": "Personalized",
+      "essential": "Essential only"
+    },
+    "consentReload": "Your choice applies from the next page you load.",
+    "eyebrow": "Settings",
+    "genres": "Favorite genres",
+    "genresHint": "Pick up to {max}. They show on your profile.",
+    "language": "Language",
+    "languageHint": "The interface language.",
+    "lead": "Your public profile plus appearance and privacy preferences.",
+    "privacy": "Privacy",
+    "profile": "Public profile",
+    "profileHint": "Everything here is visible to anyone who visits your profile.",
+    "readPrivacy": "Read the privacy policy",
+    "saved": "Profile updated!",
+    "theme": "Theme",
+    "themeHint": "Follow the system or pick light or dark.",
+    "themes": {
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "title": "Settings",
+    "viewProfile": "See my profile",
+    "welcomeText": "Pick your favorite genres and tell people a bit about yourself, so your profile looks like you from day one.",
+    "welcomeTitle": "Account created, {name}!"
+  },
+  "favorites": {
+    "add": "Add {title} to favorites",
+    "added": "{title} is now in your favorites",
+    "choose": "Pick favorites",
+    "description": "The albums and songs {name} loves most",
+    "descriptionMine": "Up to {limit} albums and songs that say who you are, in your order",
+    "edit": "Edit",
+    "editor": {
+      "add": "Add",
+      "added": "Added",
+      "addTitle": "Add more",
+      "albumPlaceholder": "Album or artist name",
+      "count": "{count} of {limit}",
+      "description": "Pick up to {limit} albums and songs and put them in any order. They show on your profile for everyone.",
+      "emptyList": "No favorites yet: search below and add some.",
+      "kindLabel": "Search albums or songs",
+      "listLabel": "Your favorites, in order",
+      "moveDown": "Move {title} down",
+      "moveUp": "Move {title} up",
+      "noResults": "Nothing found. Try another name.",
+      "remove": "Remove {title}",
+      "resultsLabel": "Search results",
+      "save": "Save favorites",
+      "saved": "Favorites saved!",
+      "searchLabel": "Search the catalog",
+      "title": "Your favorites",
+      "trackPlaceholder": "Song or artist name"
+    },
+    "empty": "{name} hasn’t picked favorites yet",
+    "emptyMine": "Pick your favorites",
+    "emptyMineDescription": "Up to {limit} albums and songs that tell who you are. They stay here, at the top of your profile.",
+    "remove": "Remove {title} from favorites",
+    "removed": "{title} left your favorites",
+    "title": "Favorites"
+  },
+  "account": {
+    "data": "Your data",
+    "deletePage": {
+      "account": "Account {'@'}{username}",
+      "cancel": "I changed my mind",
+      "checking": "Checking the link…",
+      "done": "Everything was erased, and one last notice went to your email. Thanks for stopping by.",
+      "doneTitle": "Account deleted",
+      "eyebrow": "Account deletion",
+      "home": "Go to the home page",
+      "invalid": "The link only works for a short time and only once, and a new request disables the earlier ones. Request another one in Account and security.",
+      "invalidTitle": "This link no longer works",
+      "items": {
+        "groups": "Your membership in groups (in yours, the longest-standing member becomes the owner)",
+        "likes": "The likes you gave and the ones you got",
+        "lists": "Playlists, favorites and your \"Listen later\" list",
+        "points": "Points, badges and Awards",
+        "reviews": "Ratings and reviews"
+      },
+      "lead": "This can't be undone. Gone right away, for good:",
+      "requestNew": "Request a new link",
+      "submit": "Delete my account for good",
+      "title": "Delete your account?"
+    },
+    "deletion": {
+      "button": "Send a link to delete the account",
+      "lead": "Deletes the account and everything in it: ratings, likes, playlists, favorites, your \"Listen later\" list, points and badges. In your groups, the longest-standing member becomes the owner. This can't be undone.",
+      "note": "For your safety, deletion only happens through the link we send to {email}. Nothing is deleted until you confirm through it.",
+      "sent": "Link sent to {email}. It works for {minutes} minutes and only once.",
+      "title": "Delete account"
+    },
+    "fields": {
+      "birthDate": "Date of birth",
+      "createdAt": "Account created on",
+      "email": "Email",
+      "name": "Name",
+      "role": "Account type",
+      "username": "Username"
+    },
+    "lead": "Private account data, password, open sessions and account deletion.",
+    "password": "Password",
+    "passwordLead": "Forgot your password or want to change it? We’ll send a link to {email}. Passwords only change through that link: someone who gets into your account without access to your email can’t change it.",
+    "privateNote": "Your email and date of birth never show on your public profile.",
+    "resendIn": "Send again in {seconds}s",
+    "resetLinkSent": "Link sent to {email}. It works for {minutes} minutes and only once.",
+    "roles": {
+      "USER": "User",
+      "ADMIN": "Administrator"
+    },
+    "sendResetLink": "Send a link to change the password",
+    "sessions": "Sessions",
+    "sessionsLead": "Sign out of this device or all of them at once, handy if you used a public computer.",
+    "signedOutEverywhere": "You signed out of every device.",
+    "signOut": "Sign out of this device",
+    "signOutEverywhere": "Sign out everywhere",
+    "signOutEverywhereMessage": "Every session, including this one, will be closed.",
+    "signOutEverywhereTitle": "Sign out of every device?",
+    "title": "Account and security"
+  },
+  "admin": {
+    "ads": {
+      "client": "Publisher",
+      "enabled": "Enabled",
+      "placements": "Placements",
+      "provider": "Provider",
+      "testMode": "Test mode"
+    },
+    "adsTitle": "Ads",
+    "awardsText": "Compute, or recompute, the Awards of a month that has ended. Use it to fix or get ahead of the automatic computation.",
+    "awardsTitle": "Compute Awards",
+    "compute": "Compute",
+    "computed": "Awards for {period} computed.",
+    "eyebrow": "Admin",
+    "lead": "Tools for the people who run Mixtape.",
+    "openAwards": "Open the Awards page",
+    "placements": {
+      "HOME_TOP": "Home, top",
+      "HOME_FEED": "Home, feed",
+      "SEARCH_RESULTS": "Search",
+      "ALBUM_SIDEBAR": "Album, sidebar",
+      "ALBUM_BOTTOM": "Album, bottom",
+      "PROFILE_BOTTOM": "Profile, bottom",
+      "RANKINGS_SIDEBAR": "Ranking, sidebar"
+    },
+    "result": "Result for {period}",
+    "title": "Admin panel"
+  },
+  "legal": {
+    "contactEmail": "at {email}",
+    "contactFallback": "through the contact channels listed on the site",
+    "eyebrow": "Documents",
+    "toc": "On this page",
+    "updated": "Updated on {date}",
+    "privacy": {
+      "title": "Privacy policy",
+      "lead": "How Mixtape handles your personal data, plainly and without unnecessary legalese.",
+      "sections": {
+        "controller": {
+          "title": "Who looks after your data",
+          "body": "Mixtape is the controller of the personal data processed on this platform, under Brazil's General Data Protection Law (LGPD) and, where applicable, the GDPR. Questions about this policy can be sent {contact}."
+        },
+        "data": {
+          "title": "What we collect",
+          "body": "- Sign-up: full name, username, email, date of birth and password. The password is kept by Auth0, Mixtape's sign-in service, stored only as a hash and never in plain text; Mixtape itself stores no passwords.\n- Profile, if you choose to fill it in: bio, favorite styles and the link to a photo on Gravatar, GitHub, Google, Imgur, Unsplash or Wikimedia.\n- What you post: ratings, reviews, likes, playlists, groups and crew reviews.\n- Technical data: IP address and browser information, used for security, abuse prevention and keeping your session working, plus the access log (date, time and IP of each sign-in) required by law."
+        },
+        "purposes": {
+          "title": "What we use it for",
+          "body": "- Create and maintain your account and session.\n- Show your public profile, your ratings and your collections.\n- Calculate points, level discs, badges, rankings and Awards.\n- Protect the platform against fraud, spam and unauthorized access.\n- Keep conversations respectful: reviews go through an offensive-language filter and, when enabled, through OpenAI's automated moderation.\n- Show ads, personalized only with your consent.\n\nThe legal bases are performing the service you signed up for, our legitimate interest in keeping the platform secure, and your consent for personalized ads."
+        },
+        "cookies": {
+          "title": "Cookies and browser storage",
+          "body": "We use one essential, protected cookie (HttpOnly and SameSite Strict) to keep you signed in securely. Your browser also stores preferences such as theme, language, recent searches and your ad choice. None of this is used to track you on other sites."
+        },
+        "ads": {
+          "title": "Ads",
+          "body": "We show Google AdSense ads. If you accept personalized ads, Google may use cookies to show ads based on your interests. If you choose “Essential only”, ads still appear but without personalization. You can change this choice anytime in settings or through the “Cookies” link in the footer. Learn more at policies.google.com/technologies/ads."
+        },
+        "sharing": {
+          "title": "Who we share it with",
+          "body": "Your profile, ratings and public playlists can be seen by anyone; crew reviews from a private group, only by the group's members. We don't sell personal data. Other services get only what they need:\n\n- Sign-in: Auth0, by Okta, keeps your email and your password (only as a hash) and checks the password when you sign in: you type it on the Mixtape page, and it goes through our server straight to Auth0, without being stored or logged here. Its servers are in the United States; this transfer is needed for you to sign in to Mixtape. When you delete your account, it's removed from Auth0 too.\n- Catalog: it comes from open sources (MusicBrainz, Cover Art Archive, ListenBrainz and Wikimedia Commons). Covers go through Mixtape itself. Artist photos and profile photos are loaded by your browser straight from where they are hosted (Wikimedia, Gravatar and the other accepted services), which receive your IP address like any other request on the internet, but not the Mixtape page they came from.\n- New password: to check whether it has shown up in data breaches, we send Pwned Passwords (Have I Been Pwned) only the first 5 characters of its cryptographic hash; the password itself only goes to Auth0.\n- Moderation: when automated moderation is enabled, the text of reviews is checked by OpenAI's moderation API before it's published.\n\nWe may share data when required by law."
+        },
+        "retention": {
+          "title": "How long we keep it",
+          "body": "We keep your data while your account exists. The access log (date, time and IP of each sign-in, sign-up, password change and deletion) is kept for 6 months, as Brazil's Marco Civil da Internet (art. 15) requires, even after the account is deleted, and is then erased. When you delete a rating, playlist or group, the content stops being shown and is removed from the database. When you delete your account, it's removed from Mixtape and from Auth0."
+        },
+        "rights": {
+          "title": "Your rights",
+          "body": "Under the LGPD you can, at any time:\n\n- confirm whether we process your data and access it;\n- correct incomplete or outdated data, mostly right in settings;\n- ask for anonymization, blocking or deletion of data;\n- ask for portability and information about sharing;\n- withdraw consent for personalized ads.\n\nTo exercise these rights, reach us {contact}."
+        },
+        "security": {
+          "title": "Security",
+          "body": "Passwords are checked against known breaches and stored with a strong hash by Auth0; after several wrong passwords in a row, sign-in waits a few minutes (and Auth0 also locks repeated attempts); sessions use short-lived tokens and a protected cookie, traffic should go over HTTPS and the site enforces a strict content security policy. No system is infallible: if you notice something odd, let us know."
+        },
+        "children": {
+          "title": "Minimum age",
+          "body": "Mixtape isn't made for children. You need to meet the minimum age shown at sign-up, 13 by default, to create an account."
+        },
+        "changes": {
+          "title": "Changes to this policy",
+          "body": "We may update this policy to follow changes in the service or the law. The date of the last update is at the top of the page, and relevant changes will be announced on the site."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "Reach us {contact}."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of use",
+      "lead": "The rules for using Mixtape and rating, liking and collecting alongside the community.",
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance",
+          "body": "By creating an account or using Mixtape, you agree to these Terms and to the Privacy Policy. If you don't agree, don't use the platform."
+        },
+        "account": {
+          "title": "Your account",
+          "body": "- Each person can have one account, with truthful information.\n- You choose your own password and are responsible for keeping it secret: Mixtape never creates or sends passwords.\n- Let us know if you suspect someone is misusing your account."
+        },
+        "content": {
+          "title": "Your content",
+          "body": "Your ratings, reviews and playlists remain yours. By publishing them, you allow Mixtape to display and share them within the platform and in link previews. Public content can be seen by anyone."
+        },
+        "conduct": {
+          "title": "Community rules",
+          "body": "Don't post illegal content, hate speech, harassment, spam, other people's personal data or material that infringes copyright. Admins may remove content that breaks these rules and suspend repeat offenders."
+        },
+        "catalog": {
+          "title": "Music catalog",
+          "body": "Catalog data comes from open, community-run projects: MusicBrainz (metadata), Cover Art Archive (covers), ListenBrainz (listeners and charts) and Wikimedia Commons (artist photos, credited to their authors and licenses). Mixtape isn't affiliated with those projects or with the labels and artists listed. The menu burger icon comes from Font Awesome Free (fontawesome.com), under the CC BY 4.0 license."
+        },
+        "gamification": {
+          "title": "Points and prizes",
+          "body": "Points, level records, badges, rankings and Awards exist to make the experience more fun. They have no monetary value, can't be exchanged for anything, and the rules may be adjusted to keep the competition fair."
+        },
+        "ads": {
+          "title": "Ads",
+          "body": "Mixtape may show ads to stay online. They're labeled as advertising and follow your privacy choice."
+        },
+        "liability": {
+          "title": "Liability",
+          "body": "The service is provided as is. We do our best to keep it available and accurate, but the catalog depends on external sources and may have errors or go offline. We're not responsible for content posted by users."
+        },
+        "termination": {
+          "title": "Termination",
+          "body": "You can stop using Mixtape whenever you want. We may suspend or close accounts that violate these Terms."
+        },
+        "changes": {
+          "title": "Changes to the terms",
+          "body": "We may update these Terms. Relevant changes will be announced on the site, and continuing to use Mixtape afterwards means you agree to the new version."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "Questions about these Terms? Reach us {contact}."
+        }
+      }
+    }
+  }
+}
