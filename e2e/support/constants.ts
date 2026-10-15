@@ -24,6 +24,7 @@ export const API_PATHS = {
   register: '/api/v1/auth/register',
   login: '/api/v1/auth/login',
   refresh: '/api/v1/auth/refresh',
+  profile: '/api/v1/me/profile',
   progress: (username: string) => `/api/v1/users/${encodeURIComponent(username)}/progress`,
 }
 

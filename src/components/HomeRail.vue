@@ -13,15 +13,28 @@
 
   <p v-else-if="!items || items.length === 0" class="home-rail__empty muted" data-testid="home-rail">{{ empty }}</p>
 
-  <MxRail v-else data-testid="home-rail" :item-width="itemWidth" :label="label">
-    <li v-for="(item, index) in items" :key="index" v-reveal="{ variant: 'up', delay: Math.min(index, 6) * 70 }">
+  <MxRail
+    v-else
+    ref="rail"
+    data-testid="home-rail"
+    :item-width="itemWidth"
+    :label="label"
+  >
+    <li
+      v-for="(item, index) in items"
+      :key="index"
+      v-reveal="{ variant: 'up', delay: Math.min(index, 6) * 70 }"
+      :data-rail-index="index"
+    >
       <slot :index="index" :item="item" />
     </li>
   </MxRail>
 </template>
 
 <script lang="ts" setup generic="T">
-  import { MxErrorState, MxRail, MxSkeleton, vReveal } from '@pedrolucaslopes/mixtape-ui'
+  import type { ComponentPublicInstance } from 'vue'
+  import { MxErrorState, MxRail, MxSkeleton, prefersReducedMotion, vReveal } from '@pedrolucaslopes/mixtape-ui'
+  import { useTemplateRef } from 'vue'
 
   withDefaults(defineProps<{
     items: readonly T[] | null | undefined
@@ -35,6 +48,24 @@
   const emit = defineEmits<{ retry: [] }>()
 
   defineSlots<{ default: (props: { item: T, index: number }) => unknown }>()
+
+  const rail = useTemplateRef<ComponentPublicInstance>('rail')
+
+  /**
+   * Leva o item `index` para o começo do trilho e põe o foco no primeiro link ou botão dele. Item que chega depois
+   * (um "Mais sugestões") entra no fim do trilho, fora da tela: sem isso, o clique parecia não fazer nada.
+   */
+  function reveal (index: number): void {
+    const root = rail.value?.$el as HTMLElement | undefined
+    const entry = root?.querySelector<HTMLElement>(`[data-rail-index="${CSS.escape(String(index))}"]`)
+    if (!entry) {
+      return
+    }
+    entry.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest', inline: 'start' })
+    entry.querySelector<HTMLElement>('a, button')?.focus({ preventScroll: true })
+  }
+
+  defineExpose({ reveal })
 </script>
 
 <style scoped>

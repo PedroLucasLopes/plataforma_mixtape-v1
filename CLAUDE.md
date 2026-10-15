@@ -35,10 +35,10 @@ COMPOSE_PROFILES=cloudflare docker compose up -d  # + o túnel da Cloudflare (pr
   camada nem fica no histórico da imagem.
 - **CI:** `GITHUB_TOKEN` com `packages: read`, depois de dar a este repositório acesso ao pacote
   (*Manage Actions access* na página do pacote). Sem isso, o secret `MIXTAPE_LIB_TOKEN`.
-- **Versão:** `^0.7.3`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
+- **Versão:** `^0.7.4`, do registro. Em 0.x o `^` não aceita a minor seguinte (é nela que a
   biblioteca quebra): trocar é `npm install @pedrolucaslopes/mixtape-ui@^0.<n>.0` e conferir o que
   mudou no `CLAUDE.md` dela. A 0.4.0 trocou `listens` por `listeners` no `MxItemCard`; a 0.5.0 trocou o
-  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada; a 0.7.2 trouxe a `MxCoverStack` (pilhas da grade da biblioteca) e o `pickable` da `MxCrate` (o clique na pilha de avaliações recentes do perfil abre a avaliação); a 0.7.3, o `widePanel` da `MxCrate` (resenha em 2/3 e discos em 1/3 no perfil).
+  `MxReactionBar` pelo `MxLikeButton` (coração), tirou o `MxCommentItem` e criou o `MxGroupReviewCard`; a 0.5.1 trouxe o `MxPagedGrid` (discografia paginada); a 0.6.0 trouxe o `MxRotator`, blobs que cobrem qualquer largura, `data-testid` em todos os componentes e mudou onde `MxIconButton`, `MxImageCredit` e `MxUserMenu` põem o que recebem de fora (no botão, não mais no menu teleportado: classe com escopo da página precisa de `:deep()`, ver Armadilhas); a 0.7.0 trouxe a `MxCrate` (pilha de discos, com `open` e `compact`) e o `listenersSource` do `MxItemCard`; a 0.7.1 trouxe o `MxPersonCard` (busca de pessoas), o `showProgress` do `MxBadge` (badge de outra pessoa, sem progresso) e o `MxSegmented` que rola até a opção marcada; a 0.7.2 trouxe a `MxCoverStack` (pilhas da grade da biblioteca) e o `pickable` da `MxCrate` (o clique na pilha de avaliações recentes do perfil abre a avaliação); a 0.7.3, o `widePanel` da `MxCrate` (resenha em 2/3 e discos em 1/3 no perfil); a 0.7.4, o `clear` do `MxSearchField` (desfazer a busca) e as setas do `MxRail` acompanhando itens novos.
 - **Espaçamento entre letras** vem dos tokens da biblioteca (`--mx-tracking-display`, `-title`,
   `-numeral`); só o logotipo (`AppBrand`) tem o dele.
 - **Testar mudança da biblioteca antes de publicar:** `npm run build` e
@@ -197,7 +197,12 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 
 - **Tela de avaliar** (`/search?rate=1`, sem texto digitado), por aba (álbuns, músicas, artistas):
   - **Para você:** `GET /genres/suggestions/{tipo}` com os estilos favoritos, que giram um passo por dia
-    (`rotateDaily`), porque a API usa só os 5 primeiros. É paginado (`usePaged`, "Mais sugestões").
+    (`rotateDaily`), porque a API usa só os 5 primeiros. É paginado (`usePaged`, "Mais sugestões"): as novas entram
+    no fim do trilho, então ele rola até a primeira delas e o foco vai para ela (`HomeRail.reveal`); antes, o clique
+    parecia não fazer nada. A mistura dos estilos pode mudar entre uma página e outra (estilo que atrasou na API entra
+    na seguinte), e as repetidas saem (`forYouShown`).
+  - **Desfazer a busca:** limpar (×), Esc ou Enter com o campo vazio (`clear` do `MxSearchField`) tira o `q` da URL e
+    volta às sugestões, às buscas recentes e aos estilos. Antes, o Enter vazio não fazia nada.
     Sem estilos, aparece o convite para escolher nas configurações.
   - **Em alta no mundo:** paradas da semana do ListenBrainz.
   - **Em alta no Mixtape:** só quando tem algo; antes, ficava um espaço vazio.
@@ -327,7 +332,9 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
   (`people.spec.ts`) também são conferidos. A pilha de discos é testada com mouse de verdade (subir folheia,
   descer volta, clique puxa), teclado e o botão de puxar; "Ouvir depois" guarda pelo Descubra do perfil e tira pela
   pilha ao lado. Na grade da biblioteca, o álbum e a música dele avaliados viram uma pilha que abre (clique) e fecha
-  (Enter); os favoritos caem cada um no grupo dele (álbuns, músicas). `E2E_BASE_URL`, `E2E_MAILPIT_URL`, `E2E_EMAIL`/`E2E_PASSWORD` (opcionais) vêm do ambiente. A
+  (Enter); os favoritos caem cada um no grupo dele (álbuns, músicas). Na busca (`search.spec.ts`), Enter com o campo vazio
+  e o botão de limpar voltam às sugestões, e o "Mais sugestões" rola o trilho até a primeira nova, com o foco nela (os
+  estilos da conta de teste são gravados pela API, com a sessão da página: no seletor, a lista é virtualizada). `E2E_BASE_URL`, `E2E_MAILPIT_URL`, `E2E_EMAIL`/`E2E_PASSWORD` (opcionais) vêm do ambiente. A
   redefinição de senha e a exclusão da conta são testadas de verdade pelo Mailpit (pulam sem ele).
 - **A API troca o refresh token a cada uso.** O teste que abre a página consome o token salvo: os testes
   logados usam `signedIn` (`e2e/support/session.ts`), que guarda a sessão como ficou ao terminar, e o

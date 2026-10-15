@@ -16,6 +16,7 @@
         :maxlength="SEARCH_TEXT_LENGTH.max"
         :placeholder="placeholder"
         size="lg"
+        @clear="clearSearch"
         @submit="submit"
       />
 
@@ -87,6 +88,7 @@
       >
         <template v-if="favoriteGenres.length > 0">
           <HomeRail
+            ref="forYouRail"
             :empty="t('search.forYou.empty')"
             :error="forYou.error.value"
             :items="forYou.loaded.value ? forYou.items.value : null"
@@ -119,7 +121,7 @@
             :loading="forYou.loading.value"
             size="sm"
             variant="ghost"
-            @click="forYou.loadMore()"
+            @click="moreSuggestions"
           />
         </template>
 
@@ -378,7 +380,7 @@
     vReveal,
     yearOf,
   } from '@pedrolucaslopes/mixtape-ui'
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, nextTick, onMounted, ref, useTemplateRef, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
   import AdSlot from '@/components/AdSlot.vue'
@@ -396,7 +398,7 @@
   import { CATALOG_KINDS, SEARCH_KIND_ICONS, SEARCH_KINDS } from '@/constants/filters'
   import { SEARCH_TEXT_LENGTH } from '@/constants/validation'
   import { ROUTE } from '@/router/routes'
-  import { catalogApi, profilesApi, reviewsApi } from '@/services/mixtape'
+  import { catalogApi, type PageQuery, profilesApi, reviewsApi } from '@/services/mixtape'
   import { useComposerStore } from '@/stores/composer'
   import { useGenresStore } from '@/stores/genres'
   import { usePlaylistPickerStore } from '@/stores/playlistPicker'
@@ -482,23 +484,47 @@
 
   const favoriteGenres = computed(() => rotateDaily(session.user?.favoriteGenres ?? []))
 
+  async function suggestionsPage (current: CatalogKind, genres: readonly string[], page: PageQuery): Promise<Page<SearchEntry>> {
+    if (current === 'tracks') {
+      const result = await catalogApi.suggestedTracks(genres, page)
+      return { ...result, items: result.items.map(value => ({ kind: 'tracks' as const, value })) }
+    }
+    if (current === 'artists') {
+      const result = await catalogApi.suggestedArtists(genres, page)
+      return { ...result, items: result.items.map(value => ({ kind: 'artists' as const, value })) }
+    }
+    const result = await catalogApi.suggestedAlbums(genres, page)
+    return { ...result, items: result.items.map(value => ({ kind: 'albums' as const, value })) }
+  }
+
+  /**
+   * As sugestões já na tela. A mistura dos estilos pode mudar de uma página para a outra (estilo que atrasou na API
+   * entra na seguinte), e o mesmo disco viria duas vezes no trilho.
+   */
+  let forYouShown = new Set<string>()
+
   async function loadForYou (page: number, limit: number): Promise<Page<SearchEntry>> {
     const genres = favoriteGenres.value
     const current = kind.value
     if (genres.length === 0 || searchable.value || current === 'people') return { items: [], page: 1, limit, total: 0, totalPages: 0 }
-    if (current === 'tracks') {
-      const result = await catalogApi.suggestedTracks(genres, { page, limit })
-      return { ...result, items: result.items.map(value => ({ kind: 'tracks' as const, value })) }
-    }
-    if (current === 'artists') {
-      const result = await catalogApi.suggestedArtists(genres, { page, limit })
-      return { ...result, items: result.items.map(value => ({ kind: 'artists' as const, value })) }
-    }
-    const result = await catalogApi.suggestedAlbums(genres, { page, limit })
-    return { ...result, items: result.items.map(value => ({ kind: 'albums' as const, value })) }
+    const shown = page === 1 ? (forYouShown = new Set()) : forYouShown
+    const result = await suggestionsPage(current, genres, { page, limit })
+    const items = result.items.filter(entry => !shown.has(entry.value.id))
+    for (const entry of items) shown.add(entry.value.id)
+    return { ...result, items }
   }
 
   const forYou = usePaged<SearchEntry>(loadForYou, { limit: RAIL_SIZE, watch: () => [kind.value, favoriteGenres.value.join('|'), searchable.value] })
+  const forYouRail = useTemplateRef<{ reveal: (index: number) => void }>('forYouRail')
+
+  /** As sugestões novas entram no fim do trilho: ele rola até a primeira delas, que recebe o foco. */
+  async function moreSuggestions (): Promise<void> {
+    const shown = forYou.items.value.length
+    await forYou.loadMore()
+    if (forYou.items.value.length <= shown) return
+    await nextTick()
+    forYouRail.value?.reveal(shown)
+  }
 
   const world = useAsyncData<SearchEntry[]>(async () => {
     const current = kind.value
@@ -532,6 +558,12 @@
   function submit (value: string): void {
     const text = value.trim()
     void router.push({ query: { ...route.query, q: text || undefined } })
+  }
+
+  /** Limpar, Esc ou Enter com o campo vazio desfaz a busca: volta às sugestões, às buscas recentes e aos estilos. */
+  function clearSearch (): void {
+    if (route.query.q === undefined) return
+    void router.push({ query: { ...route.query, q: undefined } })
   }
 
   function exitRate (): void {
