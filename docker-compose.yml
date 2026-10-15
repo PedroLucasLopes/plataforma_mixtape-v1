@@ -30,6 +30,28 @@ services:
       - ALL
     security_opt:
       - no-new-privileges:true
+    mem_limit: 256m
+
+  # Túnel da Cloudflare: liga este site à borda (CDN, firewall, Turnstile, Access) sem abrir porta nenhuma na máquina;
+  # é o cloudflared que sai e se conecta à Cloudflare. Só sobe com o perfil "cloudflare" (COMPOSE_PROFILES=cloudflare)
+  # e o token do túnel no .env (CLOUDFLARE_TUNNEL_TOKEN, gravado pelo `npm run edge:apply -- --write-env`). Entra no
+  # nginx pela porta 8081, a única que aceita o IP de quem abriu o site vindo da Cloudflare (e que não é publicada).
+  cloudflared:
+    image: cloudflare/cloudflared:2026.9.3
+    profiles: ["cloudflare"]
+    restart: unless-stopped
+    command: ["tunnel", "--no-autoupdate", "run"]
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:-}
+    depends_on:
+      web:
+        condition: service_healthy
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
 
 secrets:
   node_auth_token:

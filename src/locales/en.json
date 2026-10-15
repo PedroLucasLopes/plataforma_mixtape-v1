@@ -82,6 +82,10 @@
     "fullName": "Full name",
     "hasAccount": "Already have an account?",
     "headline": "Your soundtrack deserves a rating.",
+    "humanCheck": {
+      "retry": "Try again",
+      "unavailable": "The security check didn't load. Check your connection and try again."
+    },
     "lead": "Rate albums and songs, write reviews, build playlists and climb the rankings with your crew.",
     "loginEyebrow": "Good to see you",
     "loginField": "Email or username",
@@ -594,6 +598,8 @@
       "TOO_MANY_LOGIN_ATTEMPTS": "Too many wrong passwords in a row on this account. For your security, try again in {wait}.",
       "LOGIN_BLOCKED": "For your security, sign-in for this account was locked after too many wrong passwords. Create a new one with “Forgot your password?”: that unlocks it right away.",
       "LOGIN_DENIED": "The sign-in service didn't allow access to this account.",
+      "HUMAN_CHECK_REQUIRED": "We still need to confirm you're a person. Wait for the security check to finish and try again.",
+      "HUMAN_CHECK_FAILED": "We couldn't confirm you're a person. Please try again.",
       "IDENTITY_PROVIDER_UNAVAILABLE": "The sign-in service is down right now. Please try again in a few minutes.",
       "IDENTITY_REJECTED": "The sign-in service refused the request. Check your details and try again.",
       "INVALID_REFRESH_TOKEN": "Your session ended. Please sign in again.",
@@ -913,7 +919,7 @@
     },
     "hero": {
       "charts": "See charts",
-      "eyebrow": "Letterboxd for music",
+      "eyebrow": "Your music diary",
       "lead": "Rate from 0 to 5 discs, write reviews, build playlists and see what everyone's listening to.",
       "rate": "Rate now",
       "title": "Your soundtrack deserves a rating"
@@ -1629,7 +1635,7 @@
         },
         "sharing": {
           "title": "Who we share it with",
-          "body": "Your profile, ratings and public playlists can be seen by anyone; crew reviews from a private group, only by the group's members. We don't sell personal data. Other services get only what they need:\n\n- Sign-in: Auth0, by Okta, keeps your email and your password (only as a hash) and checks the password when you sign in: you type it on the Mixtape page, and it goes through our server straight to Auth0, without being stored or logged here. Its servers are in the United States; this transfer is needed for you to sign in to Mixtape. When you delete your account, it's removed from Auth0 too.\n- Catalog: it comes from open sources (MusicBrainz, Cover Art Archive, ListenBrainz and Wikimedia Commons). Covers go through Mixtape itself. Artist photos and profile photos are loaded by your browser straight from where they are hosted (Wikimedia, Gravatar and the other accepted services), which receive your IP address like any other request on the internet, but not the Mixtape page they came from.\n- New password: to check whether it has shown up in data breaches, we send Pwned Passwords (Have I Been Pwned) only the first 5 characters of its cryptographic hash; the password itself only goes to Auth0.\n- Moderation: when automated moderation is enabled, the text of reviews is checked by OpenAI's moderation API before it's published.\n\nWe may share data when required by law."
+          "body": "Your profile, ratings and public playlists can be seen by anyone; crew reviews from a private group, only by the group's members. We don't sell personal data. Other services get only what they need:\n\n- Sign-in: Auth0, by Okta, keeps your email and your password (only as a hash) and checks the password when you sign in: you type it on the Mixtape page, and it goes through our server straight to Auth0, without being stored or logged here. Its servers are in the United States; this transfer is needed for you to sign in to Mixtape. When you delete your account, it's removed from Auth0 too.\n- Network and protection: the site goes through Cloudflare, which delivers pages and covers from close to you and blocks attacks and bots. It receives your IP address and the technical data of each visit (as with any internet access), on servers in Brazil and other countries. On sign-in, sign-up and \"forgot password\", its Turnstile checks that there is a person on the other side by looking at browser signals, with no tracking cookies and no ads.\n- Catalog: it comes from open sources (MusicBrainz, Cover Art Archive, ListenBrainz and Wikimedia Commons). Covers go through Mixtape itself. Artist photos and profile photos are loaded by your browser straight from where they are hosted (Wikimedia, Gravatar and the other accepted services), which receive your IP address like any other request on the internet, but not the Mixtape page they came from.\n- New password: to check whether it has shown up in data breaches, we send Pwned Passwords (Have I Been Pwned) only the first 5 characters of its cryptographic hash; the password itself only goes to Auth0.\n- Moderation: when automated moderation is enabled, the text of reviews is checked by OpenAI's moderation API before it's published.\n\nWe may share data when required by law."
         },
         "retention": {
           "title": "How long we keep it",
@@ -1641,7 +1647,7 @@
         },
         "security": {
           "title": "Security",
-          "body": "Passwords are checked against known breaches and stored with a strong hash by Auth0; after several wrong passwords in a row, sign-in waits a few minutes (and Auth0 also locks repeated attempts); sessions use short-lived tokens and a protected cookie, traffic should go over HTTPS and the site enforces a strict content security policy. No system is infallible: if you notice something odd, let us know."
+          "body": "Passwords are checked against known breaches and stored with a strong hash by Auth0; after several wrong passwords in a row, sign-in waits a few minutes (and Auth0 also locks repeated attempts); sessions use short-lived tokens and a protected cookie, traffic should go over HTTPS and the site enforces a strict content security policy. The site sits behind a protection network (Cloudflare) that blocks attacks and bots before they reach Mixtape, and sign-in, sign-up and \"forgot password\" ask for proof that you are a person. No system is infallible: if you notice something odd, let us know."
         },
         "children": {
           "title": "Minimum age",

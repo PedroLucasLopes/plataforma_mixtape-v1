@@ -82,6 +82,10 @@
     "fullName": "Nome completo",
     "hasAccount": "Já tem conta?",
     "headline": "Sua trilha sonora merece nota.",
+    "humanCheck": {
+      "retry": "Tentar de novo",
+      "unavailable": "A verificação de segurança não carregou. Confira a conexão e tente de novo."
+    },
     "lead": "Avalie álbuns e músicas, escreva resenhas, monte playlists e dispute o ranking com a galera.",
     "loginEyebrow": "Que bom te ver",
     "loginField": "E-mail ou nome de usuário",
@@ -594,6 +598,8 @@
       "TOO_MANY_LOGIN_ATTEMPTS": "Muitas senhas erradas seguidas nesta conta. Por segurança, tente de novo em {wait}.",
       "LOGIN_BLOCKED": "Por segurança, o login desta conta foi travado depois de muitas senhas erradas. Crie uma senha nova em “Esqueceu a senha?”: isso destrava na hora.",
       "LOGIN_DENIED": "O serviço de login não liberou o acesso desta conta.",
+      "HUMAN_CHECK_REQUIRED": "Falta confirmar que você é uma pessoa. Espere a verificação de segurança terminar e tente de novo.",
+      "HUMAN_CHECK_FAILED": "Não deu para confirmar que você é uma pessoa. Tente de novo.",
       "IDENTITY_PROVIDER_UNAVAILABLE": "O serviço de login está fora do ar agora. Tente de novo em alguns minutos.",
       "IDENTITY_REJECTED": "O serviço de login recusou o pedido. Confira os dados e tente de novo.",
       "INVALID_REFRESH_TOKEN": "Sua sessão terminou. Entre de novo.",
@@ -913,7 +919,7 @@
     },
     "hero": {
       "charts": "Ver paradas",
-      "eyebrow": "O Letterboxd da música",
+      "eyebrow": "Seu diário musical",
       "lead": "Dê sua nota de 0 a 5 discos, escreva resenhas, monte playlists e veja o que a galera está ouvindo.",
       "rate": "Avaliar agora",
       "title": "Sua trilha sonora merece nota"
@@ -1629,7 +1635,7 @@
         },
         "sharing": {
           "title": "Com quem compartilhamos",
-          "body": "Seu perfil, suas avaliações e suas playlists públicas podem ser vistos por qualquer pessoa; as reviews da galera de um grupo privado, só pelos membros do grupo. Não vendemos dados pessoais. Outros serviços recebem só o necessário:\n\n- Login: o Auth0, da Okta, guarda o seu e-mail e a sua senha (só como hash) e confere a senha quando você entra: você digita na tela do Mixtape, e a senha passa pelo nosso servidor direto para o Auth0, sem ser guardada nem registrada aqui. Os servidores dele ficam nos Estados Unidos; essa transferência é necessária para você entrar no Mixtape. Quando você exclui a conta, ela some do Auth0 também.\n- Catálogo: vem de fontes abertas (MusicBrainz, Cover Art Archive, ListenBrainz e Wikimedia Commons). As capas passam pelo próprio Mixtape. Fotos de artistas e fotos de perfil são carregadas pelo seu navegador direto de onde estão (Wikimedia, Gravatar e os outros serviços aceitos), que recebem o seu endereço IP como em qualquer acesso à internet, mas não a página do Mixtape de onde vieram.\n- Senha nova: para conferir se ela já apareceu em vazamentos, enviamos ao Pwned Passwords (Have I Been Pwned) só os 5 primeiros caracteres do resumo criptográfico dela; a senha em si só vai para o Auth0.\n- Moderação: quando a moderação automática está ligada, o texto das resenhas é analisado pela API de moderação da OpenAI antes de ser publicado.\n\nPodemos compartilhar dados quando a lei exigir."
+          "body": "Seu perfil, suas avaliações e suas playlists públicas podem ser vistos por qualquer pessoa; as reviews da galera de um grupo privado, só pelos membros do grupo. Não vendemos dados pessoais. Outros serviços recebem só o necessário:\n\n- Login: o Auth0, da Okta, guarda o seu e-mail e a sua senha (só como hash) e confere a senha quando você entra: você digita na tela do Mixtape, e a senha passa pelo nosso servidor direto para o Auth0, sem ser guardada nem registrada aqui. Os servidores dele ficam nos Estados Unidos; essa transferência é necessária para você entrar no Mixtape. Quando você exclui a conta, ela some do Auth0 também.\n- Rede e proteção: o site passa pela Cloudflare, que entrega as páginas e as capas de perto de você e barra ataques e robôs. Ela recebe o seu endereço IP e os dados técnicos de cada acesso (como em qualquer acesso à internet), em servidores no Brasil e em outros países. No login, no cadastro e no \"esqueci a senha\", o Turnstile dela confirma que quem está do outro lado é uma pessoa, olhando sinais do navegador, sem cookie de rastreamento e sem anúncio.\n- Catálogo: vem de fontes abertas (MusicBrainz, Cover Art Archive, ListenBrainz e Wikimedia Commons). As capas passam pelo próprio Mixtape. Fotos de artistas e fotos de perfil são carregadas pelo seu navegador direto de onde estão (Wikimedia, Gravatar e os outros serviços aceitos), que recebem o seu endereço IP como em qualquer acesso à internet, mas não a página do Mixtape de onde vieram.\n- Senha nova: para conferir se ela já apareceu em vazamentos, enviamos ao Pwned Passwords (Have I Been Pwned) só os 5 primeiros caracteres do resumo criptográfico dela; a senha em si só vai para o Auth0.\n- Moderação: quando a moderação automática está ligada, o texto das resenhas é analisado pela API de moderação da OpenAI antes de ser publicado.\n\nPodemos compartilhar dados quando a lei exigir."
         },
         "retention": {
           "title": "Por quanto tempo guardamos",
@@ -1641,7 +1647,7 @@
         },
         "security": {
           "title": "Segurança",
-          "body": "As senhas são conferidas contra vazamentos conhecidos e guardadas com hash forte pelo Auth0; depois de várias senhas erradas seguidas, o login espera alguns minutos (e o Auth0 também trava as tentativas); a sessão usa tokens de curta duração e cookie protegido, o tráfego deve passar por HTTPS e o site aplica uma política de segurança de conteúdo restritiva. Nenhum sistema é infalível: se notar algo estranho, avise a gente."
+          "body": "As senhas são conferidas contra vazamentos conhecidos e guardadas com hash forte pelo Auth0; depois de várias senhas erradas seguidas, o login espera alguns minutos (e o Auth0 também trava as tentativas); a sessão usa tokens de curta duração e cookie protegido, o tráfego deve passar por HTTPS e o site aplica uma política de segurança de conteúdo restritiva. O site fica atrás de uma rede de proteção (Cloudflare) que barra ataques e robôs antes de chegarem ao Mixtape, e o login, o cadastro e o \"esqueci a senha\" pedem uma prova de que é uma pessoa. Nenhum sistema é infalível: se notar algo estranho, avise a gente."
         },
         "children": {
           "title": "Idade mínima",

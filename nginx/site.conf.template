@@ -1,0 +1,122 @@
+# O site inteiro, incluído pelos dois `server` do default.conf.template (a porta publicada e a do túnel da Cloudflare).
+# Gerado por envsubst ao subir o container: só ${MIXTAPE_API_UPSTREAM} e ${MIXTAPE_PUBLIC_URL} são trocados.
+# Cada `server` define $mixtape_proto (por onde o navegador chegou: http ou https) antes de incluir este arquivo.
+
+root /usr/share/nginx/html;
+index index.html;
+
+server_tokens off;
+client_max_body_size 1m;
+charset utf-8;
+
+gzip on;
+gzip_vary on;
+gzip_comp_level 6;
+gzip_min_length 512;
+gzip_proxied any;
+gzip_types text/plain text/css text/xml application/xml application/json application/javascript application/manifest+json image/svg+xml;
+
+include /etc/nginx/snippets/security-headers.conf;
+
+location = /healthz {
+    access_log off;
+    default_type text/plain;
+    return 200 "ok\n";
+}
+
+# Capas: servidas do cache em disco; se a API ou o Internet Archive falharem, vai a cópia guardada.
+location ^~ /api/v1/images/ {
+    proxy_pass ${MIXTAPE_API_UPSTREAM};
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    include /etc/nginx/snippets/client-ip.conf;
+    proxy_cache covers;
+    proxy_cache_valid 200 30d;
+    proxy_cache_valid 404 1h;
+    proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+    proxy_cache_background_update on;
+    proxy_cache_lock on;
+    proxy_ignore_headers Set-Cookie;
+    proxy_hide_header Set-Cookie;
+    access_log off;
+    add_header X-Cache-Status $upstream_cache_status always;
+    include /etc/nginx/snippets/security-headers.conf;
+}
+
+# API do Mixtape: o navegador só fala com esta origem (cookie de sessão SameSite=Strict, sem CORS).
+# `^~`: nenhuma regex abaixo (ex.: a de .jpg) captura caminho da API.
+location ^~ /api/ {
+    proxy_pass ${MIXTAPE_API_UPSTREAM};
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    include /etc/nginx/snippets/client-ip.conf;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_read_timeout 60s;
+}
+
+location = /ads.txt {
+    proxy_pass ${MIXTAPE_API_UPSTREAM}/ads.txt;
+    proxy_set_header Host $host;
+}
+
+location = /sitemap.xml {
+    proxy_pass ${MIXTAPE_API_UPSTREAM}/api/v1/seo/sitemap.xml;
+    proxy_set_header Host $host;
+}
+
+location /sitemaps/ {
+    proxy_pass ${MIXTAPE_API_UPSTREAM}/api/v1/seo/sitemaps/;
+    proxy_set_header Host $host;
+}
+
+location = /robots.txt {
+    default_type text/plain;
+    add_header Cache-Control "public, max-age=3600" always;
+    include /etc/nginx/snippets/security-headers.conf;
+    return 200 "User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /search\nDisallow: /settings\nDisallow: /admin\nDisallow: /groups\nDisallow: /me\nDisallow: /library\nDisallow: /login\nDisallow: /register\n\nSitemap: ${MIXTAPE_PUBLIC_URL}/sitemap.xml\n";
+}
+
+# Subrequisição do SSI: o <head> da página original ($request_uri é o da requisição principal).
+location = /__seo/head {
+    internal;
+    proxy_pass ${MIXTAPE_API_UPSTREAM}/api/v1/seo/head;
+    proxy_set_header X-Seo-Path $request_uri;
+    proxy_set_header Accept "text/html";
+    proxy_set_header Accept-Encoding "";
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_connect_timeout 2s;
+    proxy_read_timeout 6s;
+}
+
+# Arquivos com hash no nome: cache de um ano. Arquivo que não existe dá 404 (nunca o index.html).
+location ^~ /assets/ {
+    try_files $uri =404;
+    access_log off;
+    add_header Cache-Control "public, max-age=31536000, immutable" always;
+    include /etc/nginx/snippets/security-headers.conf;
+}
+
+location ~* \.(?:png|jpg|jpeg|webp|svg|ico|webmanifest|woff2)$ {
+    try_files $uri =404;
+    access_log off;
+    add_header Cache-Control "public, max-age=604800" always;
+    include /etc/nginx/snippets/security-headers.conf;
+}
+
+# Rotas do app: tudo cai no index.html, que recebe o nonce da CSP e, para robôs, o <head> da página.
+location / {
+    try_files $uri $uri/ /index.html;
+}
+
+# O nonce muda a cada página, então o HTML nunca vai para cache nenhum (nem o da Cloudflare: `no-cache` aqui, e
+# nenhuma regra de cache da borda pega HTML).
+location = /index.html {
+    ssi on;
+    ssi_silent_errors on;
+    sub_filter_once off;
+    sub_filter "MIXTAPE_CSP_NONCE" "$request_id";
+    add_header Cache-Control "no-cache" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'nonce-$request_id' 'strict-dynamic' 'self' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https:; media-src 'self' https:; manifest-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" always;
+    include /etc/nginx/snippets/security-headers.conf;
+}

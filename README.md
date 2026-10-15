@@ -1,6 +1,6 @@
 # Mixtape — Web
 
-Front do Mixtape, o "Letterboxd da música": avalie álbuns e músicas de 0 a 5 discos, escreva
+Front do Mixtape, o seu diário musical: avalie álbuns e músicas de 0 a 5 discos, escreva
 resenhas, monte playlists, dispute rankings e Awards. Vue 3 + Vuetify 4 + Pinia, com a interface da
 biblioteca `@pedrolucaslopes/mixtape-ui` e os dados da API do Mixtape (`mixtape-api-v1`).
 

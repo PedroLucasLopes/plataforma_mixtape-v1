@@ -24,6 +24,9 @@
     "sync:icons": "node scripts/sync-icons.mjs",
     "check:icons": "node scripts/sync-icons.mjs --check",
     "analyze": "vite build --config vite.analyze.mts",
+    "edge:plan": "node cloudflare/apply.mjs",
+    "edge:apply": "node cloudflare/apply.mjs --apply",
+    "test:edge": "node --test \"cloudflare/*.test.mjs\"",
     "prepare": "husky || exit 0"
   },
   "dependencies": {

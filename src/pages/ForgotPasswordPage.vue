@@ -78,6 +78,8 @@
       />
     </div>
 
+    <HumanCheck ref="humanCheck" action="password_reset" />
+
     <p class="auth-page__switch">
       <RouterLink class="link-strong" data-testid="page-forgot-password-login-link" :to="{ name: ROUTE.login }">{{ t('auth.forgot.back') }}</RouterLink>
     </p>
@@ -93,6 +95,7 @@
   import { MxButton, MxTextField } from '@pedrolucaslopes/mixtape-ui'
   import { computed, nextTick, ref, useTemplateRef } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import HumanCheck from '@/components/HumanCheck.vue'
   import { useCountdown } from '@/composables/useCountdown'
   import { useSeo } from '@/composables/useSeo'
   import { PASSWORD_RESET_RESEND_SECONDS } from '@/constants/api'
@@ -103,6 +106,7 @@
 
   const { t } = useI18n()
   const heading = useTemplateRef<HTMLElement>('heading')
+  const humanCheck = useTemplateRef<InstanceType<typeof HumanCheck>>('humanCheck')
   const countdown = useCountdown()
 
   const hinted = typeof window === 'undefined' ? null : (window.history.state as { email?: unknown } | null)?.email
@@ -126,7 +130,8 @@
     sending.value = true
     error.value = null
     try {
-      const { expiresInMinutes } = await authApi.requestPasswordReset(normalized.value)
+      const humanToken = await humanCheck.value?.take() ?? null
+      const { expiresInMinutes } = await authApi.requestPasswordReset(normalized.value, humanToken)
       const first = sent.value === null
       sent.value = { email: normalized.value, minutes: expiresInMinutes }
       countdown.start(PASSWORD_RESET_RESEND_SECONDS)
@@ -138,6 +143,8 @@
       error.value = errorMessage(error_)
     } finally {
       sending.value = false
+      // O token vale uma vez: o "enviar de novo" precisa de outro.
+      humanCheck.value?.reset()
     }
   }
 

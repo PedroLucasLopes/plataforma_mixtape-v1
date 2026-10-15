@@ -128,13 +128,13 @@ export const useSessionStore = defineStore('session', () => {
     return accessToken
   }
 
-  async function login (identifier: string, password: string): Promise<void> {
-    apply(await authApi.login(identifier, password))
+  async function login (identifier: string, password: string, humanToken?: string | null): Promise<void> {
+    apply(await authApi.login(identifier, password, humanToken))
     broadcast('signed-in')
   }
 
-  async function register (input: RegisterInput): Promise<void> {
-    apply(await authApi.register(input))
+  async function register (input: RegisterInput, humanToken?: string | null): Promise<void> {
+    apply(await authApi.register(input, humanToken))
     broadcast('signed-in')
   }
 

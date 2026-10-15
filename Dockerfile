@@ -18,8 +18,13 @@ FROM nginxinc/nginx-unprivileged:1.30-alpine AS runtime
 ENV MIXTAPE_API_UPSTREAM=http://api:3000 \
     MIXTAPE_PUBLIC_URL=http://localhost:5180
 COPY nginx/security-headers.conf /etc/nginx/snippets/security-headers.conf
+COPY nginx/client-ip.conf /etc/nginx/snippets/client-ip.conf
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
+# Numa subpasta: o envsubst gera /etc/nginx/conf.d/mixtape/site.conf, que o nginx.conf não inclui sozinho (só os
+# *.conf da raiz do conf.d); os dois `server` o incluem.
+COPY nginx/site.conf.template /etc/nginx/templates/mixtape/site.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 8080
+# 8080: a porta publicada. 8081: a do túnel da Cloudflare, só na rede do compose (nunca publicar).
+EXPOSE 8080 8081
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD wget -qO- http://127.0.0.1:8080/healthz > /dev/null || exit 1

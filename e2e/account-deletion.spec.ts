@@ -1,5 +1,5 @@
 import { newAccount, registerAndEnter } from './support/accounts'
-import { ANONYMOUS, API_PATHS, SESSION_HEADER } from './support/constants'
+import { ANONYMOUS, API_PATHS, HUMAN_CHECK_HEADER, SESSION_HEADER } from './support/constants'
 import { expect, test } from './support/fixtures'
 import { latestMessageTo, linkWithToken, mailpitAvailable } from './support/mailpit'
 
@@ -34,7 +34,7 @@ test('exclui a conta pelo link do e-mail, e a sessão dela não volta mais', asy
   // Nenhuma sessão desta conta volta, e a senha dela não entra mais (a identidade saiu do Auth0 junto).
   const refresh = await page.request.post(API_PATHS.refresh, { headers: SESSION_HEADER, data: {} })
   expect(refresh.status()).toBe(401)
-  const login = await request.post(API_PATHS.login, { data: { login: account.email, password: account.password } })
+  const login = await request.post(API_PATHS.login, { data: { login: account.email, password: account.password }, headers: HUMAN_CHECK_HEADER })
   expect(login.status()).toBe(401)
   await context.close()
 })

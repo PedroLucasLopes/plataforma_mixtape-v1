@@ -82,6 +82,10 @@
     "fullName": "Nombre completo",
     "hasAccount": "¿Ya tienes cuenta?",
     "headline": "Tu banda sonora merece una nota.",
+    "humanCheck": {
+      "retry": "Volver a intentar",
+      "unavailable": "La verificación de seguridad no cargó. Revisa la conexión y vuelve a intentarlo."
+    },
     "lead": "Califica álbumes y canciones, escribe reseñas, arma playlists y compite en el ranking con tu gente.",
     "loginEyebrow": "Qué bueno verte",
     "loginField": "Correo o nombre de usuario",
@@ -594,6 +598,8 @@
       "TOO_MANY_LOGIN_ATTEMPTS": "Demasiadas contraseñas incorrectas seguidas en esta cuenta. Por seguridad, vuelve a intentarlo en {wait}.",
       "LOGIN_BLOCKED": "Por seguridad, el inicio de sesión de esta cuenta se bloqueó tras demasiadas contraseñas incorrectas. Crea una nueva con «¿Olvidaste tu contraseña?»: eso lo desbloquea al instante.",
       "LOGIN_DENIED": "El servicio de inicio de sesión no permitió el acceso a esta cuenta.",
+      "HUMAN_CHECK_REQUIRED": "Falta confirmar que eres una persona. Espera a que termine la verificación de seguridad y vuelve a intentarlo.",
+      "HUMAN_CHECK_FAILED": "No pudimos confirmar que eres una persona. Vuelve a intentarlo.",
       "IDENTITY_PROVIDER_UNAVAILABLE": "El servicio de inicio de sesión no está disponible ahora. Vuelve a intentarlo en unos minutos.",
       "IDENTITY_REJECTED": "El servicio de inicio de sesión rechazó la solicitud. Revisa los datos e inténtalo de nuevo.",
       "INVALID_REFRESH_TOKEN": "Tu sesión terminó. Vuelve a entrar.",
@@ -913,7 +919,7 @@
     },
     "hero": {
       "charts": "Ver listas",
-      "eyebrow": "El Letterboxd de la música",
+      "eyebrow": "Tu diario musical",
       "lead": "Califica de 0 a 5 discos, escribe reseñas, arma playlists y mira lo que todos están escuchando.",
       "rate": "Calificar ahora",
       "title": "Tu banda sonora merece una nota"
@@ -1629,7 +1635,7 @@
         },
         "sharing": {
           "title": "Con quién compartimos",
-          "body": "Tu perfil, tus calificaciones y tus playlists públicas pueden ser vistos por cualquiera; las reseñas de la pandilla de un grupo privado, solo por los miembros del grupo. No vendemos datos personales. Otros servicios reciben solo lo necesario:\n\n- Inicio de sesión: Auth0, de Okta, guarda tu correo y tu contraseña (solo como hash) y comprueba la contraseña cuando entras: la escribes en la página de Mixtape y pasa por nuestro servidor directo a Auth0, sin guardarse ni registrarse aquí. Sus servidores están en Estados Unidos; esta transferencia es necesaria para que entres en Mixtape. Cuando eliminas tu cuenta, también desaparece de Auth0.\n- Catálogo: viene de fuentes abiertas (MusicBrainz, Cover Art Archive, ListenBrainz y Wikimedia Commons). Las portadas pasan por el propio Mixtape. Las fotos de artistas y las fotos de perfil las carga tu navegador directamente desde donde están alojadas (Wikimedia, Gravatar y los demás servicios aceptados), que reciben tu dirección IP como en cualquier acceso a internet, pero no la página de Mixtape de donde vinieron.\n- Contraseña nueva: para comprobar si ya apareció en filtraciones, enviamos a Pwned Passwords (Have I Been Pwned) solo los 5 primeros caracteres de su resumen criptográfico; la contraseña en sí solo va a Auth0.\n- Moderación: cuando la moderación automática está activada, el texto de las reseñas lo analiza la API de moderación de OpenAI antes de publicarse.\n\nPodemos compartir datos cuando la ley lo exija."
+          "body": "Tu perfil, tus calificaciones y tus playlists públicas pueden ser vistos por cualquiera; las reseñas de la pandilla de un grupo privado, solo por los miembros del grupo. No vendemos datos personales. Otros servicios reciben solo lo necesario:\n\n- Inicio de sesión: Auth0, de Okta, guarda tu correo y tu contraseña (solo como hash) y comprueba la contraseña cuando entras: la escribes en la página de Mixtape y pasa por nuestro servidor directo a Auth0, sin guardarse ni registrarse aquí. Sus servidores están en Estados Unidos; esta transferencia es necesaria para que entres en Mixtape. Cuando eliminas tu cuenta, también desaparece de Auth0.\n- Red y protección: el sitio pasa por Cloudflare, que entrega las páginas y las portadas desde cerca de ti y bloquea ataques y bots. Recibe tu dirección IP y los datos técnicos de cada acceso (como en cualquier acceso a internet), en servidores en Brasil y en otros países. En el inicio de sesión, el registro y \"olvidé mi contraseña\", su Turnstile comprueba que hay una persona del otro lado mirando señales del navegador, sin cookies de seguimiento ni anuncios.\n- Catálogo: viene de fuentes abiertas (MusicBrainz, Cover Art Archive, ListenBrainz y Wikimedia Commons). Las portadas pasan por el propio Mixtape. Las fotos de artistas y las fotos de perfil las carga tu navegador directamente desde donde están alojadas (Wikimedia, Gravatar y los demás servicios aceptados), que reciben tu dirección IP como en cualquier acceso a internet, pero no la página de Mixtape de donde vinieron.\n- Contraseña nueva: para comprobar si ya apareció en filtraciones, enviamos a Pwned Passwords (Have I Been Pwned) solo los 5 primeros caracteres de su resumen criptográfico; la contraseña en sí solo va a Auth0.\n- Moderación: cuando la moderación automática está activada, el texto de las reseñas lo analiza la API de moderación de OpenAI antes de publicarse.\n\nPodemos compartir datos cuando la ley lo exija."
         },
         "retention": {
           "title": "Cuánto tiempo los guardamos",
@@ -1641,7 +1647,7 @@
         },
         "security": {
           "title": "Seguridad",
-          "body": "Las contraseñas se comprueban contra filtraciones conocidas y Auth0 las guarda con un hash fuerte; después de varias contraseñas incorrectas seguidas, el inicio de sesión espera unos minutos (y Auth0 también bloquea los intentos repetidos); la sesión usa tokens de corta duración y una cookie protegida, el tráfico debe pasar por HTTPS y el sitio aplica una política de seguridad de contenido estricta. Ningún sistema es infalible: si notas algo raro, avísanos."
+          "body": "Las contraseñas se comprueban contra filtraciones conocidas y Auth0 las guarda con un hash fuerte; después de varias contraseñas incorrectas seguidas, el inicio de sesión espera unos minutos (y Auth0 también bloquea los intentos repetidos); la sesión usa tokens de corta duración y una cookie protegida, el tráfico debe pasar por HTTPS y el sitio aplica una política de seguridad de contenido estricta. El sitio está detrás de una red de protección (Cloudflare) que bloquea ataques y bots antes de que lleguen a Mixtape, y el inicio de sesión, el registro y \"olvidé mi contraseña\" piden una prueba de que eres una persona. Ningún sistema es infalible: si notas algo raro, avísanos."
         },
         "children": {
           "title": "Edad mínima",

@@ -1,6 +1,6 @@
 # 🎧 mixtape-web-v1
 
-Front do Mixtape, o "Letterboxd da música": Vue 3 + Vuetify 4 + Pinia + vue-router + vue-i18n +
+Front do Mixtape, o seu diário musical: Vue 3 + Vuetify 4 + Pinia + vue-router + vue-i18n +
 @unhead/vue. A interface (componentes, tema, movimento, textos dos componentes) vem da biblioteca
 **`@pedrolucaslopes/mixtape-ui`** (`mixtape-lib-v1`), instalada **pelo npm**; nada aqui importa
 `../ui/src`. A API é o `mixtape-api-v1`. Cada um tem o próprio compose, sem rede compartilhada.
@@ -17,7 +17,11 @@ npm run sync:icons           # regenera src/plugins/icons.generated.ts a partir 
 npm run check:icons          # falha se algum mdi-* do código não estiver registrado
 npm run generate:api         # tipos da API a partir do OpenAPI (MIXTAPE_OPENAPI_URL)
 npm run analyze              # o que pesa em cada chunk (build em node_modules/.tmp/analyze)
+npm run edge:plan            # borda da Cloudflare: o que mudaria (ver cloudflare/README.md)
+npm run edge:apply           # aplica a borda (token e zona no ambiente do terminal)
+npm run test:edge            # confere a configuração da borda sem tocar na conta
 docker compose up -d --build # nginx em localhost:${WEB_PORT}
+COMPOSE_PROFILES=cloudflare docker compose up -d  # + o túnel da Cloudflare (precisa do token no .env)
 ```
 
 ---
@@ -116,8 +120,10 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 - **Favoritos do perfil** (até `FAVORITES_LIMIT`, álbuns e músicas): vitrine numerada logo abaixo do topo do
   perfil (`FavoritesShelf`), com "Editar" para o dono (`FavoritesEditorDialog`, carregado só quando abre:
   subir, descer, tirar, buscar e adicionar, e salvar a lista inteira de uma vez). Nas páginas de álbum e
-  música, a estrela (`FavoriteButton`) favorita ou tira. `stores/favorites` guarda os meus e muda `version`
-  a cada alteração, para a vitrine recarregar.
+  música, a estrela (`FavoriteButton`) favorita ou tira **na hora**: enquanto a API confirma, vale o estado
+  desejado (`wanted` na store) e clique repetido não faz nada; recusado, volta e mostra o erro. `stores/favorites`
+  guarda os meus e muda `version` a cada alteração, para a vitrine recarregar. Na API, item que apareceu numa lista
+  (busca, paradas, página do álbum…) vira cartão na hora (~80 ms em vez de ~3,6 s).
 - **Outras avaliações da mesma obra**, na página de uma avaliação: uma por vez no `MxRotator` da biblioteca
   (troca a cada `REVIEW_ROTATION_MS`, para no hover, no foco e no botão, e começa parado com movimento
   reduzido), sem repetir a avaliação aberta, e o "Ver todas as avaliações" embaixo.
@@ -235,6 +241,16 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
   nessa conta, sai dela. Testado de ponta a ponta pelo Mailpit (`e2e/account-deletion.spec.ts`, com conta própria
   descartável: nunca a do `signedIn`).
 - Abas sincronizam login e logout pelo `BroadcastChannel`.
+- **Prova de que é uma pessoa (Turnstile, da Cloudflare)** no login, no cadastro (etapa "Pronto") e no "esqueci a
+  senha": `HumanCheck.vue` pergunta à API (`GET /auth/human-check`, uma vez por visita) se ela pede e com qual chave,
+  carrega o script do Turnstile (`render=explicit`; entra pela CSP porque quem cria o `<script>` é o nosso, com o
+  nonce, e a `'strict-dynamic'` deixa) e monta o widget invisível (`appearance: interaction-only`: só aparece se a
+  Cloudflare pedir um clique). A lógica fica em `services/human-check.ts` (`HumanCheckController`, testado sem
+  navegador): `take()` entrega o token do envio (espera o desafio terminar, até `HUMAN_CHECK.waitMs`) e `reset()` pede
+  outro depois de cada envio que falhou (o token vale uma vez). O token vai no cabeçalho `X-Human-Check`.
+  `HUMAN_CHECK_REQUIRED`/`_FAILED` têm texto próprio, e erro da prova não apaga a senha digitada. Sem a prova ligada
+  na API, nada carrega. Nos testes de ponta a ponta, o cadastro e o login feitos direto na API mandam o token de teste
+  (`HUMAN_CHECK_HEADER`, ou `E2E_HUMAN_TOKEN`); a tela resolve sozinha com a chave de teste.
 
 ## 🔎 SEO
 
@@ -243,6 +259,21 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 - Essas tags vêm com `data-mx-ssr`, e o `main.ts` as remove antes de montar: no navegador, quem manda
   é o `useSeo` (unhead). O JSON-LD fica.
 - Busca com termo é `noindex`. `robots.txt` e `sitemap.xml` saem do nginx e da API.
+
+## ☁️ Cloudflare e o IP de quem chama
+
+- **A borda é código:** `cloudflare/` (`edge.config.mjs`, `apply.mjs`, ver o `README.md` de lá): CDN, firewall,
+  limite por IP, robôs, Tunnel, Turnstile e Access, só no plano Free. O token e a zona vêm do ambiente do terminal.
+- **Duas portas no nginx**, com o mesmo site (`nginx/site.conf.template`, incluído pelos dois `server` do
+  `default.conf.template`; o envsubst gera `conf.d/mixtape/site.conf`, fora do `conf.d/*.conf` que o nginx inclui
+  sozinho):
+  - **8080**, a publicada (`WEB_PORT`): o IP de quem chama é o da conexão;
+  - **8081**, só na rede do compose, para o `cloudflared`: aceita o `CF-Connecting-IP` (o IP que a borda viu).
+- `nginx/client-ip.conf` **reescreve** o `X-Forwarded-For` (não soma ao que o navegador mandou), o `X-Real-IP` e o
+  `X-Forwarded-Proto`, e apaga `CF-Connecting-IP` e `True-Client-IP` antes da API. Com `TRUST_PROXY=1` na API, o limite
+  por IP vale para o IP certo e ninguém escolhe o próprio.
+- **Túnel:** serviço `cloudflared` no compose, só com `COMPOSE_PROFILES=cloudflare` e o `CLOUDFLARE_TUNNEL_TOKEN` no
+  `.env` (gravado pelo `npm run edge:apply -- --write-env`). Ele sai da máquina até a Cloudflare: nenhuma porta aberta.
 
 ## 🛡️ Headers e CSP
 
@@ -314,6 +345,12 @@ testes têm `tsconfig.vitest.json` próprio (no `tsconfig.node.json` quebravam o
 ⚠️ **nginx:** `location ^~ /assets/` antes da regex de imagens e fontes (senão o cache imutável se
 perde), e `Accept-Encoding ""` na sub-requisição do SSI (o nginx não inclui corpo comprimido).
 
+⚠️ **Nunca publique a porta 8081 do nginx.** Ela aceita o IP que vier no `CF-Connecting-IP`; publicada, qualquer um
+escolheria o próprio IP para os limites da API. Só o `cloudflared`, na rede do compose, chega nela.
+
+⚠️ **HTML nunca vai para cache** (nem o da Cloudflare): o nonce da CSP muda a cada página. O `index.html` sai com
+`no-cache`, e nenhuma regra da borda pega HTML.
+
 ⚠️ **Ícone de fora do MDI** (hoje, o hambúrguer do menu, `fa-burger` do Font Awesome Free) mora em
 `plugins/fun-icons.ts` como `IconShape` (`{ path, viewBox }`), somado aos do `icons.generated.ts`. O
 `check:icons` só confere `mdi-*`. O Font Awesome é CC BY 4.0: o crédito está nos termos de uso
@@ -355,7 +392,9 @@ também) e a seleção das paradas só muda enquanto a rota é a das paradas (sa
 
 ```bash
 .github/            # ci.yml (lint, tipos, testes, build, imagem) e dependabot.yml
-nginx/              # default.conf.template (proxy da API, SSI de SEO, nonce, cache) e security-headers.conf
+cloudflare/         # a borda da Cloudflare como código (plano Free): edge.config.mjs, apply.mjs, testes e README
+nginx/              # default.conf.template (as duas portas), site.conf.template (proxy da API, SSI de SEO, nonce,
+                    # cache), client-ip.conf (o IP de quem chama) e security-headers.conf
 scripts/            # check-locales, sync-icons, generate-api-types
 src/
 ├─ constants/       # tudo que é fixo: rotas da API, navegação, SEO, validação, filtros, fontes de dados

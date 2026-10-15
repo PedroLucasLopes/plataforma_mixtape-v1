@@ -219,6 +219,8 @@
             </i18n-t>
           </p>
 
+          <HumanCheck ref="humanCheck" action="register" />
+
           <p v-if="error" class="form-error" data-testid="page-register-error" role="alert">{{ error }}</p>
 
           <MxButton
@@ -258,6 +260,7 @@
   import { computed, onMounted, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
+  import HumanCheck from '@/components/HumanCheck.vue'
   import { usePasswordRules } from '@/composables/usePasswordRules'
   import { useSeo } from '@/composables/useSeo'
   import {
@@ -311,6 +314,7 @@
   const session = useSessionStore()
 
   const step = ref(0)
+  const humanCheck = ref<InstanceType<typeof HumanCheck> | null>(null)
   const reachable = ref(0)
   const form = reactive({ fullName: '', username: '', email: '', birthDate: '', password: '', passwordConfirmation: '' })
   const favoriteGenres = ref<string[]>([])
@@ -466,15 +470,17 @@
     }
     submitting.value = true
     try {
+      const humanToken = await humanCheck.value?.take() ?? null
       await session.register({
         fullName: normalizeFullName(form.fullName),
         username: form.username,
         email: form.email.trim().toLowerCase(),
         birthDate: form.birthDate,
         password: form.password,
-      })
+      }, humanToken)
     } catch (error_) {
       submitting.value = false
+      humanCheck.value?.reset()
       const field = error_ instanceof ApiError && error_.code ? ERROR_FIELDS[error_.code] : undefined
       if (field) {
         serverErrors[field] = errorMessage(error_)

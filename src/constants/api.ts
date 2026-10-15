@@ -34,6 +34,16 @@ export const SESSION = {
   hintKey: 'mx.session',
 } as const
 
+/** Prova de que é uma pessoa (Turnstile, da Cloudflare) no login, no cadastro e no "esqueci a senha". */
+export const HUMAN_CHECK = {
+  /** Cabeçalho em que o token vai para a API. */
+  header: 'X-Human-Check',
+  /** Quanto um envio espera o desafio terminar antes de desistir com aviso. */
+  waitMs: 20_000,
+  /** Língua do desafio para cada língua do site. */
+  languages: { 'pt-BR': 'pt-br', 'en': 'en', 'es': 'es' } as Record<string, string>,
+} as const
+
 export const CATALOG_RETRY = {
   attempts: 2,
   maxWaitSeconds: 6,

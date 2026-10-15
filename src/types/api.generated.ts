@@ -174,6 +174,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/auth/human-check": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Diz se login, cadastro e "esqueci a senha" pedem a prova de que é uma pessoa, e a chave pública dela */
+        get: operations["AuthController_humanCheckWidget_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/auth/login": {
         parameters: {
             query?: never;
@@ -2243,6 +2260,17 @@ export interface components {
             item: components["schemas"]["ItemSummaryResponse"];
             reviewsCount: number;
         };
+        HumanCheckResponse: {
+            /**
+             * @description Provedor da prova de que é uma pessoa no login, cadastro e "esqueci a senha"; nulo: desligada
+             * @enum {string|null}
+             */
+            provider: "turnstile" | null;
+            /** @description Script do desafio que o front carrega; nulo quando desligada */
+            scriptUrl: string | null;
+            /** @description Chave pública (sitekey) do desafio; nula quando desligada */
+            siteKey: string | null;
+        };
         InvitePreviewResponse: {
             description: string | null;
             membersCount: number;
@@ -3183,11 +3211,35 @@ export interface operations {
             };
         };
     };
+    AuthController_humanCheckWidget_v1: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description Navegadores: envie "cookie" para receber o refresh token num cookie HttpOnly (e não no corpo). No refresh e no logout, o mesmo header faz a API ler o token do cookie. */
+                "x-session-transport"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HumanCheckResponse"];
+                };
+            };
+        };
+    };
     AuthController_login_v1: {
         parameters: {
             query?: never;
             header: {
                 "user-agent": string;
+                /** @description Token do Turnstile da ação "login" (obrigatório quando GET /auth/human-check devolve um provedor) */
+                "x-human-check"?: string;
                 /** @description Navegadores: envie "cookie" para receber o refresh token num cookie HttpOnly (e não no corpo). No refresh e no logout, o mesmo header faz a API ler o token do cookie. */
                 "x-session-transport"?: string;
             };
@@ -3217,7 +3269,11 @@ export interface operations {
                     "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
-            /** @description LOGIN_DENIED: o Auth0 não liberou a conta */
+            /**
+             * @description LOGIN_DENIED: o Auth0 não liberou a conta
+             *
+             *     HUMAN_CHECK_REQUIRED: faltou o token do desafio. HUMAN_CHECK_FAILED: o token não vale (vencido, já usado ou de outro formulário)
+             */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3295,6 +3351,8 @@ export interface operations {
         parameters: {
             query?: never;
             header?: {
+                /** @description Token do Turnstile da ação "password_reset" (obrigatório quando GET /auth/human-check devolve um provedor) */
+                "x-human-check"?: string;
                 /** @description Navegadores: envie "cookie" para receber o refresh token num cookie HttpOnly (e não no corpo). No refresh e no logout, o mesmo header faz a API ler o token do cookie. */
                 "x-session-transport"?: string;
             };
@@ -3314,6 +3372,15 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PasswordResetAcceptedResponse"];
+                };
+            };
+            /** @description HUMAN_CHECK_REQUIRED: faltou o token do desafio. HUMAN_CHECK_FAILED: o token não vale (vencido, já usado ou de outro formulário) */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description EMAIL_UNAVAILABLE: envio de e-mail não configurado */
@@ -3436,6 +3503,8 @@ export interface operations {
             query?: never;
             header: {
                 "user-agent": string;
+                /** @description Token do Turnstile da ação "register" (obrigatório quando GET /auth/human-check devolve um provedor) */
+                "x-human-check"?: string;
                 /** @description Navegadores: envie "cookie" para receber o refresh token num cookie HttpOnly (e não no corpo). No refresh e no logout, o mesmo header faz a API ler o token do cookie. */
                 "x-session-transport"?: string;
             };
@@ -3454,6 +3523,15 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuthResponse"];
+                };
+            };
+            /** @description HUMAN_CHECK_REQUIRED: faltou o token do desafio. HUMAN_CHECK_FAILED: o token não vale (vencido, já usado ou de outro formulário) */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description E-mail ou usuário já cadastrados */

@@ -7,11 +7,13 @@ import { useSessionStore } from '@/stores/session'
 /**
  * Os meus favoritos (até 10 álbuns e músicas): o botão de favoritar das páginas de álbum e música e a
  * vitrine do meu perfil leem daqui. `version` muda a cada alteração, para a vitrine recarregar.
+ * O botão muda na hora: enquanto o pedido corre, vale o estado desejado (`wanted`); se a API recusar, volta.
  */
 export const useFavoritesStore = defineStore('favorites', () => {
   const session = useSessionStore()
   const mine = ref<Favorite[] | null>(null)
   const pending = ref<string[]>([])
+  const wanted = ref<Record<string, boolean>>({})
   const version = ref(0)
   let loading: Promise<void> | null = null
 
@@ -32,8 +34,12 @@ export const useFavoritesStore = defineStore('favorites', () => {
     return loading
   }
 
-  function isFavorite (kind: FavoriteKind, id: string): boolean {
+  function saved (kind: FavoriteKind, id: string): boolean {
     return mine.value?.some(favorite => favorite.item.type === kind && favorite.item.id === id) ?? false
+  }
+
+  function isFavorite (kind: FavoriteKind, id: string): boolean {
+    return wanted.value[key(kind, id)] ?? saved(kind, id)
   }
 
   function isPending (kind: FavoriteKind, id: string): boolean {
@@ -45,12 +51,19 @@ export const useFavoritesStore = defineStore('favorites', () => {
     version.value += 1
   }
 
+  /** Muda na hora e confirma na API; recusado, volta ao que estava (e o erro sobe para quem chamou). */
   async function toggle (kind: FavoriteKind, id: string): Promise<void> {
     const current = key(kind, id)
+    if (pending.value.includes(current)) {
+      return
+    }
+    const adding = !isFavorite(kind, id)
     pending.value = [...pending.value, current]
+    wanted.value = { ...wanted.value, [current]: adding }
     try {
-      settle(isFavorite(kind, id) ? await favoritesApi.remove(kind, id) : await favoritesApi.add(kind, id))
+      settle(adding ? await favoritesApi.add(kind, id) : await favoritesApi.remove(kind, id))
     } finally {
+      wanted.value = Object.fromEntries(Object.entries(wanted.value).filter(([entry]) => entry !== current))
       pending.value = pending.value.filter(item => item !== current)
     }
   }

@@ -2,7 +2,6 @@
   <MxIconButton
     v-if="session.isAuthenticated"
     data-testid="favorite-button"
-    :disabled="favorites.isPending(kind, id)"
     :icon="active ? 'mdi-star' : 'mdi-star-outline'"
     :label="active ? t('favorites.remove', { title }) : t('favorites.add', { title })"
     :pressed="active"
@@ -39,7 +38,11 @@
     void favorites.ensure()
   })
 
+  /** A estrela muda na hora (a store confirma na API e volta se ela recusar); clique repetido enquanto confirma não faz nada. */
   async function toggle (): Promise<void> {
+    if (favorites.isPending(props.kind, props.id)) {
+      return
+    }
     const adding = !active.value
     try {
       await favorites.toggle(props.kind, props.id)

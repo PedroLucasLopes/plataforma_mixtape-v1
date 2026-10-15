@@ -1,6 +1,6 @@
 export type LegalDocument = 'privacy' | 'terms'
 
-export const LEGAL_UPDATED_AT = '2026-10-14'
+export const LEGAL_UPDATED_AT = '2026-10-15'
 
 export const LEGAL_SECTIONS: Readonly<Record<LegalDocument, readonly string[]>> = {
   privacy: ['controller', 'data', 'purposes', 'cookies', 'ads', 'sharing', 'retention', 'rights', 'security', 'children', 'changes', 'contact'],

@@ -33,6 +33,8 @@
 
       <RouterLink class="link-strong auth-page__forgot" data-testid="page-login-forgot" :to="forgotTarget">{{ t('auth.forgotLink') }}</RouterLink>
 
+      <HumanCheck ref="humanCheck" action="login" />
+
       <p v-if="error" class="form-error" data-testid="page-login-error" role="alert">{{ error }}</p>
 
       <MxButton
@@ -63,10 +65,11 @@
   import { computed, reactive, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
+  import HumanCheck from '@/components/HumanCheck.vue'
   import { useSeo } from '@/composables/useSeo'
   import { EMAIL_MAX_LENGTH, EMAIL_PATTERN, PASSWORD_LENGTH } from '@/constants/validation'
   import { ROUTE } from '@/router/routes'
-  import { errorMessage } from '@/services/http'
+  import { errorMessage, isHumanCheckError } from '@/services/http'
   import { useSessionStore } from '@/stores/session'
   import { safeRedirect } from '@/utils/navigation'
 
@@ -81,6 +84,7 @@
   const attempted = ref(false)
   const error = ref<string | null>(null)
   const touched = reactive({ login: false })
+  const humanCheck = ref<InstanceType<typeof HumanCheck> | null>(null)
 
   const redirect = computed(() => safeRedirect(route.query.redirect))
   const registerTarget = computed(() => ({ name: ROUTE.register, query: redirect.value ? { redirect: redirect.value } : {} }))
@@ -103,12 +107,16 @@
     if (fieldErrors.value.login || fieldErrors.value.password) return
     submitting.value = true
     try {
-      await session.login(login.value.trim(), password.value)
+      const humanToken = await humanCheck.value?.take() ?? null
+      await session.login(login.value.trim(), password.value, humanToken)
       toast.success(t('auth.welcomeBack', { name: session.user?.fullName ?? '' }))
       await router.replace(redirect.value ?? { name: ROUTE.home })
     } catch (error_) {
       error.value = errorMessage(error_)
-      password.value = ''
+      if (!isHumanCheckError(error_)) {
+        password.value = ''
+      }
+      humanCheck.value?.reset()
     } finally {
       submitting.value = false
     }

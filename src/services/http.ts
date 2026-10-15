@@ -11,6 +11,8 @@ export interface RequestOptions {
   auth?: 'optional' | 'required' | 'none'
   session?: boolean
   signal?: AbortSignal
+  /** Cabeçalhos a mais deste pedido (ex.: o token da prova de que é uma pessoa). */
+  headers?: Record<string, string>
 }
 
 export class ApiError extends Error {
@@ -148,7 +150,7 @@ export function wait (seconds: number, signal?: AbortSignal): Promise<void> {
 
 async function send (path: string, options: RequestOptions, attempt = 0, retriedAuth = false): Promise<Response> {
   const method = options.method ?? 'GET'
-  const headers: Record<string, string> = { Accept: 'application/json' }
+  const headers: Record<string, string> = { Accept: 'application/json', ...options.headers }
   if (options.body !== undefined) {
     headers['Content-Type'] = 'application/json'
   }
@@ -211,6 +213,11 @@ export async function request<T> (path: string, options: RequestOptions = {}): P
 
 export function errorMessage (error: unknown): string {
   return error instanceof ApiError ? error.message : t('errors.fallback')
+}
+
+/** A recusa veio da prova de que é uma pessoa (e não do formulário): o que a pessoa digitou continua valendo. */
+export function isHumanCheckError (error: unknown): boolean {
+  return error instanceof ApiError && Boolean(error.code?.startsWith('HUMAN_CHECK_'))
 }
 
 export function isNotFound (error: unknown): boolean {

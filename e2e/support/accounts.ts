@@ -1,6 +1,6 @@
 import { randomBytes } from 'node:crypto'
 import { type APIRequestContext, expect, type Page } from '@playwright/test'
-import { API_PATHS, SESSION_HEADER, SESSION_HINT, TEST_PROFILE } from './constants'
+import { API_PATHS, HUMAN_CHECK_HEADER, SESSION_HEADER, SESSION_HINT, TEST_PROFILE } from './constants'
 
 export interface TestAccount {
   email: string
@@ -27,7 +27,7 @@ function profileOf (account: TestAccount) {
 
 /** Só cria a conta (sem sessão neste navegador). */
 export async function register (request: APIRequestContext, account: TestAccount): Promise<void> {
-  const response = await request.post(API_PATHS.register, { data: profileOf(account) })
+  const response = await request.post(API_PATHS.register, { data: profileOf(account), headers: HUMAN_CHECK_HEADER })
   expect(response.status(), `cadastro de ${account.username}`).toBe(201)
 }
 
@@ -36,7 +36,7 @@ export async function register (request: APIRequestContext, account: TestAccount
  * navegador), e a dica de sessão faz o site pedir o access token, como depois do cadastro pela tela.
  */
 export async function registerAndEnter (page: Page, account: TestAccount): Promise<void> {
-  const response = await page.request.post(API_PATHS.register, { data: profileOf(account), headers: SESSION_HEADER })
+  const response = await page.request.post(API_PATHS.register, { data: profileOf(account), headers: { ...SESSION_HEADER, ...HUMAN_CHECK_HEADER } })
   expect(response.status(), `cadastro de ${account.username}`).toBe(201)
   await page.goto('/')
   await page.evaluate(({ key, value }) => globalThis.localStorage.setItem(key, value), SESSION_HINT)

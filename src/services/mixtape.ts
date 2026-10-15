@@ -22,6 +22,7 @@ import type {
   GroupSummary,
   GroupTopItem,
   GroupVisibility,
+  HumanCheckConfig,
   InvitePreview,
   ItemStats,
   ItemType,
@@ -56,11 +57,16 @@ import type {
   UserSummary,
 } from '@/types/api'
 import { AUTH_API_PATHS } from '@pedrolucaslopes/mixtape-auth'
-import { EMAIL_LOCALES } from '@/constants/api'
+import { EMAIL_LOCALES, HUMAN_CHECK } from '@/constants/api'
 import { currentLocale } from '@/plugins/i18n'
 import { request } from './http'
 
 const enc = encodeURIComponent
+
+/** O token da prova de que é uma pessoa vai num cabeçalho (sem ele, nada: a API diz se precisava). */
+function humanHeaders (token?: string | null): Record<string, string> | undefined {
+  return token ? { [HUMAN_CHECK.header]: token } : undefined
+}
 
 /** Os e-mails da conta saem na língua da tela. */
 function emailLocale (): EmailLocale {
@@ -98,15 +104,28 @@ export interface LibraryFilters {
 
 export const authApi = {
   /** E-mail ou usuário e a senha, que a API confere no Auth0; a sessão volta no cookie. */
-  login: (login: string, password: string) =>
-    request<AuthResult>(AUTH_API_PATHS.login, { method: 'POST', body: { login, password }, auth: 'none', session: true }),
-  register: (input: RegisterInput) =>
-    request<AuthResult>('/auth/register', { method: 'POST', body: input, auth: 'none', session: true }),
+  login: (login: string, password: string, humanToken?: string | null) =>
+    request<AuthResult>(AUTH_API_PATHS.login, {
+      method: 'POST',
+      body: { login, password },
+      auth: 'none',
+      session: true,
+      headers: humanHeaders(humanToken),
+    }),
+  register: (input: RegisterInput, humanToken?: string | null) =>
+    request<AuthResult>('/auth/register', { method: 'POST', body: input, auth: 'none', session: true, headers: humanHeaders(humanToken) }),
+  /** Se login, cadastro e "esqueci a senha" pedem o desafio (Turnstile), com a chave pública e o script. */
+  humanCheck: () => request<HumanCheckConfig>('/auth/human-check', { auth: 'none' }),
   refresh: () => request<AuthResult>('/auth/refresh', { method: 'POST', body: {}, auth: 'none', session: true }),
   logout: () => request<null>('/auth/logout', { method: 'POST', body: {}, auth: 'none', session: true }),
   logoutAll: () => request<null>('/auth/logout-all', { method: 'POST', auth: 'required', session: true }),
-  requestPasswordReset: (email: string) =>
-    request<PasswordResetAccepted>('/auth/password-reset', { method: 'POST', body: { email, locale: emailLocale() }, auth: 'none' }),
+  requestPasswordReset: (email: string, humanToken?: string | null) =>
+    request<PasswordResetAccepted>('/auth/password-reset', {
+      method: 'POST',
+      body: { email, locale: emailLocale() },
+      auth: 'none',
+      headers: humanHeaders(humanToken),
+    }),
   checkPasswordReset: (token: string) =>
     request<PasswordResetCheck>('/auth/password-reset/check', { method: 'POST', body: { token }, auth: 'none' }),
   resetPassword: (token: string, newPassword: string) =>
