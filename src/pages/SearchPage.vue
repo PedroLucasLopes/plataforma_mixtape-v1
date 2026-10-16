@@ -438,7 +438,6 @@
     },
   })
   const isPeople = computed(() => kind.value === 'people')
-  /** O tipo do catálogo para as seções que só existem para discos, músicas e artistas. */
   const catalogKind = computed<CatalogKind>(() => (kind.value === 'people' ? 'albums' : kind.value))
 
   const draft = ref(query.value)
@@ -497,10 +496,6 @@
     return { ...result, items: result.items.map(value => ({ kind: 'albums' as const, value })) }
   }
 
-  /**
-   * As sugestões já na tela. A mistura dos estilos pode mudar de uma página para a outra (estilo que atrasou na API
-   * entra na seguinte), e o mesmo disco viria duas vezes no trilho.
-   */
   let forYouShown = new Set<string>()
 
   async function loadForYou (page: number, limit: number): Promise<Page<SearchEntry>> {
@@ -517,7 +512,6 @@
   const forYou = usePaged<SearchEntry>(loadForYou, { limit: RAIL_SIZE, watch: () => [kind.value, favoriteGenres.value.join('|'), searchable.value] })
   const forYouRail = useTemplateRef<{ reveal: (index: number) => void }>('forYouRail')
 
-  /** As sugestões novas entram no fim do trilho: ele rola até a primeira delas, que recebe o foco. */
   async function moreSuggestions (): Promise<void> {
     const shown = forYou.items.value.length
     await forYou.loadMore()
@@ -560,7 +554,6 @@
     void router.push({ query: { ...route.query, q: text || undefined } })
   }
 
-  /** Limpar, Esc ou Enter com o campo vazio desfaz a busca: volta às sugestões, às buscas recentes e aos estilos. */
   function clearSearch (): void {
     if (route.query.q === undefined) return
     void router.push({ query: { ...route.query, q: undefined } })

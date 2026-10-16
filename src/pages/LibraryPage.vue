@@ -317,7 +317,6 @@
     return libraryApi.ofUser(props.username, filters.value, { page, limit })
   }
 
-  /** A grade empilha o álbum e as músicas dele que a pessoa também avaliou. */
   function loadLibraryStacks (page: number, limit: number) {
     return libraryApi.stacks(props.username, filters.value, { page, limit })
   }

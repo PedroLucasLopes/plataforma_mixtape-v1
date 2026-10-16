@@ -45,11 +45,6 @@ router.beforeEach(async to => {
   return true
 })
 
-/**
- * A View Transition fotografa a página antiga, chama o callback e fotografa de novo quando a promessa
- * dele resolve. O callback libera a navegação e só termina depois que a rota nova foi renderizada
- * (afterEach + nextTick); se algo travar, o limite solta a transição antes do timeout do navegador.
- */
 let finishViewTransition: (() => void) | null = null
 
 function settleViewTransition (): void {

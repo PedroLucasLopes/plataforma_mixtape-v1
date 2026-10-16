@@ -5,7 +5,9 @@ export const USERNAME_REPEATED_SYMBOLS = /[._]{2}/
 export const USERNAME_MAX_LENGTH = 30
 export const FULL_NAME_LENGTH = { min: 2, max: 100 } as const
 export const PASSWORD_LENGTH = { min: 8, max: 128 } as const
-export const PASSWORD_EMAIL_FRAGMENT_MIN_LENGTH = 4
+export const PASSWORD_PERSONAL_FRAGMENT_MIN_LENGTH = 4
+export const PASSWORD_PREDICTABLE_RUN_MIN_LENGTH = 4
+export const PASSWORD_SERVICE_WORDS = ['mixtape'] as const
 export const DEFAULT_MIN_USER_AGE = 13
 export const MAX_AGE_YEARS = 120
 

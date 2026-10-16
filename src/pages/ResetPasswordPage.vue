@@ -117,7 +117,7 @@
 
   const state = ref<State>('checking')
   const checking = ref(false)
-  const account = ref<{ username: string, email: string } | null>(null)
+  const account = ref<{ username: string, email: string, fullName: string } | null>(null)
   const password = ref('')
   const confirmation = ref('')
   const confirmationTouched = ref(false)
@@ -133,6 +133,7 @@
   const { rules: passwordRules, accepted } = usePasswordRules(password, () => ({
     email: account.value?.email ?? '',
     username: account.value?.username ?? '',
+    fullName: account.value?.fullName ?? '',
   }))
 
   const errors = computed(() => {
@@ -155,7 +156,7 @@
     try {
       const result = await authApi.checkPasswordReset(token)
       if (result.valid && result.username && result.email) {
-        account.value = { username: result.username, email: result.email }
+        account.value = { username: result.username, email: result.email, fullName: result.fullName ?? '' }
         state.value = 'form'
       } else {
         state.value = 'invalid'

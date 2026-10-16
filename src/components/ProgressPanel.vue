@@ -44,7 +44,6 @@
   import { useLabels } from '@/composables/useLabels'
   import { ROUTE } from '@/router/routes'
 
-  /** `disc` só no painel do dono: o progresso até o próximo disco ninguém mais vê. */
   defineProps<{
     disc: DiscProgress | null
     points: UserProgress['points']

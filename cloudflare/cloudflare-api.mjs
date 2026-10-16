@@ -1,5 +1,3 @@
-// Cliente mínimo da API v4 da Cloudflare para o apply.mjs. O token vem do ambiente e nunca entra em mensagem de erro.
-
 export const CLOUDFLARE_API_BASE = 'https://api.cloudflare.com/client/v4'
 
 export class CloudflareError extends Error {
@@ -34,7 +32,6 @@ export class CloudflareApi {
     return this.request('GET', path)
   }
 
-  /** GET que devolve null em 404 (ex.: a fase de regras ainda sem nada). */
   async find (path) {
     try {
       return await this.get(path)

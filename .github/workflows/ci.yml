@@ -1,4 +1,4 @@
-# Integração contínua do mixtape-web-v1: auditoria das dependências, lint, tipos, testes, traduções,
+# Integração contínua do plataforma_mixtape-v1: auditoria das dependências, lint, tipos, testes, traduções,
 # ícones, o build do Vite e a imagem Docker, em pull request e em push na main.
 #
 # @pedrolucaslopes/mixtape-ui é privada no GitHub Packages. O token de leitura é, de preferência, o

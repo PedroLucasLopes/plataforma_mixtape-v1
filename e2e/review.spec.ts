@@ -4,7 +4,6 @@ import { signedIn as test } from './support/session'
 
 test('avalia um álbum pelo teclado e apaga a avaliação', async ({ page }) => {
   await page.goto(`/albums/${SAMPLE.album}`)
-  // O do topo: sem avaliação nenhuma no álbum, o estado vazio mostra outro "Avaliar".
   const rate = page.getByTestId('mx-page-hero').getByTestId('rate-button')
   await rate.click()
 

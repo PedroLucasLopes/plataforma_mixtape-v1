@@ -27,7 +27,6 @@
   import { useLabels } from '@/composables/useLabels'
   import { BADGE_ICONS, DEFAULT_BADGE_ICON } from '@/constants/gamification'
 
-  /** Com progresso: as badges do dono. Sem (só o conquistado): as de outra pessoa. */
   const props = withDefaults(defineProps<{
     badges: readonly (BadgeProgress | EarnedBadge)[]
     label: string

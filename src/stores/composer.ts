@@ -15,7 +15,6 @@ export interface ComposerTarget {
   year?: string | null
 }
 
-/** A nota vai para uma review da galera em vez de virar avaliação solta. */
 export interface ComposerGroupReview {
   id: string
   groupName: string
@@ -40,7 +39,6 @@ export const useComposerStore = defineStore('composer', () => {
   const celebration = ref<Celebration | null>(null)
   const savedGroupReview = ref<GroupReview | null>(null)
 
-  /** A avaliação deste item já está em outra review da galera: uma avaliação só entra em uma. */
   const blockedByOtherGroup = computed(() => Boolean(
     groupReview.value && existing.value?.groupReview && existing.value.groupReview.id !== groupReview.value.id,
   ))

@@ -81,7 +81,6 @@
   const isAuthor = computed(() => props.review.viewer?.isAuthor ?? props.review.author.id === session.user?.id)
   const canLike = computed(() => !isAuthor.value)
   const canModerate = computed(() => isAuthor.value || session.isAdmin)
-  // Só avaliação pública vira link de compartilhamento ou item de playlist.
   const isPublic = computed(() => props.review.visibility === 'PUBLIC')
 
   function shareReview (): void {

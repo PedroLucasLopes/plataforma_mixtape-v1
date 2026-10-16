@@ -10,11 +10,9 @@ async function closeCelebration (page: Page): Promise<void> {
   }
 }
 
-/** Dá nota máxima pela página do item e devolve o título dela. */
 async function rateItem (page: Page, path: string): Promise<string> {
   await page.goto(path)
   const title = (await page.getByRole('heading', { level: 1 }).textContent())?.trim() ?? ''
-  // O do topo: sem avaliação nenhuma no item, o estado vazio mostra outro "Avaliar".
   await page.getByTestId('mx-page-hero').getByTestId('rate-button').click()
   const composer = page.getByTestId('review-composer')
   await expect(composer).toBeVisible()
@@ -57,7 +55,6 @@ test('na pilha da biblioteca, o disco da frente já vem aberto, com a nota e os 
 })
 
 test('na grade da biblioteca, o álbum e a música dele avaliados viram uma pilha que abre e fecha', async ({ page, pageErrors }) => {
-  // A música de exemplo é do álbum de exemplo.
   const album = await rateItem(page, `/albums/${SAMPLE.album}`)
   const track = await rateItem(page, `/tracks/${SAMPLE.track}`)
 
@@ -68,7 +65,6 @@ test('na grade da biblioteca, o álbum e a música dele avaliados viram uma pilh
   await expect(stack).toHaveCount(1)
   await expect(stack).toHaveAttribute('aria-expanded', 'false')
   await expect(grid.getByTestId('review-grid-entry').filter({ has: page.getByTestId('review-grid-stack') })).toContainText(album)
-  // Fechada, a música não aparece sozinha na grade.
   await expect(grid.getByTestId('review-grid-entry').filter({ hasText: track })).toHaveCount(0)
   await expect(grid.getByTestId('review-grid-member')).toHaveCount(0)
 

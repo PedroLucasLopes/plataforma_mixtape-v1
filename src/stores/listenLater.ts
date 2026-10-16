@@ -5,11 +5,6 @@ import { listenLaterApi } from '@/services/mixtape'
 import { useComposerStore } from '@/stores/composer'
 import { useSessionStore } from '@/stores/session'
 
-/**
- * A minha lista "Ouvir depois" (álbuns, músicas e artistas; só eu vejo). O botão da caixa de discos e a seção
- * do meu perfil leem daqui. Avaliar um item guardado tira ele da lista na API: depois de cada avaliação, a lista
- * é lida de novo. `version` muda a cada alteração.
- */
 export const useListenLaterStore = defineStore('listenLater', () => {
   const session = useSessionStore()
   const composer = useComposerStore()

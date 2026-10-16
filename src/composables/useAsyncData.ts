@@ -4,7 +4,6 @@ import { ApiError, errorMessage } from '@/services/http'
 export interface AsyncDataOptions {
   watch?: MaybeRefOrGetter<unknown>
   immediate?: boolean
-  /** Quando o que é observado muda, apaga o resultado anterior em vez de mantê-lo na tela até o novo chegar. */
   resetOnChange?: boolean
 }
 

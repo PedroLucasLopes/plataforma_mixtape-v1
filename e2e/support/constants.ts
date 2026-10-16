@@ -30,13 +30,8 @@ export const API_PATHS = {
 
 export const SESSION_HEADER = { 'X-Session-Transport': 'cookie' }
 
-/**
- * Token da prova de que é uma pessoa (Turnstile) para o cadastro e o login feitos direto na API. O padrão é o token de
- * teste da Cloudflare, que só passa com as chaves de teste (pilha local); a tela resolve o desafio sozinha.
- */
 export const HUMAN_CHECK_HEADER = { 'X-Human-Check': process.env.E2E_HUMAN_TOKEN ?? 'XXXX.DUMMY.TOKEN.XXXX' }
 
-/** A dica de sessão do site (`SESSION.hintKey` em `src/constants/api.ts`): com ela, a página pede o access token. */
 export const SESSION_HINT = { key: 'mx.session', value: '1' }
 
 export const ANONYMOUS = { storageState: { cookies: [], origins: [] } }

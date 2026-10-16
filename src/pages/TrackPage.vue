@@ -261,6 +261,7 @@
   import { useLabels } from '@/composables/useLabels'
   import { useQuickShare } from '@/composables/useQuickShare'
   import { useSeo } from '@/composables/useSeo'
+  import { MILLISECONDS_PER_HOUR } from '@/constants/catalog'
   import { isrcUrl, musicBrainzUrl } from '@/constants/sources'
   import { catalogApi } from '@/services/mixtape'
   import { usePlaylistPickerStore } from '@/stores/playlistPicker'
@@ -324,9 +325,10 @@
   })
 
   const durationSentence = computed(() => {
-    const ms = track.data.value?.durationMs
-    if (!ms) return undefined
-    return t('track.cards.durationSentence', { plays: formatNumber(Math.max(1, Math.floor(3_600_000 / ms)), locale.value) })
+    const durationMs = track.data.value?.durationMs
+    if (!durationMs) return undefined
+    const playsPerHour = Math.max(1, Math.floor(MILLISECONDS_PER_HOUR / durationMs))
+    return t('track.cards.durationSentence', { plays: formatNumber(playsPerHour, locale.value) })
   })
 
   const detailItems = computed<DescriptionItem[]>(() => {

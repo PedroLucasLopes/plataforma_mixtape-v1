@@ -103,16 +103,11 @@
   import { useComposerStore } from '@/stores/composer'
   import { reviewRoute } from '@/utils/items'
 
-  /** Uma célula da grade: uma entrada da biblioteca ou, com a pilha aberta, uma das músicas dela. */
   interface GridTile {
     review: Review
-    /** Música de uma pilha aberta: entra logo depois do álbum, na cor da pilha. */
     member: boolean
-    /** Na entrada que é pilha, as músicas do álbum que a pessoa também avaliou. */
     tracks: Review[]
-    /** O álbum da música, numa pilha aberta. */
     album: string | null
-    /** A posição da entrada na lista (atraso do aparecer e prioridade da capa). */
     index: number
     style?: Record<string, string>
   }
@@ -155,10 +150,6 @@
     open.value = next
   }
 
-  /**
-   * A música que sai da pilha some onde estava, já fora do fluxo da grade, enquanto as outras deslizam de volta. Sem
-   * isso, ela ocuparia a célula até sumir e as outras pulariam de uma vez no fim.
-   */
   function keepInPlace (element: Element): void {
     if (!(element instanceof HTMLElement)) {
       return
@@ -190,12 +181,10 @@
   gap: 20px;
 }
 
-/* A música que sai da pilha fica posicionada em relação à grade enquanto some (ver `keepInPlace`). */
 .review-grid__grid {
   position: relative;
 }
 
-/* A pilha aberta (o álbum e as músicas dele) numa faixa da mesma cor, que passa por cima do espaço entre as células. */
 .review-grid__item--stacked {
   --review-grid-tint: color-mix(in srgb, var(--mx-primary) 12%, transparent);
   background: var(--review-grid-tint);
@@ -301,7 +290,6 @@
   text-underline-offset: 3px;
 }
 
-/* A capa da pilha abre e fecha a pilha: fica por cima do link que cobre o cartão. */
 .review-tile__stack {
   z-index: 3;
 }

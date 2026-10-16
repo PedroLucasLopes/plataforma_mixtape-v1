@@ -349,7 +349,7 @@
 
   const { rules: passwordRules, accepted: passwordOk } = usePasswordRules(
     () => form.password,
-    () => ({ email: form.email, username: form.username }),
+    () => ({ email: form.email, username: form.username, fullName: form.fullName }),
   )
 
   const localErrors = computed<Record<Field, string | undefined>>(() => {

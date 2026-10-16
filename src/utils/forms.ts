@@ -5,8 +5,10 @@ import {
   FULL_NAME_LENGTH,
   MAX_AGE_YEARS,
   MAX_AVATAR_URL_LENGTH,
-  PASSWORD_EMAIL_FRAGMENT_MIN_LENGTH,
   PASSWORD_LENGTH,
+  PASSWORD_PERSONAL_FRAGMENT_MIN_LENGTH,
+  PASSWORD_PREDICTABLE_RUN_MIN_LENGTH,
+  PASSWORD_SERVICE_WORDS,
   USERNAME_PATTERN,
   USERNAME_REPEATED_SYMBOLS,
 } from '@/constants/validation'
@@ -93,27 +95,60 @@ export function isoDateYearsAgo (years: number, today: Date = new Date()): strin
   return date.toISOString().slice(0, 10)
 }
 
+export interface PasswordOwner {
+  email: string
+  username: string
+  fullName: string
+}
+
 export interface PasswordChecks {
   withinLength: boolean
   mix: boolean
   personal: boolean
+  unpredictable: boolean
 }
 
-export function passwordChecks (password: string, context: { email: string, username: string }): PasswordChecks {
-  const lowered = password.toLowerCase()
-  const email = context.email.trim().toLowerCase()
-  const username = normalizeUsername(context.username)
-  const localPart = email.split('@', 1)[0] ?? ''
-  const containsPersonal = (username.length > 0 && lowered.includes(username))
-    || (email.length > 0 && lowered.includes(email))
-    || (localPart.length >= PASSWORD_EMAIL_FRAGMENT_MIN_LENGTH && lowered.includes(localPart))
+const foldForComparison = (text: string) => text.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
+
+function personalFragments (owner: PasswordOwner): string[] {
+  const email = foldForComparison(owner.email.trim())
+  const emailLocalPart = email.split('@', 1)[0] ?? ''
+  const nameWords = foldForComparison(owner.fullName).split(/\P{L}+/u)
+  const longEnough = [emailLocalPart, ...nameWords].filter(word => word.length >= PASSWORD_PERSONAL_FRAGMENT_MIN_LENGTH)
+  return [foldForComparison(normalizeUsername(owner.username)), email, ...longEnough, ...PASSWORD_SERVICE_WORDS]
+    .filter(fragment => fragment.length > 0)
+}
+
+function longestPredictableRun (text: string): number {
+  let longest = Math.min(text.length, 1)
+  let current = 1
+  for (let index = 1; index < text.length; index++) {
+    const previous = text[index - 1]!
+    const next = text[index]!
+    const sameKind = (/\d/.test(previous) && /\d/.test(next)) || (/[a-z]/.test(previous) && /[a-z]/.test(next))
+    const repeated = next === previous
+    const consecutive = sameKind && Math.abs((next.codePointAt(0) ?? 0) - (previous.codePointAt(0) ?? 0)) === 1
+    current = repeated || consecutive ? current + 1 : 1
+    longest = Math.max(longest, current)
+  }
+  return longest
+}
+
+export function isPredictablePassword (password: string): boolean {
+  const folded = foldForComparison(password)
+  return longestPredictableRun(folded) >= Math.max(PASSWORD_PREDICTABLE_RUN_MIN_LENGTH, Math.ceil(folded.length / 2))
+}
+
+export function passwordChecks (password: string, owner: PasswordOwner): PasswordChecks {
+  const folded = foldForComparison(password)
   return {
     withinLength: password.length >= PASSWORD_LENGTH.min && password.length <= PASSWORD_LENGTH.max,
     mix: /\p{L}/u.test(password) && /\p{N}/u.test(password),
-    personal: password.length > 0 && !containsPersonal,
+    personal: password.length > 0 && !personalFragments(owner).some(fragment => folded.includes(fragment)),
+    unpredictable: password.length > 0 && !isPredictablePassword(password),
   }
 }
 
 export function passwordAccepted (checks: PasswordChecks): boolean {
-  return checks.withinLength && checks.mix && checks.personal
+  return checks.withinLength && checks.mix && checks.personal && checks.unpredictable
 }

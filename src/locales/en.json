@@ -104,7 +104,8 @@
     "passwordRules": {
       "length": "{min} to {max} characters",
       "mix": "Letters and numbers",
-      "personal": "Doesn't contain your email or username"
+      "personal": "Doesn't contain your name, email, username or \"Mixtape\"",
+      "unpredictable": "No sequences or repeats, like 1234 or aaaa"
     },
     "registerEyebrow": "Let's get started",
     "registerLead": "It takes less than a minute. You choose your password and can personalize your profile later.",
@@ -639,8 +640,8 @@
       "CANNOT_LIKE_OWN_REVIEW": "You can't like your own rating.",
       "REVIEW_IN_OTHER_GROUP_REVIEW": "Your rating of this item is already part of another crew review.",
       "VISIBILITY_FOLLOWS_GROUP": "This rating is part of a crew review and follows the group's visibility.",
-      "CONTENT_REJECTED": "The text has words that aren't allowed here ({terms}). Change them and try again.",
-      "CONTENT_REJECTED_TONE": "The text was blocked by moderation for abuse, hate or threats. Rewrite it and try again.",
+      "CONTENT_REJECTED": "The text was blocked by moderation for abuse, hate or threats. Rewrite it and try again.",
+      "CONTENT_REJECTED_PROFANITY": "The text has profanity. Swap the word and try again.",
       "USER_NOT_FOUND": "User not found.",
       "INVALID_PERIOD": "Invalid period.",
       "PERIOD_NOT_CLOSED": "A month's Awards can only be computed after it ends.",
@@ -1632,7 +1633,7 @@
         },
         "purposes": {
           "title": "What we use it for",
-          "body": "- Create and maintain your account and session.\n- Show your public profile, your ratings and your collections.\n- Calculate points, level discs, badges, rankings and Awards.\n- Protect the platform against fraud, spam and unauthorized access.\n- Keep conversations respectful: reviews go through an offensive-language filter and, when enabled, through OpenAI's automated moderation.\n- Show ads, personalized only with your consent.\n\nThe legal bases are performing the service you signed up for, our legitimate interest in keeping the platform secure, and your consent for personalized ads."
+          "body": "- Create and maintain your account and session.\n- Show your public profile, your ratings and your collections.\n- Calculate points, level discs, badges, rankings and Awards.\n- Protect the platform against fraud, spam and unauthorized access.\n- Keep conversations respectful: reviews go through automated moderation, when enabled: OpenAI's blocks abuse, hate and threats, and Google's blocks profanity.\n- Show ads, personalized only with your consent.\n\nThe legal bases are performing the service you signed up for, our legitimate interest in keeping the platform secure, and your consent for personalized ads."
         },
         "cookies": {
           "title": "Cookies and browser storage",
@@ -1644,7 +1645,7 @@
         },
         "sharing": {
           "title": "Who we share it with",
-          "body": "Your profile, ratings and public playlists can be seen by anyone; crew reviews from a private group, only by the group's members. We don't sell personal data. Other services get only what they need:\n\n- Sign-in: Auth0, by Okta, keeps your email and your password (only as a hash) and checks the password when you sign in: you type it on the Mixtape page, and it goes through our server straight to Auth0, without being stored or logged here. Its servers are in the United States; this transfer is needed for you to sign in to Mixtape. When you delete your account, it's removed from Auth0 too.\n- Network and protection: the site goes through Cloudflare, which delivers pages and covers from close to you and blocks attacks and bots. It receives your IP address and the technical data of each visit (as with any internet access), on servers in Brazil and other countries. On sign-in, sign-up and \"forgot password\", its Turnstile checks that there is a person on the other side by looking at browser signals, with no tracking cookies and no ads.\n- Catalog: it comes from open sources (MusicBrainz, Cover Art Archive, ListenBrainz and Wikimedia Commons). Covers go through Mixtape itself. Artist photos and profile photos are loaded by your browser straight from where they are hosted (Wikimedia, Gravatar and the other accepted services), which receive your IP address like any other request on the internet, but not the Mixtape page they came from.\n- New password: to check whether it has shown up in data breaches, we send Pwned Passwords (Have I Been Pwned) only the first 5 characters of its cryptographic hash; the password itself only goes to Auth0.\n- Moderation: when automated moderation is enabled, the text of reviews is checked by OpenAI's moderation API before it's published.\n\nWe may share data when required by law."
+          "body": "Your profile, ratings and public playlists can be seen by anyone; crew reviews from a private group, only by the group's members. We don't sell personal data. Other services get only what they need:\n\n- Sign-in: Auth0, by Okta, keeps your email and your password (only as a hash) and checks the password when you sign in: you type it on the Mixtape page, and it goes through our server straight to Auth0, without being stored or logged here. Its servers are in the United States; this transfer is needed for you to sign in to Mixtape. When you delete your account, it's removed from Auth0 too.\n- Network and protection: the site goes through Cloudflare, which delivers pages and covers from close to you and blocks attacks and bots. It receives your IP address and the technical data of each visit (as with any internet access), on servers in Brazil and other countries. On sign-in, sign-up and \"forgot password\", its Turnstile checks that there is a person on the other side by looking at browser signals, with no tracking cookies and no ads.\n- Catalog: it comes from open sources (MusicBrainz, Cover Art Archive, ListenBrainz and Wikimedia Commons). Covers go through Mixtape itself. Artist photos and profile photos are loaded by your browser straight from where they are hosted (Wikimedia, Gravatar and the other accepted services), which receive your IP address like any other request on the internet, but not the Mixtape page they came from.\n- New password: to check whether it has shown up in data breaches, we send Pwned Passwords (Have I Been Pwned) only the first 5 characters of its cryptographic hash; the password itself only goes to Auth0.\n- Moderation: when automated moderation is enabled, the text of reviews is checked by OpenAI's moderation API and Google's Cloud Natural Language before it's published.\n\nWe may share data when required by law."
         },
         "retention": {
           "title": "How long we keep it",

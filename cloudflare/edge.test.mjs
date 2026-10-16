@@ -1,4 +1,3 @@
-// node --test cloudflare/ (npm run test:edge): a borda declarada em edge.config.mjs, sem tocar na conta.
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
@@ -19,7 +18,6 @@ import {
 } from './edge.config.mjs'
 import { upsertEnv } from './env-file.mjs'
 
-/** O mesmo critério da regra de cache do catálogo, em JavaScript, para conferir caminhos de verdade. */
 function cachedCatalog (path) {
   return CACHED_API_PREFIXES.some(prefix => path.startsWith(prefix)) && !PERSONAL_SUFFIXES.some(suffix => path.endsWith(suffix))
 }

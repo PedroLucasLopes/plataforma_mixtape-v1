@@ -176,7 +176,6 @@
     }
   }
 
-  /** Só manda o link: a conta é apagada na página que ele abre, depois de mais uma confirmação. */
   async function sendDeletionLink (): Promise<void> {
     sendingDeletion.value = true
     deletionError.value = null

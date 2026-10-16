@@ -1,6 +1,5 @@
 import { ROUTE } from '@/router/routes'
 
-/** Telas de entrada: nunca são destino de volta depois do login (dariam volta em círculo). */
 export const AUTH_SCREENS = ['/login', '/register'] as const
 
 export interface NavEntry {
@@ -42,5 +41,4 @@ export const USER_MENU: readonly NavEntry[] = [
 
 export const ADMIN_MENU: NavEntry = { key: 'admin', label: 'nav.admin', route: ROUTE.admin, icon: 'mdi-shield-crown-outline' }
 
-/** Teto do callback da View Transition entre páginas: passou disso, a página nova entra sem animação. */
 export const VIEW_TRANSITION_UPDATE_TIMEOUT_MS = 1500

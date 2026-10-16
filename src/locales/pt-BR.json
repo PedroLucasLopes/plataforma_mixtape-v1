@@ -104,7 +104,8 @@
     "passwordRules": {
       "length": "De {min} a {max} caracteres",
       "mix": "Letras e números",
-      "personal": "Sem o seu e-mail ou nome de usuário"
+      "personal": "Sem o seu nome, e-mail, nome de usuário ou \"Mixtape\"",
+      "unpredictable": "Sem sequência ou repetição, como 1234 ou aaaa"
     },
     "registerEyebrow": "Bora começar",
     "registerLead": "Leva menos de um minuto. Você escolhe sua senha e personaliza o perfil depois.",
@@ -639,8 +640,8 @@
       "CANNOT_LIKE_OWN_REVIEW": "Você não pode curtir a sua própria avaliação.",
       "REVIEW_IN_OTHER_GROUP_REVIEW": "Sua avaliação deste item já faz parte de outra review da galera.",
       "VISIBILITY_FOLLOWS_GROUP": "Esta avaliação está numa review da galera e segue a visibilidade do grupo.",
-      "CONTENT_REJECTED": "O texto tem palavras que não são permitidas aqui ({terms}). Troque e tente de novo.",
-      "CONTENT_REJECTED_TONE": "O texto foi barrado pela moderação por ofensa, ódio ou ameaça. Reescreva e tente de novo.",
+      "CONTENT_REJECTED": "O texto foi barrado pela moderação por ofensa, ódio ou ameaça. Reescreva e tente de novo.",
+      "CONTENT_REJECTED_PROFANITY": "O texto tem palavrão. Troque a palavra e tente de novo.",
       "USER_NOT_FOUND": "Usuário não encontrado.",
       "INVALID_PERIOD": "Período inválido.",
       "PERIOD_NOT_CLOSED": "Os Awards de um mês só podem ser apurados depois que ele termina.",
@@ -1632,7 +1633,7 @@
         },
         "purposes": {
           "title": "Para que usamos",
-          "body": "- Criar e manter sua conta e sua sessão.\n- Mostrar seu perfil público, suas avaliações e suas coleções.\n- Calcular pontos, discos de nível, badges, rankings e Awards.\n- Proteger a plataforma contra fraude, spam e acessos indevidos.\n- Manter as conversas respeitosas: resenhas passam por um filtro de palavras ofensivas e, quando ligada, pela moderação automática da OpenAI.\n- Exibir anúncios, personalizados somente com o seu consentimento.\n\nAs bases legais são a execução do serviço que você contratou ao criar a conta, o legítimo interesse em manter a plataforma segura e o seu consentimento para anúncios personalizados."
+          "body": "- Criar e manter sua conta e sua sessão.\n- Mostrar seu perfil público, suas avaliações e suas coleções.\n- Calcular pontos, discos de nível, badges, rankings e Awards.\n- Proteger a plataforma contra fraude, spam e acessos indevidos.\n- Manter as conversas respeitosas: resenhas passam pela moderação automática, quando ligada: a da OpenAI barra ofensa, ódio e ameaça, e a do Google, palavrão.\n- Exibir anúncios, personalizados somente com o seu consentimento.\n\nAs bases legais são a execução do serviço que você contratou ao criar a conta, o legítimo interesse em manter a plataforma segura e o seu consentimento para anúncios personalizados."
         },
         "cookies": {
           "title": "Cookies e armazenamento no navegador",
@@ -1644,7 +1645,7 @@
         },
         "sharing": {
           "title": "Com quem compartilhamos",
-          "body": "Seu perfil, suas avaliações e suas playlists públicas podem ser vistos por qualquer pessoa; as reviews da galera de um grupo privado, só pelos membros do grupo. Não vendemos dados pessoais. Outros serviços recebem só o necessário:\n\n- Login: o Auth0, da Okta, guarda o seu e-mail e a sua senha (só como hash) e confere a senha quando você entra: você digita na tela do Mixtape, e a senha passa pelo nosso servidor direto para o Auth0, sem ser guardada nem registrada aqui. Os servidores dele ficam nos Estados Unidos; essa transferência é necessária para você entrar no Mixtape. Quando você exclui a conta, ela some do Auth0 também.\n- Rede e proteção: o site passa pela Cloudflare, que entrega as páginas e as capas de perto de você e barra ataques e robôs. Ela recebe o seu endereço IP e os dados técnicos de cada acesso (como em qualquer acesso à internet), em servidores no Brasil e em outros países. No login, no cadastro e no \"esqueci a senha\", o Turnstile dela confirma que quem está do outro lado é uma pessoa, olhando sinais do navegador, sem cookie de rastreamento e sem anúncio.\n- Catálogo: vem de fontes abertas (MusicBrainz, Cover Art Archive, ListenBrainz e Wikimedia Commons). As capas passam pelo próprio Mixtape. Fotos de artistas e fotos de perfil são carregadas pelo seu navegador direto de onde estão (Wikimedia, Gravatar e os outros serviços aceitos), que recebem o seu endereço IP como em qualquer acesso à internet, mas não a página do Mixtape de onde vieram.\n- Senha nova: para conferir se ela já apareceu em vazamentos, enviamos ao Pwned Passwords (Have I Been Pwned) só os 5 primeiros caracteres do resumo criptográfico dela; a senha em si só vai para o Auth0.\n- Moderação: quando a moderação automática está ligada, o texto das resenhas é analisado pela API de moderação da OpenAI antes de ser publicado.\n\nPodemos compartilhar dados quando a lei exigir."
+          "body": "Seu perfil, suas avaliações e suas playlists públicas podem ser vistos por qualquer pessoa; as reviews da galera de um grupo privado, só pelos membros do grupo. Não vendemos dados pessoais. Outros serviços recebem só o necessário:\n\n- Login: o Auth0, da Okta, guarda o seu e-mail e a sua senha (só como hash) e confere a senha quando você entra: você digita na tela do Mixtape, e a senha passa pelo nosso servidor direto para o Auth0, sem ser guardada nem registrada aqui. Os servidores dele ficam nos Estados Unidos; essa transferência é necessária para você entrar no Mixtape. Quando você exclui a conta, ela some do Auth0 também.\n- Rede e proteção: o site passa pela Cloudflare, que entrega as páginas e as capas de perto de você e barra ataques e robôs. Ela recebe o seu endereço IP e os dados técnicos de cada acesso (como em qualquer acesso à internet), em servidores no Brasil e em outros países. No login, no cadastro e no \"esqueci a senha\", o Turnstile dela confirma que quem está do outro lado é uma pessoa, olhando sinais do navegador, sem cookie de rastreamento e sem anúncio.\n- Catálogo: vem de fontes abertas (MusicBrainz, Cover Art Archive, ListenBrainz e Wikimedia Commons). As capas passam pelo próprio Mixtape. Fotos de artistas e fotos de perfil são carregadas pelo seu navegador direto de onde estão (Wikimedia, Gravatar e os outros serviços aceitos), que recebem o seu endereço IP como em qualquer acesso à internet, mas não a página do Mixtape de onde vieram.\n- Senha nova: para conferir se ela já apareceu em vazamentos, enviamos ao Pwned Passwords (Have I Been Pwned) só os 5 primeiros caracteres do resumo criptográfico dela; a senha em si só vai para o Auth0.\n- Moderação: quando a moderação automática está ligada, o texto das resenhas é analisado pela API de moderação da OpenAI e pela Cloud Natural Language, do Google, antes de ser publicado.\n\nPodemos compartilhar dados quando a lei exigir."
         },
         "retention": {
           "title": "Por quanto tempo guardamos",

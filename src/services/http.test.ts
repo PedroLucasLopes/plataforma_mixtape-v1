@@ -23,10 +23,12 @@ describe('mensagens de erro', () => {
     expect(describeError(422, 'UNDERAGE', { minAge: 13 })).toBe('É preciso ter pelo menos 13 anos para criar uma conta.')
   })
 
-  it('mostra o que trocar no texto barrado e quanto esperar pelo próximo link', () => {
-    expect(describeError(422, 'CONTENT_REJECTED', { terms: ['merda', 'porra'] }))
-      .toBe('O texto tem palavras que não são permitidas aqui (merda, porra). Troque e tente de novo.')
-    expect(describeError(422, 'CONTENT_REJECTED', { terms: [], reasons: ['HARASSMENT'] }))
+  it('explica o texto barrado pela moderação e quanto esperar pelo próximo link', () => {
+    expect(describeError(422, 'CONTENT_REJECTED', { field: 'body', reasons: ['HARASSMENT'] }))
+      .toBe('O texto foi barrado pela moderação por ofensa, ódio ou ameaça. Reescreva e tente de novo.')
+    expect(describeError(422, 'CONTENT_REJECTED', { field: 'body', reasons: ['PROFANITY'] }))
+      .toBe('O texto tem palavrão. Troque a palavra e tente de novo.')
+    expect(describeError(422, 'CONTENT_REJECTED', { field: 'body', reasons: ['PROFANITY', 'THREAT'] }))
       .toBe('O texto foi barrado pela moderação por ofensa, ódio ou ameaça. Reescreva e tente de novo.')
     expect(describeError(429, 'PASSWORD_RESET_TOO_MANY', { retryAfterSeconds: 30 }))
       .toBe('Você já pediu vários links agora há pouco. Confira a caixa de entrada (e o spam) ou tente de novo em 30 segundos.')

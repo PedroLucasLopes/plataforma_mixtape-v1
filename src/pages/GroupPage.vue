@@ -387,7 +387,6 @@
     return groupsApi.groupReviews(props.id, { page, limit })
   }
 
-  /** Sugestão feita: a lista recarrega e quem sugeriu já dá a nota dele. */
   function proposed (groupReview: GroupReview): void {
     tab.value = 'galera'
     void galeraList.value?.reset()

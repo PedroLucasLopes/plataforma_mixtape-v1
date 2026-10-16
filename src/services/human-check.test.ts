@@ -7,7 +7,6 @@ const ENABLED: HumanCheckConfig = { provider: 'turnstile', siteKey: 'chave-publi
 const DISABLED: HumanCheckConfig = { provider: null, siteKey: null, scriptUrl: null }
 const container = {} as HTMLElement
 
-/** Turnstile de mentira: guarda as opções do render para o teste resolver (ou falhar) o desafio. */
 function fakeTurnstile () {
   const calls = { render: 0, reset: 0, remove: 0 }
   let options: Record<string, (...args: unknown[]) => unknown> = {}

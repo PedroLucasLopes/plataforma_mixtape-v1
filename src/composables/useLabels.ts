@@ -78,11 +78,6 @@ export function useLabels () {
 
   const period = (value: string) => translated(`filters.periods.${value}`, value)
 
-  /**
-   * O número das paradas sempre com o período escrito: ouvintes do último mês fechado (álbuns e artistas)
-   * ou, sem ele (músicas, que o ListenBrainz não conta por mês, ou enquanto o número do mês não chegou),
-   * desde sempre.
-   */
   const chartListeners = (entry: ChartListeners) => {
     const monthly = entry.monthlyListeners
     if (monthly) {
@@ -96,7 +91,6 @@ export function useLabels () {
       : t('charts.allTimeListeners', { count: entry.listenerCount, formatted: formatCompactNumber(entry.listenerCount, locale.value) })
   }
 
-  /** Ouvintes desde sempre, sempre com a fonte ("1,2 mi ouvintes no ListenBrainz"). */
   const listeners = (count: number | null | undefined) =>
     count === null || count === undefined
       ? null

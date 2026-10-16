@@ -1,4 +1,3 @@
-// Grava chaves num .env sem mexer no resto do arquivo e sem imprimir valor nenhum (o apply só mostra os nomes).
 import { readFile, writeFile } from 'node:fs/promises'
 
 const KEY_LINE = /^\s*([A-Z][A-Z0-9_]*)\s*=/
@@ -8,7 +7,6 @@ function serialize (value) {
   return /[\s#"'$`\\]/.test(text) ? `"${text.replaceAll('\\', '\\\\').replaceAll('"', String.raw`\"`)}"` : text
 }
 
-/** Troca o valor das chaves que já existem e acrescenta as que faltam, no fim. Comentários e ordem ficam. */
 export function upsertEnv (content, values) {
   const lines = content.length > 0 ? content.split(/\r?\n/) : []
   if (lines.at(-1) === '') {
@@ -30,7 +28,6 @@ export function upsertEnv (content, values) {
   return `${updated.join('\n')}\n`
 }
 
-/** Aplica no arquivo (criando, se não existir) e devolve só os nomes das chaves gravadas. */
 export async function writeEnvFile (path, values) {
   const current = await readFile(path, 'utf8').catch(() => '')
   await writeFile(path, upsertEnv(current, values), { encoding: 'utf8', mode: 0o600 })

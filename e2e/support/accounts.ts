@@ -25,16 +25,11 @@ function profileOf (account: TestAccount) {
   return { ...TEST_PROFILE, email: account.email, username: account.username, password: account.password }
 }
 
-/** Só cria a conta (sem sessão neste navegador). */
 export async function register (request: APIRequestContext, account: TestAccount): Promise<void> {
   const response = await request.post(API_PATHS.register, { data: profileOf(account), headers: HUMAN_CHECK_HEADER })
   expect(response.status(), `cadastro de ${account.username}`).toBe(201)
 }
 
-/**
- * Cria a conta pela API e entra sem digitar a senha: o cadastro já abre a sessão (cookie neste
- * navegador), e a dica de sessão faz o site pedir o access token, como depois do cadastro pela tela.
- */
 export async function registerAndEnter (page: Page, account: TestAccount): Promise<void> {
   const response = await page.request.post(API_PATHS.register, { data: profileOf(account), headers: { ...SESSION_HEADER, ...HUMAN_CHECK_HEADER } })
   expect(response.status(), `cadastro de ${account.username}`).toBe(201)
@@ -44,7 +39,6 @@ export async function registerAndEnter (page: Page, account: TestAccount): Promi
   await expect(page.getByTestId('layout-app-user-menu')).toBeVisible()
 }
 
-/** Entra pela tela de login do Mixtape, como uma pessoa: a API confere a senha no Auth0. */
 export async function signIn (page: Page, login: string, password: string): Promise<void> {
   await page.goto('/login')
   await page.getByTestId('page-login-login').locator('input').fill(login)

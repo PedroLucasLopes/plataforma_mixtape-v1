@@ -12,17 +12,13 @@ export const HOME_RANKING = 5
 export const HOME_GENRES = 18
 export const REVIEW_PREVIEW_LENGTH = 220
 export const ITEM_REVIEWS_PAGE = 8
-/** Outras avaliações da mesma obra na página de uma avaliação: uma por vez, trocando sozinhas. */
 export const OTHER_REVIEWS_ROTATION = 8
 export const REVIEW_ROTATION_MS = 10_000
 export const TOP_TRACKS_PREVIEW = 10
 export const RANGE_DEBOUNCE_MS = 450
 export const GROUP_TOP_ITEMS = 10
-/** Resultados da busca ao sugerir uma review da galera. */
 export const GALERA_SEARCH_LIMIT = 8
-/** Reviews da galera por página (cada uma traz a parte de cada membro; a API aceita até 12). */
 export const GALERA_PAGE_SIZE = 6
-/** Reviews da galera no perfil. */
 export const PROFILE_GALERA = 4
 
 export const SESSION = {
@@ -34,13 +30,9 @@ export const SESSION = {
   hintKey: 'mx.session',
 } as const
 
-/** Prova de que é uma pessoa (Turnstile, da Cloudflare) no login, no cadastro e no "esqueci a senha". */
 export const HUMAN_CHECK = {
-  /** Cabeçalho em que o token vai para a API. */
   header: 'X-Human-Check',
-  /** Quanto um envio espera o desafio terminar antes de desistir com aviso. */
   waitMs: 20_000,
-  /** Língua do desafio para cada língua do site. */
   languages: { 'pt-BR': 'pt-br', 'en': 'en', 'es': 'es' } as Record<string, string>,
 } as const
 
@@ -49,20 +41,14 @@ export const CATALOG_RETRY = {
   maxWaitSeconds: 6,
 } as const
 
-/** Favoritos do perfil: espelho do `FAVORITE_LIMITS` da API (5 álbuns e 5 músicas, cada grupo na sua ordem). */
 export const FAVORITE_LIMITS = { ALBUM: 5, TRACK: 5 } as const
-/** A ordem dos grupos na vitrine e no editor. */
 export const FAVORITE_GROUPS = ['ALBUM', 'TRACK'] as const
-/** Resultados da busca no editor de favoritos. */
 export const FAVORITES_SEARCH_LIMIT = 8
 
-/** Línguas em que a API escreve os e-mails da conta (a primeira é a reserva). */
 export const EMAIL_LOCALES = ['pt-BR', 'en', 'es'] as const
 
-/** Espera entre dois pedidos de link de redefinição na mesma tela (a API ainda tem a cota por conta). */
 export const PASSWORD_RESET_RESEND_SECONDS = 60
 
-/** O mesmo para o link de exclusão da conta. */
 export const ACCOUNT_DELETION_RESEND_SECONDS = 60
 
 export const QR_CODE_SIZE = 512

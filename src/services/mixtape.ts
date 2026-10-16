@@ -64,12 +64,10 @@ import { request } from './http'
 
 const enc = encodeURIComponent
 
-/** O token da prova de que é uma pessoa vai num cabeçalho (sem ele, nada: a API diz se precisava). */
 function humanHeaders (token?: string | null): Record<string, string> | undefined {
   return token ? { [HUMAN_CHECK.header]: token } : undefined
 }
 
-/** Os e-mails da conta saem na língua da tela. */
 function emailLocale (): EmailLocale {
   const locale = currentLocale()
   return EMAIL_LOCALES.find(code => code === locale) ?? EMAIL_LOCALES[0]
@@ -104,7 +102,6 @@ export interface LibraryFilters {
 }
 
 export const authApi = {
-  /** E-mail ou usuário e a senha, que a API confere no Auth0; a sessão volta no cookie. */
   login: (login: string, password: string, humanToken?: string | null) =>
     request<AuthResult>(AUTH_API_PATHS.login, {
       method: 'POST',
@@ -115,7 +112,6 @@ export const authApi = {
     }),
   register: (input: RegisterInput, humanToken?: string | null) =>
     request<AuthResult>('/auth/register', { method: 'POST', body: input, auth: 'none', session: true, headers: humanHeaders(humanToken) }),
-  /** Se login, cadastro e "esqueci a senha" pedem o desafio (Turnstile), com a chave pública e o script. */
   humanCheck: () => request<HumanCheckConfig>('/auth/human-check', { auth: 'none' }),
   refresh: () => request<AuthResult>('/auth/refresh', { method: 'POST', body: {}, auth: 'none', session: true }),
   logout: () => request<null>('/auth/logout', { method: 'POST', body: {}, auth: 'none', session: true }),
@@ -138,7 +134,6 @@ export const authApi = {
     }),
   checkAccountDeletion: (token: string) =>
     request<AccountDeletionCheck>('/auth/account-deletion/check', { method: 'POST', body: { token }, auth: 'none' }),
-  /** Pelo link do e-mail; `session` faz a API apagar o cookie da sessão deste navegador. */
   deleteAccount: (token: string) =>
     request<null>('/auth/account-deletion/confirm', {
       method: 'POST',
@@ -159,7 +154,6 @@ export const favoritesApi = {
     request<Favorite[]>('/me/favorites', { method: 'PUT', body: { items }, auth: 'required' }),
 }
 
-/** Descubra (no meu perfil): álbuns sorteados que eu ainda não avaliei; cada pedido é um sorteio novo. */
 export const discoverApi = {
   albums: (limit: number, signal?: AbortSignal) =>
     request<AlbumSummary[]>('/me/discover', { query: { limit }, auth: 'required', signal }),
@@ -178,7 +172,6 @@ export const accountApi = {
   updateProfile: (input: ProfileInput) => request<Account>('/me/profile', { method: 'PATCH', body: input, auth: 'required' }),
   requestPasswordReset: () =>
     request<PasswordResetSent>('/me/password-reset', { method: 'POST', body: { locale: emailLocale() }, auth: 'required' }),
-  /** Nada é apagado aqui: o link vai para o e-mail da conta, e só ele confirma a exclusão. */
   requestAccountDeletion: () =>
     request<AccountDeletionSent>('/me/account-deletion', { method: 'POST', body: { locale: emailLocale() }, auth: 'required' }),
 }
@@ -243,7 +236,6 @@ export const reviewsApi = {
 export const libraryApi = {
   ofUser: (username: string, filters: LibraryFilters, page: PageQuery) =>
     request<Page<Review>>(`/users/${enc(username)}/library`, { query: { ...filters, ...page } }),
-  /** A grade: o álbum e as músicas dele que a pessoa também avaliou numa pilha só (a página conta entradas). */
   stacks: (username: string, filters: LibraryFilters, page: PageQuery) =>
     request<Page<LibraryStack>>(`/users/${enc(username)}/library/stacks`, { query: { ...filters, ...page } }),
   summary: (username: string) => request<LibrarySummary>(`/users/${enc(username)}/library/summary`),

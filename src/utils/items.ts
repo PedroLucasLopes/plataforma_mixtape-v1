@@ -26,7 +26,6 @@ export const playlistRoute = (id: string): RouteLocationRaw => ({ name: ROUTE.pl
 export const groupRoute = (id: string): RouteLocationRaw => ({ name: ROUTE.group, params: { id } })
 export const groupReviewRoute = (id: string): RouteLocationRaw => ({ name: ROUTE.groupReview, params: { id } })
 
-/** Selo da review da galera de que a avaliação faz parte (leva à página da review da galera). */
 export function reviewGroupTag (review: Pick<Review, 'groupReview'>): ReviewGroupTag | null {
   const link = review.groupReview
   return link ? { name: link.group.name, to: groupReviewRoute(link.id) as ReviewGroupTag['to'] } : null

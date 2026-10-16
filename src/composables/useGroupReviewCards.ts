@@ -7,15 +7,10 @@ import { groupReviewRoute, groupRoute, isRateable, reviewAuthor, reviewRoute, re
 import { useLabels } from './useLabels'
 import { useLikes } from './useLikes'
 
-/** A review da galera com uma parte trocada. */
 export function withEntry (groupReview: GroupReview, entry: Review): GroupReview {
   return { ...groupReview, entries: groupReview.entries.map(candidate => (candidate.id === entry.id ? entry : candidate)) }
 }
 
-/**
- * Liga a review da galera da API ao `MxGroupReviewCard`: o nome do grupo só vira link para quem é membro
- * (a página do grupo é dos membros), e cada parte tem o próprio coração.
- */
 export function useGroupReviewCards () {
   const labels = useLabels()
   const session = useSessionStore()
@@ -56,10 +51,6 @@ export function useGroupReviewCards () {
     }
   }
 
-  /**
-   * Curte a parte de alguém. `apply` recebe a parte atualizada (pode vir mais de uma vez: na hora, com a
-   * resposta da API ou desfazendo) e a aplica ao estado atual de quem guarda a review da galera.
-   */
   function like (groupReview: GroupReview, entryId: string, liked: boolean, apply: (entry: Review) => void): void {
     const entry = groupReview.entries.find(candidate => candidate.id === entryId)
     if (entry) {
@@ -67,7 +58,6 @@ export function useGroupReviewCards () {
     }
   }
 
-  /** Abre o editor de avaliação apontado para a review da galera. */
   function contribute (groupReview: GroupReview): void {
     const item = groupReview.item
     if (!isRateable(item.type)) {

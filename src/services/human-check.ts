@@ -3,7 +3,6 @@ import { HUMAN_CHECK } from '@/constants/api'
 import { ApiError, describeError } from './http'
 import { authApi } from './mixtape'
 
-/** O pedaço da API do Turnstile (script da Cloudflare) que o site usa. */
 export interface TurnstileApi {
   render: (container: HTMLElement, options: Record<string, unknown>) => string | undefined
   reset: (widgetId: string) => void
@@ -16,13 +15,11 @@ declare global {
   }
 }
 
-/** `off`: a API não pede; `loading`: o desafio está rodando; `ready`: há token; `error`: não carregou. */
 export type HumanCheckState = 'loading' | 'off' | 'ready' | 'error'
 
 let config: Promise<HumanCheckConfig | null> | null = null
 let script: Promise<TurnstileApi | null> | null = null
 
-/** Uma pergunta por visita: a API diz se login, cadastro e "esqueci a senha" pedem o desafio. Falha não fica guardada. */
 export function humanCheckConfig (): Promise<HumanCheckConfig | null> {
   config ??= authApi.humanCheck().catch(() => {
     config = null
@@ -31,10 +28,6 @@ export function humanCheckConfig (): Promise<HumanCheckConfig | null> {
   return config
 }
 
-/**
- * Carrega o script do Turnstile uma vez, com render=explicit (o desafio só aparece onde a página pedir). Ele entra
- * pela CSP do site porque quem o cria é o nosso próprio script, que tem o nonce ('strict-dynamic').
- */
 export function loadTurnstile (scriptUrl: string): Promise<TurnstileApi | null> {
   if (window.turnstile) {
     return Promise.resolve(window.turnstile)
@@ -70,10 +63,6 @@ const DEFAULT_DEPS: HumanCheckDeps = { config: humanCheckConfig, load: loadTurns
 
 type Waiter = (token: string | null) => void
 
-/**
- * O desafio de um formulário. Monta o widget, que fica invisível a não ser que a Cloudflare peça interação, guarda o
- * token e entrega um por envio. O token só vale uma vez: depois de cada envio que falhou, `reset()` pede outro.
- */
 export class HumanCheckController {
   private token: string | null = null
   private widgetId: string | null = null
@@ -122,7 +111,6 @@ export class HumanCheckController {
     }) ?? null
   }
 
-  /** O token para o próximo envio: espera o desafio terminar e recusa com HUMAN_CHECK_REQUIRED se não terminar. */
   take (): Promise<string | null> {
     if (this.state === 'off') {
       return Promise.resolve(null)
@@ -150,7 +138,6 @@ export class HumanCheckController {
     })
   }
 
-  /** Pede um desafio novo (o token anterior já foi usado ou a API recusou). */
   reset (): void {
     this.token = null
     if (this.turnstile && this.widgetId) {
@@ -159,7 +146,6 @@ export class HumanCheckController {
     }
   }
 
-  /** Depois de um erro: tenta de novo do começo (configuração e script) ou só o desafio. */
   async retry (): Promise<void> {
     if (this.turnstile && this.widgetId) {
       return this.reset()

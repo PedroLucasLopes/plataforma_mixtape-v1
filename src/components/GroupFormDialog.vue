@@ -94,7 +94,6 @@
     { value: 'PUBLIC', label: t('groups.visibility.public'), icon: 'mdi-earth' },
   ])
 
-  // Abrir um grupo privado expõe as reviews da galera que já existem: o dono vê o aviso antes de salvar.
   const exposing = computed(() => props.group?.visibility === 'PRIVATE' && visibility.value === 'PUBLIC')
 
   const nameValid = computed(() => {

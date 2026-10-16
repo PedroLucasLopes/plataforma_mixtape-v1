@@ -5,7 +5,6 @@ import { signedIn as test } from './support/session'
 
 test.describe.configure({ mode: 'serial' })
 
-/** Favorita pela estrela da página do item (desfaz antes, se já era favorito) e devolve o título dele. */
 async function favorite (page: Page, path: string): Promise<string> {
   await page.goto(path)
   const title = (await page.getByRole('heading', { level: 1 }).textContent())?.trim() ?? ''

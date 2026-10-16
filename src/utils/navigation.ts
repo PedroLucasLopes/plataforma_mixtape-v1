@@ -2,7 +2,6 @@ import type { RouteLocationRaw } from 'vue-router'
 import { safeReturnTo } from '@pedrolucaslopes/mixtape-auth'
 import { AUTH_SCREENS } from '@/constants/navigation'
 
-/** Caminho interno para onde voltar (a mesma regra que a API usa no login), nunca as telas de entrada. */
 export function safeRedirect (value: unknown): string | null {
   return safeReturnTo(value, { exclude: AUTH_SCREENS })
 }

@@ -1,12 +1,5 @@
 import type { IconShape } from '@pedrolucaslopes/mixtape-ui'
 
-/**
- * Ícones de fora do MDI, cada um com a própria caixa (viewBox). O crédito também aparece nos termos de uso
- * (`legal.terms`), porque o build tira os comentários do código.
- *
- * - `fa-burger`: Font Awesome Free 6.7.2 by @fontawesome (https://fontawesome.com), ícone "burger" sob
- *   CC BY 4.0 (https://fontawesome.com/license/free). O botão do menu é um hambúrguer de verdade.
- */
 export const FUN_ICONS: Readonly<Record<string, IconShape>> = {
   'fa-burger': {
     viewBox: '0 0 512 512',

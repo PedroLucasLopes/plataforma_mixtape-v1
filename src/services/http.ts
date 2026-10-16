@@ -11,7 +11,6 @@ export interface RequestOptions {
   auth?: 'optional' | 'required' | 'none'
   session?: boolean
   signal?: AbortSignal
-  /** Cabeçalhos a mais deste pedido (ex.: o token da prova de que é uma pessoa). */
   headers?: Record<string, string>
 }
 
@@ -92,16 +91,9 @@ function waitText (seconds: number) {
   return new Intl.NumberFormat(currentLocale(), { style: 'unit', unit, unitDisplay: 'long' }).format(value)
 }
 
-function moderationTerms (details: Record<string, unknown>): string[] {
-  return Array.isArray(details.terms) ? details.terms.filter((term): term is string => typeof term === 'string') : []
-}
-
 function errorParams (code: string, details: Record<string, unknown>): Record<string, string | number> {
   if (code === 'UNDERAGE' && typeof details.minAge === 'number') {
     return { minAge: details.minAge }
-  }
-  if (code === 'CONTENT_REJECTED') {
-    return { terms: moderationTerms(details).join(', ') }
   }
   if (typeof details.retryAfterSeconds === 'number') {
     return { seconds: details.retryAfterSeconds, wait: waitText(details.retryAfterSeconds) }
@@ -112,9 +104,13 @@ function errorParams (code: string, details: Record<string, unknown>): Record<st
   return {}
 }
 
+function onlyProfanity (details: Record<string, unknown>): boolean {
+  return Array.isArray(details.reasons) && details.reasons.length > 0 && details.reasons.every(reason => reason === 'PROFANITY')
+}
+
 function messageKey (code: string, details: Record<string, unknown>) {
-  if (code === 'CONTENT_REJECTED' && moderationTerms(details).length === 0) {
-    return 'errors.code.CONTENT_REJECTED_TONE'
+  if (code === 'CONTENT_REJECTED' && onlyProfanity(details)) {
+    return 'errors.code.CONTENT_REJECTED_PROFANITY'
   }
   if (code === 'FAVORITES_FULL' && (details.kind === 'ALBUM' || details.kind === 'TRACK')) {
     return `errors.code.FAVORITES_FULL_${details.kind}`
@@ -218,7 +214,6 @@ export function errorMessage (error: unknown): string {
   return error instanceof ApiError ? error.message : t('errors.fallback')
 }
 
-/** A recusa veio da prova de que é uma pessoa (e não do formulário): o que a pessoa digitou continua valendo. */
 export function isHumanCheckError (error: unknown): boolean {
   return error instanceof ApiError && Boolean(error.code?.startsWith('HUMAN_CHECK_'))
 }

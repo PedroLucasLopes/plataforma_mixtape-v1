@@ -258,7 +258,6 @@
 
   const duotone = computed(() => duotoneFor(review.data.value?.item.id ?? props.id))
   const isAuthor = computed(() => review.data.value?.viewer?.isAuthor ?? (review.data.value?.author.id === session.user?.id))
-  // Só avaliação pública vira link de compartilhamento.
   const isPublic = computed(() => review.data.value?.visibility === 'PUBLIC')
 
   const subtitle = computed(() => {

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "description": "Front do Mixtape: avalie álbuns e músicas, discos de nível, rankings e Awards.",
+  "description": "The site of Mixtape, your music diary: rate albums and tracks, level up your record, climb rankings and win Awards.",
   "engines": {
     "node": ">=22.12"
   },

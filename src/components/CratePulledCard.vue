@@ -78,7 +78,6 @@
     meta?: string | null
     metaIcon?: string
     rating?: number | null
-    /** O texto da resenha (painel das avaliações recentes do perfil): os primeiros parágrafos; o resto, na página dela. */
     body?: string | null
     reviewTo?: RouteLocationRaw | null
     cover?: string | null

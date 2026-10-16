@@ -1,15 +1,3 @@
-// Aplica a borda do Mixtape (edge.config.mjs) numa zona da Cloudflare no plano Free.
-//
-//   npm run edge:plan                       mostra o que muda (só lê a conta; sem token, mostra o que seria criado)
-//   npm run edge:apply                      aplica
-//   npm run edge:apply -- --write-env       aplica e grava o token do túnel no .env do site e as chaves do Turnstile
-//                                           no .env da API (só os nomes aparecem na tela)
-//   --rotate-turnstile-secret               gera uma chave secreta nova do Turnstile (ela só sai na criação)
-//   --no-access                             no ambiente dev, aceita expor o túnel sem o Access na frente (não faça)
-//
-// Ambiente (nunca no repositório): CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_ZONE (ex.: meudominio.com),
-// MIXTAPE_EDGE_HOSTNAME (ex.: dev.meudominio.com), MIXTAPE_EDGE_STAGE (dev | prod; padrão dev), MIXTAPE_ACCESS_EMAILS
-// (e-mails separados por vírgula: quem entra no dev) e, opcional, MIXTAPE_API_ENV_FILE (padrão ../api/.env).
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { CloudflareApi } from './cloudflare-api.mjs'
@@ -106,7 +94,6 @@ function offlinePlan (inputs) {
   console.log('\nTambém: regras gerenciadas grátis, Tiered Cache, túnel, Turnstile, Access (dev) e DNSSEC. Ver README.md.')
 }
 
-/** Regra de fora (não é nossa) do jeito que volta no PUT: com o id (continua a mesma), sem os campos só de leitura. */
 function withoutReadOnly (rule) {
   const copy = { ...rule }
   delete copy.version
@@ -114,7 +101,6 @@ function withoutReadOnly (rule) {
   return copy
 }
 
-/** O que importa de uma regra para comparar a da conta com a do arquivo. */
 function comparable (rule) {
   const { ref, description, action, expression, action_parameters: parameters, ratelimit } = rule
   return JSON.stringify({ ref, description, action, expression, parameters: parameters ?? null, ratelimit: ratelimit ?? null })

@@ -170,10 +170,6 @@
   const error = ref<string | null>(null)
   const results = ref<DraftEntry[]>([])
 
-  /**
-   * Álbuns e músicas em listas separadas, cada uma com o seu limite. Quem tinha mais que o limite de um tipo (de antes
-   * do limite por tipo) vê todos, com o aviso, e só salva depois de tirar o excesso.
-   */
   const groups = computed(() => FAVORITE_GROUPS.map(group => {
     const entries = draft.value.filter(entry => entry.kind === group)
     const limit = FAVORITE_LIMITS[group]
@@ -220,7 +216,6 @@
     return draft.value.some(entry => entry.key === key)
   }
 
-  /** Sobe ou desce dentro do próprio grupo (a lista guarda os dois tipos misturados; a ordem de cada um é a que vale). */
   function move (key: string, step: number): void {
     const entry = draft.value.find(item => item.key === key)
     if (!entry) {

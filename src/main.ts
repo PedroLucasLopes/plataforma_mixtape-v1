@@ -9,7 +9,6 @@ for (const element of document.querySelectorAll('[data-mx-ssr]')) {
   element.remove()
 }
 
-// Chunk de antes do último deploy: a navegação trata o dela (abre o destino); o resto recarrega aqui.
 window.addEventListener('vite:preloadError', () => {
   window.setTimeout(() => reloadOnce(), 0)
 })

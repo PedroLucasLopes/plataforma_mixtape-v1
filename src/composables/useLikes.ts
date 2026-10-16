@@ -16,7 +16,6 @@ function applyLocal<T extends Likeable> (target: T, liked: boolean): T {
   return { ...target, likes, viewer: { liked, isAuthor: target.viewer?.isAuthor ?? false } }
 }
 
-/** Curtir (coração) é a única reação a uma avaliação: o número muda na hora e volta se a API recusar. */
 export function useLikes<T extends Likeable> () {
   const pending = ref(new Set<string>())
   const { requireAuth } = useAuthAction()

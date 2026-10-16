@@ -1,6 +1,5 @@
 <template>
   <div v-show="state !== 'off'" class="human-check" data-testid="human-check">
-    <!-- O widget do Turnstile entra aqui; fica vazio (sem altura) a não ser que a Cloudflare peça interação. -->
     <div ref="container" class="human-check__widget" />
 
     <p v-if="state === 'error'" class="form-error" data-testid="human-check-error" role="alert">
@@ -37,7 +36,6 @@
 
   onBeforeUnmount(() => controller.destroy())
 
-  /** `take()`: o token do próximo envio (nulo quando a prova está desligada). `reset()`: depois de um envio que falhou. */
   defineExpose({ take: () => controller.take(), reset: () => controller.reset() })
 </script>
 

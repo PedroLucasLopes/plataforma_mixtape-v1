@@ -402,14 +402,12 @@
   const isMe = computed(() => session.user?.username === props.username)
 
   const profile = useAsyncData(() => profilesApi.get(props.username), { watch: () => [props.username, composer.version] })
-  /** O progresso (disco e badges, até as que faltam) é só do dono; dos outros, o perfil traz só o conquistado. */
   const mine = useAsyncData(
     () => (isMe.value ? gamificationApi.myProgress().catch(() => null) : Promise.resolve(null)),
     { watch: () => [props.username, isMe.value, composer.version] },
   )
 
   const { lgAndUp } = useDisplay()
-  /** Descubra é só do dono: ao lado dos destaques em tela larga; nas outras, uma seção depois das avaliações recentes. */
   const discoverAside = computed(() => isMe.value && lgAndUp.value)
 
   const route = useRoute()
@@ -454,10 +452,6 @@
     }
   }
 
-  /**
-   * Pilha das avaliações recentes: o painel ao lado já mostra a nota e a resenha do disco da frente enquanto o mouse
-   * folheia; o clique (ou Enter) no disco abre a página da avaliação.
-   */
   function openRecentReview (record: CrateRecord): void {
     void router.push(reviewRoute(record.key))
   }

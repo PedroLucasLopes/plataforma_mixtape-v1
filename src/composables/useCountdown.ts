@@ -1,6 +1,5 @@
 import { onScopeDispose, readonly, ref } from 'vue'
 
-/** Contagem regressiva em segundos (ex.: "Enviar de novo em 42 s"). */
 export function useCountdown () {
   const remaining = ref(0)
   let timer: ReturnType<typeof setInterval> | undefined

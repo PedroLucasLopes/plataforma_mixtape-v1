@@ -4,11 +4,6 @@ import { ref, watch } from 'vue'
 import { favoritesApi } from '@/services/mixtape'
 import { useSessionStore } from '@/stores/session'
 
-/**
- * Os meus favoritos (até 10 álbuns e músicas): o botão de favoritar das páginas de álbum e música e a
- * vitrine do meu perfil leem daqui. `version` muda a cada alteração, para a vitrine recarregar.
- * O botão muda na hora: enquanto o pedido corre, vale o estado desejado (`wanted`); se a API recusar, volta.
- */
 export const useFavoritesStore = defineStore('favorites', () => {
   const session = useSessionStore()
   const mine = ref<Favorite[] | null>(null)
@@ -51,7 +46,6 @@ export const useFavoritesStore = defineStore('favorites', () => {
     version.value += 1
   }
 
-  /** Muda na hora e confirma na API; recusado, volta ao que estava (e o erro sobe para quem chamou). */
   async function toggle (kind: FavoriteKind, id: string): Promise<void> {
     const current = key(kind, id)
     if (pending.value.includes(current)) {

@@ -51,10 +51,6 @@
 
   const rail = useTemplateRef<ComponentPublicInstance>('rail')
 
-  /**
-   * Leva o item `index` para o começo do trilho e põe o foco no primeiro link ou botão dele. Item que chega depois
-   * (um "Mais sugestões") entra no fim do trilho, fora da tela: sem isso, o clique parecia não fazer nada.
-   */
   function reveal (index: number): void {
     const root = rail.value?.$el as HTMLElement | undefined
     const entry = root?.querySelector<HTMLElement>(`[data-rail-index="${CSS.escape(String(index))}"]`)

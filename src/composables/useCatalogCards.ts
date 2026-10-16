@@ -19,7 +19,6 @@ export interface CatalogCard {
   listenersSource: string
 }
 
-/** O mesmo cartão como disco da caixa (`MxCrate`). */
 export function crateRecord (key: string, card: CatalogCard): CrateRecord {
   return { key, title: card.title, subtitle: card.subtitle, cover: card.cover, sources: card.sources, seed: card.seed }
 }

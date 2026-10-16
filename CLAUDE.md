@@ -1,4 +1,4 @@
-# 🎧 mixtape-web-v1
+# 🎧 plataforma_mixtape-v1
 
 Front do Mixtape, o seu diário musical: Vue 3 + Vuetify 4 + Pinia + vue-router + vue-i18n +
 @unhead/vue. A interface (componentes, tema, movimento, textos dos componentes) vem da biblioteca
@@ -51,7 +51,7 @@ COMPOSE_PROFILES=cloudflare docker compose up -d  # + o túnel da Cloudflare (pr
 
 ## 🪝 Ganchos do git (Husky)
 
-Repositório git local desde 14/10/2026 (ainda sem o remoto `mixtape-web-v1`). O `npm install` liga os ganchos
+Repositório git local desde 14/10/2026; no GitHub (`PedroLucasLopes/plataforma_mixtape-v1`) desde 16/10/2026. O `npm install` liga os ganchos
 (`prepare`: `husky || exit 0`, que pula no Docker, onde não há `.git`). Nada de `--no-verify` sem motivo.
 
 | Gancho | Roda | Tempo |
@@ -233,7 +233,8 @@ Medido na Home, no container de produção, com a 0.2.1 (antes) e a 0.3.0 (depoi
 - Modo cookie (`X-Session-Transport: cookie`): o refresh token é cookie `HttpOnly`, `SameSite=Strict`,
   restrito a `/api/v1/auth`; o access token fica só em memória. É o único cookie do Mixtape.
 - Erros da API com texto próprio: `BREACHED_PASSWORD` (marca o campo de senha), `AVATAR_HOST_NOT_ALLOWED`,
-  `CONTENT_REJECTED` (lista os termos; sem termos, é a moderação pelo contexto: `CONTENT_REJECTED_TONE`),
+  `CONTENT_REJECTED` (pelo `details.reasons`: só `PROFANITY`, o Google achou palavrão, `CONTENT_REJECTED_PROFANITY`; com
+  outro motivo, a OpenAI barrou pelo tom: ofensa, ódio ou ameaça),
   `PAYLOAD_TOO_LARGE` e os de espera (`…_TOO_MANY`, que dizem quanto esperar com `Intl.NumberFormat`).
 - `safeRedirect` é o `safeReturnTo` da lib de login (a mesma regra da API) com `AUTH_SCREENS` fora: recusa
   caractere de controle e `\` em qualquer posição (o navegador apaga a tabulação e `/\t/site.com` viraria
@@ -437,7 +438,14 @@ src/
 
 - Nada sensível no código: segredos e endereços no `.env` (fora do git e da imagem); valores fixos em
   `src/constants/`. `VITE_*` vai para o navegador: só o que é público.
-- A senha é sempre do usuário: o front mostra as regras e o medidor, nunca sugere nem gera.
+- A senha é sempre do usuário: o front mostra as regras e o medidor, nunca sugere nem gera. As regras
+  (`passwordChecks` em `utils/forms.ts`) são as mesmas da API: tamanho, letras e números, sem o nome, o
+  e-mail, o usuário ou "mixtape", e sem sequência ou repetição que domine a senha (`1234`, `aaaa`). Senha
+  óbvia do mundo todo é com o Pwned Passwords, na API; não existe lista fixa de senhas.
+- Código sem comentários (`//`, `/* */`, `<!-- -->`): nomes que se explicam sozinhos, e o porquê mora aqui.
+  Arquivo gerado sai sem comentário do próprio gerador (`generate:api` passa pela impressora do TypeScript
+  com `removeComments`; `sync:icons` não escreve cabeçalho).
+- README, descrição do repositório e mensagens de commit em inglês.
 - Texto de tela nos três JSON de `locales/`; rode `npm run check:locales`.
 - Usou um `mdi-*` novo, rode `npm run sync:icons` e versione o gerado.
 - Diálogo global novo entra no `AppLayout` com `defineAsyncComponent` + `useLatch`.

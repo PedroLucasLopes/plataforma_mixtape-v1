@@ -419,10 +419,6 @@
 
   const topTracks = computed(() => (artist.data.value?.topTracks ?? []).toSorted((a, b) => b.listenerCount - a.listenerCount))
 
-  /**
-   * Ouvintes mensais (último mês fechado no ListenBrainz) por padrão; sem esse dado, o total desde sempre,
-   * com o rótulo dele.
-   */
   const listeners = computed(() => {
     const value = artist.data.value
     if (!value) return null

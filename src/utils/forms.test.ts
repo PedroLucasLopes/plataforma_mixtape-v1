@@ -3,6 +3,7 @@ import {
   ageOn,
   avatarUrlProblem,
   isoDateYearsAgo,
+  isPredictablePassword,
   isValidEmail,
   isValidFullName,
   isValidUsername,
@@ -14,26 +15,36 @@ import {
 const TODAY = new Date(Date.UTC(2026, 9, 6))
 
 describe('regras de senha (iguais às da API)', () => {
-  const context = { email: 'ana.souza@exemplo.com', username: 'ana_souza' }
+  const owner = { email: 'ana.souza@exemplo.com', username: 'ana_souza', fullName: 'Ana Conceição Souza' }
 
-  it('aceita senha com tamanho, letras e números e sem dados pessoais', () => {
-    const checks = passwordChecks('discos2026!', context)
-    expect(checks).toEqual({ withinLength: true, mix: true, personal: true })
+  it('aceita senha com tamanho, letras e números, sem dados pessoais e sem sequência', () => {
+    const checks = passwordChecks('discos2026!', owner)
+    expect(checks).toEqual({ withinLength: true, mix: true, personal: true, unpredictable: true })
     expect(passwordAccepted(checks)).toBe(true)
   })
 
   it('recusa senha curta ou sem números', () => {
-    expect(passwordChecks('curta1', context).withinLength).toBe(false)
-    expect(passwordChecks('sónumerosnão', context).mix).toBe(false)
+    expect(passwordChecks('curta1', owner).withinLength).toBe(false)
+    expect(passwordChecks('sónumerosnão', owner).mix).toBe(false)
   })
 
-  it('recusa senha com o usuário, o e-mail ou o começo do e-mail', () => {
-    expect(passwordChecks('meu-ana_souza-1', context).personal).toBe(false)
-    expect(passwordChecks('x-ana.souza-2026', context).personal).toBe(false)
+  it('recusa senha com o usuário, o e-mail, o nome (com ou sem acento) ou o nome do site', () => {
+    expect(passwordChecks('meu-ana_souza-1', owner).personal).toBe(false)
+    expect(passwordChecks('x-ana.souza-2026', owner).personal).toBe(false)
+    expect(passwordChecks('Conceicao2026', owner).personal).toBe(false)
+    expect(passwordChecks('Mixtape2026!', owner).personal).toBe(false)
   })
 
-  it('não marca a regra pessoal como cumprida com a senha vazia', () => {
-    expect(passwordChecks('', context).personal).toBe(false)
+  it('recusa sequência ou repetição que domina a senha, mas aceita um trecho curto numa senha longa', () => {
+    expect(passwordChecks('12345678a', owner).unpredictable).toBe(false)
+    expect(passwordChecks('aaaa1111', owner).unpredictable).toBe(false)
+    expect(passwordChecks('zyxw9876', owner).unpredictable).toBe(false)
+    expect(isPredictablePassword('Correct1234Horse!')).toBe(false)
+  })
+
+  it('não marca as regras como cumpridas com a senha vazia', () => {
+    expect(passwordChecks('', owner).personal).toBe(false)
+    expect(passwordChecks('', owner).unpredictable).toBe(false)
   })
 })
 

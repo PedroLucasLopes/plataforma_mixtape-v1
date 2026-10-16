@@ -1,6 +1,5 @@
 const DAY_MS = 24 * 60 * 60 * 1000
 
-/** Gira a lista um passo por dia: quem vem primeiro muda a cada dia, sempre igual no mesmo dia. */
 export function rotateDaily<T> (items: readonly T[], today: Date = new Date()): T[] {
   if (items.length === 0) {
     return []

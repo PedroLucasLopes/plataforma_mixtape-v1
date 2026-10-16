@@ -143,7 +143,6 @@
       error.value = errorMessage(error_)
     } finally {
       sending.value = false
-      // O token vale uma vez: o "enviar de novo" precisa de outro.
       humanCheck.value?.reset()
     }
   }

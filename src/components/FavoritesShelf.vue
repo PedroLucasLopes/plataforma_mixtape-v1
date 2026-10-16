@@ -88,7 +88,6 @@
   const list = computed(() => favorites.data.value ?? [])
   const limits = { albums: FAVORITE_LIMITS.ALBUM, tracks: FAVORITE_LIMITS.TRACK }
 
-  /** Álbuns e músicas em fileiras separadas, até 5 cada (quem tinha mais antes do limite por tipo vê os 5 primeiros). */
   const groups = computed(() => FAVORITE_GROUPS.flatMap(kind => {
     const items = list.value.filter(favorite => favorite.item.type === kind).slice(0, FAVORITE_LIMITS[kind])
     return items.length > 0 ? [{ kind, items, title: kind === 'ALBUM' ? t('favorites.albums') : t('favorites.tracks') }] : []

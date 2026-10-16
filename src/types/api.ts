@@ -20,7 +20,6 @@ export type PasswordResetSent = Schemas['PasswordResetSentResponse']
 export type AccountDeletionSent = Schemas['AccountDeletionSentResponse']
 export type AccountDeletionCheck = Schemas['AccountDeletionCheckResponse']
 export type HumanCheckConfig = Schemas['HumanCheckResponse']
-/** Formulários que pedem a prova de que é uma pessoa (o nome vai no desafio e a API confere). */
 export type HumanCheckAction = 'login' | 'register' | 'password_reset'
 
 export type ArtistRef = Schemas['ArtistRefResponse']
@@ -54,7 +53,6 @@ export type LikeResult = Schemas['LikeResultResponse']
 export type RatingBucket = Schemas['RatingDistributionResponse']
 export type ItemStats = Schemas['ItemStatsResponse']
 export type LibrarySummary = Schemas['LibrarySummaryResponse']
-/** Uma entrada da grade da biblioteca: a avaliação e, num álbum, as das músicas dele que a pessoa também avaliou. */
 export type LibraryStack = Schemas['LibraryStackResponse']
 export type TrendingItem = Schemas['TrendingItemResponse']
 

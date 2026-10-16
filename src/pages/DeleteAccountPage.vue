@@ -97,7 +97,6 @@
 
   type State = 'checking' | 'invalid' | 'error' | 'confirm' | 'done'
 
-  /** O que some com a conta, na ordem em que a página lista. */
   const GONE = [
     { key: 'reviews', icon: 'mdi-star-outline' },
     { key: 'likes', icon: 'mdi-heart-outline' },
@@ -152,7 +151,6 @@
     error.value = null
     try {
       await authApi.deleteAccount(token)
-      // Se este navegador estava na conta excluída, ele sai dela (e as outras abas também).
       if (session.user?.username === account.value?.username) {
         await session.logout()
       }

@@ -10,7 +10,6 @@ export const RANKING_CATEGORIES: readonly RankingCategory[] = ['overall', 'parti
 
 export const CATALOG_KINDS: readonly CatalogKind[] = ['albums', 'tracks', 'artists']
 
-/** A busca acha também pessoas (pelo nome ou @usuário); no modo avaliar, só o catálogo. */
 export const SEARCH_KINDS: readonly SearchKind[] = [...CATALOG_KINDS, 'people']
 
 export const ITEM_TYPES: readonly ItemType[] = ['ALBUM', 'TRACK']

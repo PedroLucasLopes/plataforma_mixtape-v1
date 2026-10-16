@@ -38,7 +38,6 @@
     void favorites.ensure()
   })
 
-  /** A estrela muda na hora (a store confirma na API e volta se ela recusar); clique repetido enquanto confirma não faz nada. */
   async function toggle (): Promise<void> {
     if (favorites.isPending(props.kind, props.id)) {
       return
