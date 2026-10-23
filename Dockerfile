@@ -14,7 +14,7 @@ ENV VITE_CONTACT_EMAIL=${VITE_CONTACT_EMAIL}
 RUN export NODE_AUTH_TOKEN="" && npm run build
 
 # ---------- runtime ----------
-FROM nginxinc/nginx-unprivileged:1.30-alpine AS runtime
+FROM nginxinc/nginx-unprivileged:1.31-alpine AS runtime
 ENV MIXTAPE_API_UPSTREAM=http://api:3000 \
     MIXTAPE_PUBLIC_URL=http://localhost:5180
 COPY nginx/security-headers.conf /etc/nginx/snippets/security-headers.conf
